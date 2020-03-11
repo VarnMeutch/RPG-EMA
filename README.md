@@ -1,3 +1,0 @@
-# RPG EMA
-
-Enjoy !
