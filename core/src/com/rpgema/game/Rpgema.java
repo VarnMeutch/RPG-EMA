@@ -30,5 +30,6 @@ public class Rpgema extends ApplicationAdapter {
 		batch.dispose();
 		img.dispose();
 		System.out.println("Aled");
+		System.out.println("truc chose");
 	}
 }
