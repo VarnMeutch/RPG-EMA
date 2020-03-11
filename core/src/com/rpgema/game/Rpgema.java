@@ -29,5 +29,6 @@ public class Rpgema extends ApplicationAdapter {
 	public void dispose () {
 		batch.dispose();
 		img.dispose();
+		System.out.println("Aled");
 	}
 }
