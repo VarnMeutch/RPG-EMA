@@ -15,6 +15,7 @@ public class rpgtest extends ApplicationAdapter {
 		batch = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
 		System.out.println("test");
+		System.out.println("test2leretour");
 	}
 
 	@Override
