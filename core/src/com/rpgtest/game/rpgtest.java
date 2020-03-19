@@ -17,6 +17,7 @@ public class rpgtest extends ApplicationAdapter {
 		System.out.println("test");
 		System.out.println("test2leretour");
 		System.out.println("hello");
+		System.out.println("Bonjour de Julien !");
 	}
 
 	@Override
