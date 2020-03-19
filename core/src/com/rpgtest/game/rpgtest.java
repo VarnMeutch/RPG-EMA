@@ -14,9 +14,6 @@ public class rpgtest extends ApplicationAdapter {
 	public void create () {
 		batch = new SpriteBatch();
 		img = new Texture("badlogic.jpg");
-		System.out.println("test");
-		System.out.println("test2leretour");
-		System.out.println("hello");
 		System.out.println("Bonjour de Julien !");
 	}
 
