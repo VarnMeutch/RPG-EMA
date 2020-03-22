@@ -15,14 +15,6 @@ public class rpgtest extends Game {
 	public void create () {
 		batch = new SpriteBatch();
 		img = new Texture("on-sous-estime-souvent-le-pouvoir-d-un-sourire-surtout-sur-une-chevre_c6b01beb028d36fe15b28e1b68a1558ca9f912c0.jpg");
-		System.out.println("Bonjour de Julien !");
-
-		System.out.println("Bonjour de la chèvre !");
-
-		System.out.println("Voici mon code");
-		System.out.println("Un ligne...");
-		System.out.println("Une autre...");
-		System.out.println("Wow presque aussi bourré que le mec qui faisait les sous-titres");
 	}
 
 	@Override
