@@ -5,6 +5,18 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 
 public class NewGameScreen implements Screen {
+
+    // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
+    private Game game;
+
+
+    // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
+    public NewGameScreen(Game game) {
+        this.game = game;
+    }
+
+    // --- METHODS -----------------------------------------------------------------------------------------------------
+
     /**
      * Called when this screen becomes the current screen for a {@link Game}.
      */

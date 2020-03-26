@@ -6,6 +6,17 @@ import com.badlogic.gdx.Screen;
 
 public class MainMenu implements Screen {
 
+    // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
+    private Game game;
+
+
+    // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
+    public MainMenu(Game game) {
+        this.game = game;
+    }
+
+    // --- METHODS -----------------------------------------------------------------------------------------------------
+
     /**
      * Called when this screen becomes the current screen for a {@link Game}.
      */

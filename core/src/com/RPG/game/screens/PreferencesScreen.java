@@ -1,10 +1,23 @@
 package com.RPG.game.screens;
 
+import com.RPG.game.RPGMain;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 
 public class PreferencesScreen implements Screen {
+
+    // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
+    private Game game;
+
+
+    // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
+    public PreferencesScreen(Game game) {
+        this.game = game;
+    }
+
+    // --- METHODS -----------------------------------------------------------------------------------------------------
+
     /**
      * Called when this screen becomes the current screen for a {@link Game}.
      */

@@ -9,17 +9,25 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class PauseScreen implements Screen {
 
+    // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
+    private Game game;
     Texture img;
     SpriteBatch batch;
     Sprite sprite;
-    Game game;
 
+
+    // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
+    public PauseScreen(Game game){
+        this.game = game;
+    }
 
     public PauseScreen(Game game, Texture img) {
         this.game = game;
         batch = new SpriteBatch();
         this.sprite = new Sprite(img);
     }
+
+    // --- METHODS -----------------------------------------------------------------------------------------------------
 
     /**
      * Called when this screen becomes the current screen for a {@link Game}.
