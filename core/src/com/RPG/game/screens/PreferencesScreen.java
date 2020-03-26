@@ -1,5 +1,7 @@
-package com.rpgtest.game.screens;
+package com.RPG.game.screens;
 
+import com.badlogic.gdx.ApplicationListener;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 
 public class PreferencesScreen implements Screen {
