@@ -28,6 +28,7 @@ public class PhaseTwoScreen implements Screen {
     public PhaseTwoScreen(RPGMain game)
     {
         this.game = game;
+        camera = new OrthographicCamera(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
         batch = new SpriteBatch();
         m_imgCharacter = new Texture("core/assets/Sprite/test-sprites/npc_darkguy.png");
         m_imgRock = new Texture("Sprite/test-sprites/rock.png");
