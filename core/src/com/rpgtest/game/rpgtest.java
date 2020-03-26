@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.rpgtest.game.screens.*;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 
 public class rpgtest extends Game {
 
@@ -30,11 +31,13 @@ public class rpgtest extends Game {
 
 	SpriteBatch batch;
 	Texture img;
+	BitmapFont font;
 	
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
 		img = new Texture("on-sous-estime-souvent-le-pouvoir-d-un-sourire-surtout-sur-une-chevre_c6b01beb028d36fe15b28e1b68a1558ca9f912c0.jpg");
+		font = new BitmapFont(Gdx.files.internal("première police.fnt"), false);
 	}
 
 	@Override
@@ -43,6 +46,12 @@ public class rpgtest extends Game {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
 		batch.draw(img, 0, 0);
+		batch.end();
+
+		batch.draw(img, 0, 0);
+// affichage du texte
+		batch.begin();
+		font.draw(batch, "Hello word", 50,80);
 		batch.end();
 	}
 	
