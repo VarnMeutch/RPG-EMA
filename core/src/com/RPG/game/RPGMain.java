@@ -81,9 +81,7 @@ public class RPGMain extends Game {
 	 */
 	@Override
 	public void create () {
-		/*batch = new SpriteBatch();
-		img = new Texture("on-sous-estime-souvent-le-pouvoir-d-un-sourire-surtout-sur-une-chevre_c6b01beb028d36fe15b28e1b68a1558ca9f912c0.jpg");*/
-		phaseTwoScreen = new PhaseTwoScreen(this);
-		setScreen(phaseTwoScreen);
+		loadingScreen = new LoadingScreen(this);
+		setScreen(loadingScreen);
 	}
 }

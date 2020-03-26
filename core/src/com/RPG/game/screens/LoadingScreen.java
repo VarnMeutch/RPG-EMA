@@ -34,7 +34,6 @@ public class LoadingScreen implements Screen {
     @Override
     public void render(float delta) {
         this.game.changeScreen(game.MAINMENU);
-
     }
 
     /**
