@@ -1,10 +1,23 @@
 package com.RPG.game.screens;
 
+import com.RPG.game.RPGMain;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 
 public class LoadGameScreen implements Screen {
+
+    // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
+    private RPGMain game;
+
+
+    // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
+    public LoadGameScreen(RPGMain game) {
+        this.game = game;
+    }
+
+    // --- METHODS -----------------------------------------------------------------------------------------------------
+
     /**
      * Called when this screen becomes the current screen for a {@link Game}.
      */

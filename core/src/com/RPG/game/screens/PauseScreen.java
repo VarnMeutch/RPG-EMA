@@ -1,5 +1,6 @@
 package com.RPG.game.screens;
 
+import com.RPG.game.RPGMain;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
@@ -10,17 +11,25 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 public class PauseScreen implements Screen {
 
+    // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
+    private RPGMain game;
     Texture img;
     SpriteBatch batch;
     Sprite sprite;
-    Game game;
 
 
-    public PauseScreen(Game game, Texture img) {
+    // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
+    public PauseScreen(RPGMain game){
+        this.game = game;
+    }
+
+    public PauseScreen(RPGMain game, Texture img) {
         this.game = game;
         batch = new SpriteBatch();
         this.sprite = new Sprite(img);
     }
+
+    // --- METHODS -----------------------------------------------------------------------------------------------------
 
     /**
      * Called when this screen becomes the current screen for a {@link Game}.

@@ -1,5 +1,6 @@
 package com.RPG.game.screens;
 
+import com.RPG.game.RPGMain;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
@@ -15,16 +16,18 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 
 public class PhaseTwoScreen implements Screen {
 
-    /**
-     * Called when this screen becomes the current screen for a {@link Game}.
-     */
+    // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
+    private RPGMain game;
+
     SpriteBatch batch;
     Texture m_imgCharacter, m_imgRock;
     Sprite sprite, sprite_rock;
     OrthographicCamera camera;
 
-    public PhaseTwoScreen()
+    // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
+    public PhaseTwoScreen(RPGMain game)
     {
+        this.game = game;
         batch = new SpriteBatch();
         m_imgCharacter = new Texture("core/assets/Sprite/test-sprites/npc_darkguy.png");
         m_imgRock = new Texture("Sprite/test-sprites/rock.png");
@@ -36,6 +39,11 @@ public class PhaseTwoScreen implements Screen {
         sprite_rock.setPosition(200,200);
     }
 
+    // --- METHODS -----------------------------------------------------------------------------------------------------
+
+    /**
+     * Called when this screen becomes the current screen for a {@link Game}.
+     */
     @Override
     public void show() {
 
