@@ -1,25 +1,42 @@
 package com.RPG.game.screens;
 
+import com.RPG.game.RPGMain;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 public class PauseScreen implements Screen {
 
+    // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
+    private RPGMain game;
     Texture img;
-    Game game;
+    SpriteBatch batch;
+    Sprite sprite;
 
 
-    public PauseScreen(Game game) {
+    // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
+    public PauseScreen(RPGMain game){
         this.game = game;
     }
+
+    public PauseScreen(RPGMain game, Texture img) {
+        this.game = game;
+        batch = new SpriteBatch();
+        this.sprite = new Sprite(img);
+    }
+
+    // --- METHODS -----------------------------------------------------------------------------------------------------
+
     /**
      * Called when this screen becomes the current screen for a {@link Game}.
      */
     @Override
     public void show() {
-
+        //img = new Texture("inserer nom de l'image de l'écran de pause".jpg)
     }
 
     /**
@@ -29,6 +46,10 @@ public class PauseScreen implements Screen {
      */
     @Override
     public void render(float delta) {
+        //TextButton resume = new TextButton("Resume");
+        //TextButton save = new TextButton("Save");
+        //TextButton options = new TextButton("Options");
+        //TextButton leave = new TextButton("Leave");
 
     }
 
