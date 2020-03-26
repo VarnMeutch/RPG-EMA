@@ -83,7 +83,5 @@ public class RPGMain extends Game {
 	public void create () {
 		loadingScreen = new LoadingScreen(this);
 		setScreen(loadingScreen);
-		phaseTwoScreen = new PhaseTwoScreen(this);
-		setScreen(phaseTwoScreen);
 	}
 }
