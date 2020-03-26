@@ -37,7 +37,7 @@ public class rpgtest extends Game {
 	public void create () {
 		batch = new SpriteBatch();
 		img = new Texture("on-sous-estime-souvent-le-pouvoir-d-un-sourire-surtout-sur-une-chevre_c6b01beb028d36fe15b28e1b68a1558ca9f912c0.jpg");
-		font = new BitmapFont(Gdx.files.internal("police1.fnt"), false);
+		font = new BitmapFont(Gdx.files.internal("Font/police1.fnt"), false);
 	}
 
 	@Override
