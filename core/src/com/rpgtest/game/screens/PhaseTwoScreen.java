@@ -2,7 +2,7 @@ package com.rpgtest.game.screens;
 
 import com.badlogic.gdx.Screen;
 
-public class GameScreen implements Screen {
+public class PhaseTwoScreen implements Screen {
     @Override
     public void show() {
 
