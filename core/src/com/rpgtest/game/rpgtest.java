@@ -23,6 +23,8 @@ public class rpgtest extends Game {
 	private PhaseTwoScreen phaseTwoScreen;
 	private PreferencesScreen preferencesScreen;
 
+	private int test;
+
 	public static final int MENU = 0;
 	public static final int PREFERENCES = 1;
 	public static final int PAUSE = 2;
