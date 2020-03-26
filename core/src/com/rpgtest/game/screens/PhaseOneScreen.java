@@ -4,7 +4,7 @@ import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 
-public class GameScreen implements Screen {
+public class PhaseOneScreen implements Screen {
 
     /**
      * Called when this screen becomes the current screen for a {@link Game}.
