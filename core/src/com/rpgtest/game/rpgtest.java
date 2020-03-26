@@ -46,7 +46,7 @@ public class rpgtest extends Game {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
 		batch.draw(img, 0, 0);
-		font.draw(batch, "Hello word", 50,80);
+		font.draw(batch, "Coucou tout le monde !", 50,80);
 		batch.end();
 
 
