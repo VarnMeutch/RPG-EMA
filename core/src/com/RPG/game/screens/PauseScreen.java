@@ -6,6 +6,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 public class PauseScreen implements Screen {
 
@@ -36,6 +37,10 @@ public class PauseScreen implements Screen {
      */
     @Override
     public void render(float delta) {
+        //TextButton resume = new TextButton("Resume");
+        //TextButton save = new TextButton("Save");
+        //TextButton options = new TextButton("Options");
+        //TextButton leave = new TextButton("Leave");
 
     }
 
