@@ -35,18 +35,21 @@ public class RPGMain extends Game {
 	/** Called when the {@link Application} is first created. */
 	@Override
 	public void create () {
-		batch = new SpriteBatch();
-		img = new Texture("on-sous-estime-souvent-le-pouvoir-d-un-sourire-surtout-sur-une-chevre_c6b01beb028d36fe15b28e1b68a1558ca9f912c0.jpg");
+		/*batch = new SpriteBatch();
+		img = new Texture("on-sous-estime-souvent-le-pouvoir-d-un-sourire-surtout-sur-une-chevre_c6b01beb028d36fe15b28e1b68a1558ca9f912c0.jpg");*/
+		phaseTwoScreen = new PhaseTwoScreen();
+		setScreen(phaseTwoScreen);
 	}
 
 	/** Called when the {@link Application} should render itself. */
 	@Override
 	public void render () {
-		Gdx.gl.glClearColor(1, 0, 0, 1);
+		/*Gdx.gl.glClearColor(1, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin();
 		batch.draw(img, 0, 0);
-		batch.end();
+		batch.end();*/
+
 	}
 	
 	@Override

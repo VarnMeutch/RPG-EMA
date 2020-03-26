@@ -26,7 +26,7 @@ public class PhaseTwoScreen implements Screen {
     public PhaseTwoScreen()
     {
         batch = new SpriteBatch();
-        m_imgCharacter = new Texture("Sprite/test-sprites/npc_darkguy.png");
+        m_imgCharacter = new Texture("core/assets/Sprite/test-sprites/npc_darkguy.png");
         m_imgRock = new Texture("Sprite/test-sprites/rock.png");
         sprite = new Sprite(m_imgCharacter);
         sprite_rock = new Sprite(m_imgRock);
