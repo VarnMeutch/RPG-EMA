@@ -1,12 +1,12 @@
-package com.rpgtest.game.desktop;
+package com.RPG.game.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.rpgtest.game.rpgtest;
+import com.RPG.game.RPGMain;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-		new LwjglApplication(new rpgtest(), config);
+		new LwjglApplication(new RPGMain(), config);
 	}
 }

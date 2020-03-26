@@ -1,4 +1,4 @@
-package com.rpgtest.game;
+package com.RPG.game;
 
 import org.robovm.apple.foundation.NSAutoreleasePool;
 import org.robovm.apple.uikit.UIApplication;
@@ -11,7 +11,7 @@ public class IOSLauncher extends IOSApplication.Delegate {
     @Override
     protected IOSApplication createApplication() {
         IOSApplicationConfiguration config = new IOSApplicationConfiguration();
-        return new IOSApplication(new rpgtest(), config);
+        return new IOSApplication(new RPGMain(), config);
     }
 
     public static void main(String[] argv) {

@@ -1,4 +1,4 @@
-package com.rpgtest.game.screens;
+package com.RPG.game.screens;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
@@ -23,6 +23,19 @@ public class PhaseTwoScreen implements Screen {
     Sprite sprite, sprite_rock;
     OrthographicCamera camera;
 
+    public PhaseTwoScreen()
+    {
+        batch = new SpriteBatch();
+        m_imgCharacter = new Texture("core/assets/Sprite/test-sprites/npc_darkguy.png");
+        m_imgRock = new Texture("Sprite/test-sprites/rock.png");
+        sprite = new Sprite(m_imgCharacter);
+        sprite_rock = new Sprite(m_imgRock);
+        sprite.scale(2f);
+        //sprite.setCenter(16,16);
+        sprite_rock.scale(2f);
+        sprite_rock.setPosition(200,200);
+    }
+
     @Override
     public void show() {
 
@@ -34,8 +47,33 @@ public class PhaseTwoScreen implements Screen {
      * @param delta The time in seconds since the last render.
      */
     @Override
-    public void render(float delta) {
+    public void render(float delta)
+    {
+        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT))
+            sprite.translateX(+5);
+        if(Gdx.input.isKeyPressed(Input.Keys.LEFT))
+            sprite.translateX(-5);
+        if(Gdx.input.isKeyPressed(Input.Keys.UP))
+            sprite.translateY(+5);
+        if(Gdx.input.isKeyPressed(Input.Keys.DOWN))
+            sprite.translateY(-5);
 
+        camera.position.set(sprite.getX()  + sprite.getWidth()/2, sprite.getY()  + sprite.getHeight()/2, 0);
+        //sprite.setPosition(0,0);
+
+        Gdx.gl.glClearColor(1, 1, 1, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        camera.update();
+        batch.setProjectionMatrix(camera.combined);
+
+        batch.begin();
+        sprite_rock.setPosition(200,200);
+        sprite_rock.draw(batch);
+        sprite_rock.setPosition(100,50);
+        sprite_rock.draw(batch);
+        sprite.draw(batch);
+        batch.end();
     }
 
     /**
@@ -76,7 +114,9 @@ public class PhaseTwoScreen implements Screen {
      * Called when this screen should release all resources.
      */
     @Override
-    public void dispose() {
-
+    public void dispose()
+    {
+        batch.dispose();
+        m_imgCharacter.dispose();
     }
 }
