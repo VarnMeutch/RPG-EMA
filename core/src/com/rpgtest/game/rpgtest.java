@@ -48,11 +48,11 @@ public class rpgtest extends Game {
 		batch.draw(img, 0, 0);
 		batch.end();
 
-		batch.draw(img, 0, 0);
+		//batch.draw(img, 0, 0);
 // affichage du texte
-		batch.begin();
-		font.draw(batch, "Hello word", 50,80);
-		batch.end();
+		//batch.begin();
+		//font.draw(batch, "Hello word", 50,80);
+		//batch.end();
 	}
 	
 	@Override
