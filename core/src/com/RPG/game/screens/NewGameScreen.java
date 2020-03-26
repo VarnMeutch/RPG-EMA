@@ -1,5 +1,6 @@
 package com.RPG.game.screens;
 
+import com.RPG.game.RPGMain;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
@@ -7,11 +8,11 @@ import com.badlogic.gdx.Screen;
 public class NewGameScreen implements Screen {
 
     // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
-    private Game game;
+    private RPGMain game;
 
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
-    public NewGameScreen(Game game) {
+    public NewGameScreen(RPGMain game) {
         this.game = game;
     }
 

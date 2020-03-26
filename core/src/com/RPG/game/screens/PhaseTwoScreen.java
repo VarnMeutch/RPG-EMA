@@ -1,5 +1,6 @@
 package com.RPG.game.screens;
 
+import com.RPG.game.RPGMain;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
@@ -16,7 +17,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 public class PhaseTwoScreen implements Screen {
 
     // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
-    private Game game;
+    private RPGMain game;
 
     SpriteBatch batch;
     Texture m_imgCharacter, m_imgRock;
@@ -24,7 +25,7 @@ public class PhaseTwoScreen implements Screen {
     OrthographicCamera camera;
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
-    public PhaseTwoScreen(Game game)
+    public PhaseTwoScreen(RPGMain game)
     {
         this.game = game;
         batch = new SpriteBatch();

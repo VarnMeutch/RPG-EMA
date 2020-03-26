@@ -1,5 +1,6 @@
 package com.RPG.game.screens;
 
+import com.RPG.game.RPGMain;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
@@ -7,11 +8,11 @@ import com.badlogic.gdx.Screen;
 public class LoadingScreen implements Screen {
 
     // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
-    private Game game;
+    private RPGMain game;
 
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
-    public LoadingScreen(Game game) {
+    public LoadingScreen(RPGMain game) {
         this.game = game;
     }
 
@@ -32,6 +33,7 @@ public class LoadingScreen implements Screen {
      */
     @Override
     public void render(float delta) {
+        this.game.changeScreen(game.MAINMENU);
 
     }
 

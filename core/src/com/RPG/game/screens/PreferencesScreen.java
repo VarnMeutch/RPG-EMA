@@ -8,11 +8,11 @@ import com.badlogic.gdx.Screen;
 public class PreferencesScreen implements Screen {
 
     // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
-    private Game game;
+    private RPGMain game;
 
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
-    public PreferencesScreen(Game game) {
+    public PreferencesScreen(RPGMain game) {
         this.game = game;
     }
 
