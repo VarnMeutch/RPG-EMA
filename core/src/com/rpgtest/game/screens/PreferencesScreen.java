@@ -1,28 +1,11 @@
 package com.rpgtest.game.screens;
 
-import com.badlogic.gdx.ApplicationListener;
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 
-import com.badlogic.gdx.ApplicationAdapter;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.Sprite;
-
-public class PhaseTwoScreen implements Screen {
-
+public class PreferencesScreen implements Screen {
     /**
      * Called when this screen becomes the current screen for a {@link Game}.
      */
-    SpriteBatch batch;
-    Texture m_imgCharacter, m_imgRock;
-    Sprite sprite, sprite_rock;
-    OrthographicCamera camera;
-
     @Override
     public void show() {
 

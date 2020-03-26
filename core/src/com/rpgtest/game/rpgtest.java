@@ -1,13 +1,33 @@
 package com.rpgtest.game;
 
-import com.badlogic.gdx.ApplicationAdapter;
+
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.rpgtest.game.screens.*;
 
 public class rpgtest extends Game {
+
+	// --- ATTRIBUTES --------------------------------------------------------------------------------------------------
+	// The screens
+	private LoadingScreen loadingScreen;
+	private MainMenu mainMenu;
+	private LoadGameScreen loadGameScreen;
+	private InventoryScreen inventoryScreen;
+
+	private NewGameScreen newGameScreen;
+	private PauseScreen pauseScreen;
+	private PhaseOneScreen mainScreen;
+	private PhaseTwoScreen phaseTwoScreen;
+	private PreferencesScreen preferencesScreen;
+
+	public static final int MENU = 0;
+	public static final int PREFERENCES = 1;
+	public static final int PAUSE = 2;
+	public static final int ENDGAME = 3;
+
 	SpriteBatch batch;
 	Texture img;
 	
