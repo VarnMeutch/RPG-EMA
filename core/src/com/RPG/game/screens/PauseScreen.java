@@ -4,22 +4,29 @@ import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class PauseScreen implements Screen {
 
     Texture img;
+    SpriteBatch batch;
+    Sprite sprite;
     Game game;
 
 
-    public PauseScreen(Game game) {
+    public PauseScreen(Game game, Texture img) {
         this.game = game;
+        batch = new SpriteBatch();
+        this.sprite = new Sprite(img);
     }
+
     /**
      * Called when this screen becomes the current screen for a {@link Game}.
      */
     @Override
     public void show() {
-
+        //img = new Texture("inserer nom de l'image de l'écran de pause".jpg)
     }
 
     /**
