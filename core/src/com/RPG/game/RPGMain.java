@@ -17,17 +17,21 @@ public class RPGMain extends Game {
 	private MainMenu mainMenu;
 	private LoadGameScreen loadGameScreen;
 	private NewGameScreen newGameScreen;
-	private PhaseOneScreen mainScreen;
-	private InventoryScreen inventoryScreen;
-	private PauseScreen pauseScreen;
 	private PhaseOneScreen phaseOneScreen;
 	private PhaseTwoScreen phaseTwoScreen;
+	private InventoryScreen inventoryScreen;
+	private PauseScreen pauseScreen;
 	private PreferencesScreen preferencesScreen;
 
-	public static final int MENU = 0;
-	public static final int PREFERENCES = 1;
-	public static final int PAUSE = 2;
-	public static final int ENDGAME = 3;
+	public static final int LOAD = 0;
+	public static final int MENU = 1;
+	public static final int LOADGAME = 2;
+	public static final int NEWGAME = 3;
+	public static final int PHASEONE = 4;
+	public static final int PHASETWO = 5;
+	public static final int INVENTORY = 6;
+	public static final int PAUSE = 7;
+	public static final int PREFERENCES = 8;
 
 	SpriteBatch batch;
 	Texture img;
