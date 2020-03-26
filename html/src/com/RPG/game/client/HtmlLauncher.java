@@ -1,4 +1,4 @@
-package com.rpgtest.game.client;
+package com.RPG.game.client;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.backends.gwt.GwtApplication;
