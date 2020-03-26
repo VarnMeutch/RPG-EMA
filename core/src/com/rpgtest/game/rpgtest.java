@@ -52,7 +52,7 @@ public class rpgtest extends Game {
 // affichage du texte
 		batch.begin();
 		font.draw(batch, "Hello word", 50,80);
-		batch.end();
+		//batch.end();
 	}
 	
 	@Override
