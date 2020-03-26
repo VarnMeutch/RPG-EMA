@@ -1,11 +1,10 @@
-package com.rpgtest.game.screens;
+package com.RPG.game.screens;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 
-public class MainMenu implements Screen {
-
+public class PauseScreen implements Screen {
     /**
      * Called when this screen becomes the current screen for a {@link Game}.
      */
