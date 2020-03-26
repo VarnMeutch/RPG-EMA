@@ -23,6 +23,19 @@ public class PhaseTwoScreen implements Screen {
     Sprite sprite, sprite_rock;
     OrthographicCamera camera;
 
+    public PhaseTwoScreen()
+    {
+        batch = new SpriteBatch();
+        m_imgCharacter = new Texture("npc_darkguy.png");
+        m_imgRock = new Texture("rock.png");
+        sprite = new Sprite(m_imgCharacter);
+        sprite_rock = new Sprite(m_imgRock);
+        sprite.scale(2f);
+        //sprite.setCenter(16,16);
+        sprite_rock.scale(2f);
+        sprite_rock.setPosition(200,200);
+    }
+
     @Override
     public void show() {
 
