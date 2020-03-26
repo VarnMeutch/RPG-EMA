@@ -68,6 +68,9 @@ public class PhaseTwoScreen implements Screen {
         batch.setProjectionMatrix(camera.combined);
 
         batch.begin();
+        sprite_rock.setPosition(200,200);
+        sprite_rock.draw(batch);
+        sprite_rock.setPosition(100,50);
         sprite_rock.draw(batch);
         sprite.draw(batch);
         batch.end();
