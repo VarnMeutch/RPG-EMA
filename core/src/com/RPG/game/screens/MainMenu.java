@@ -28,9 +28,6 @@ public class MainMenu implements Screen {
         // Get events from the user
         stage = new Stage(new ScreenViewport());
         Gdx.input.setInputProcessor(stage);
-        // Launch it
-        stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1/30f));
-        stage.draw();
     }
 
     // --- METHODS -----------------------------------------------------------------------------------------------------
@@ -153,8 +150,8 @@ public class MainMenu implements Screen {
     }
 
     /**
-     * @param width
-     * @param height
+     * @param width new width
+     * @param height new height
      * @see ApplicationListener#resize(int, int)
      */
     @Override
@@ -190,6 +187,6 @@ public class MainMenu implements Screen {
      */
     @Override
     public void dispose() {
-
+        stage.dispose();
     }
 }
