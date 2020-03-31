@@ -84,4 +84,6 @@ public class RPGMain extends Game {
 		loadingScreen = new LoadingScreen(this);
 		setScreen(loadingScreen);
 	}
+
+
 }
