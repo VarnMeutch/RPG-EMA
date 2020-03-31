@@ -16,8 +16,8 @@ public class XmlReader {
     private DocumentBuilder builder;
     private File xmlFile;
 
-    public XmlReader ( String fileName ){
-        xmlFile = new File(fileName);
+    public XmlReader ( File xmlFile ){
+        this.xmlFile = xmlFile;
 
     }
 

@@ -10,8 +10,8 @@ public class DialogHandler {
 
     private String npcName;
     private File currentFile;
-    private Node currentNode;
     private boolean isActive;
+    private ConversationHandler conv;
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
 
@@ -25,6 +25,7 @@ public class DialogHandler {
     public void chooseFile (String npcName){
         this.npcName=npcName;
         currentFile=new File("core/assets/dialogs/"+npcName+".xml");
+        conv=new ConversationHandler();
     }
 
     public void activate(){
@@ -36,6 +37,11 @@ public class DialogHandler {
     }
     public boolean isActive(){
         return isActive;
+    }
+
+
+    public String nextLine (){
+        return null;
     }
 
 
