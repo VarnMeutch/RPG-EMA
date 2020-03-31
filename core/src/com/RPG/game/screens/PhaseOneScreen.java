@@ -18,12 +18,14 @@ PhaseOneScreen implements Screen {
     private DialogHandler diag;
 
 
+
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
     public PhaseOneScreen(RPGMain game) {
         this.game = game;
         batch = new SpriteBatch();
         font= new BitmapFont();
         font.setColor(Color.WHITE);
+        diag=new DialogHandler();
     }
 
     // --- METHODS -----------------------------------------------------------------------------------------------------
