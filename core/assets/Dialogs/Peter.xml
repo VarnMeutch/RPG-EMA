@@ -4,7 +4,7 @@
 				<text> Bienvenu aventurier ! Que venez-vous faire ici ? </text>
 				<options>
 					<option action = "002">Qu'avez-vous à vendre ?</option>
-					<option action = "001">Au revoir</option>
+					<option action = "001">Au revoir.</option>
 				</options>
 			</Dialog>
 			<Dialog id="001">

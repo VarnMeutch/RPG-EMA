@@ -25,7 +25,7 @@ public class DialogHandler {
     public void chooseFile (String npcName){
         this.npcName=npcName;
         currentFile=new File("core/assets/dialogs/"+npcName+".xml");
-        conv=new ConversationHandler();
+        conv=new ConversationHandler(currentFile);
     }
 
     public void activate(){
