@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
 public class
 PhaseOneScreen implements Screen {
@@ -25,7 +26,8 @@ PhaseOneScreen implements Screen {
         batch = new SpriteBatch();
         font= new BitmapFont();
         font.setColor(Color.WHITE);
-        diag=new DialogHandler();
+        Skin skin = new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json"));
+        diag=new DialogHandler(skin);
     }
 
     // --- METHODS -----------------------------------------------------------------------------------------------------
