@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <npc name ="Octavio">
     <Line id="000">
-        <text>Salut toi, moi c’est Octavio.
+        <options>
+            <text name = "Octavio">Salut toi, moi c’est Octavio.
             Aller en cours, ce n’est pas ton truc ?
             J’ai ce qu’il te faut : avec la potion d’invisibilité, tu peux chapo un cours et faire autre chose à la place comme explorer l’école ou aller au hangar pour fabriquer des potions.
             Tiens, puisque tu es nouveau je t’offre une potion c’est ma tournée !
             Utilise-la à bon escient !
             Par contre, tu ne peux pas t’en servir pour chapo le cours de Restriction de la Magie qui arrive… </text>
+        </options>
     </Line>
 </npc>
