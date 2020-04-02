@@ -49,7 +49,7 @@ public class XmlReader {
                 }
 
 
-                lineList[i]=new Line(id,);
+                //lineList[i]=new Line(id,);
 
             }
 
