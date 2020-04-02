@@ -59,7 +59,7 @@ public class RPGMain extends Game {
 				break;
 			case PHASETWO:
 				if(phaseTwoScreen == null) phaseTwoScreen = new PhaseTwoScreen(this);
-				this.setScreen(phaseOneScreen);
+				this.setScreen(phaseTwoScreen);
 				break;
 			case INVENTORY:
 				if(inventoryScreen == null) inventoryScreen = new InventoryScreen(this);
@@ -84,4 +84,6 @@ public class RPGMain extends Game {
 		loadingScreen = new LoadingScreen(this);
 		setScreen(loadingScreen);
 	}
+
+
 }

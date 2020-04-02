@@ -1,19 +1,33 @@
 package com.RPG.game.screens;
 
 import com.RPG.game.RPGMain;
-import com.badlogic.gdx.ApplicationListener;
-import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Screen;
+import com.RPG.game.dialogs.DialogHandler;
+import com.badlogic.gdx.*;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
-public class PhaseOneScreen implements Screen {
+public class
+PhaseOneScreen implements Screen {
 
     // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
     private RPGMain game;
+    private SpriteBatch batch;
+    private BitmapFont font;
+    private DialogHandler diag;
+
 
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
     public PhaseOneScreen(RPGMain game) {
         this.game = game;
+        batch = new SpriteBatch();
+        font= new BitmapFont();
+        font.setColor(Color.WHITE);
+        Skin skin = new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json"));
+        diag=new DialogHandler(skin);
     }
 
     // --- METHODS -----------------------------------------------------------------------------------------------------
@@ -33,6 +47,19 @@ public class PhaseOneScreen implements Screen {
      */
     @Override
     public void render(float delta) {
+        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        batch.begin();
+        if(Gdx.input.isKeyPressed(Input.Keys.ENTER)&& !diag.isActive()){
+
+            diag.activate();
+            diag.chooseFile("Peter");
+
+        }
+        batch.end();
+
+
+
 
     }
 
