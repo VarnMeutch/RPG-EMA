@@ -1,0 +1,1 @@
+ce package servira pour gérer les parties communes à la phase 1 et 2 (menu principal, etc...)

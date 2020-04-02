@@ -1,19 +1,37 @@
-package com.RPG.game.screens;
+package com.RPG.game.phase1.screens;
 
 import com.RPG.game.RPGMain;
-import com.badlogic.gdx.ApplicationListener;
-import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Screen;
+import com.RPG.game.dialogs.DialogHandler;
+import com.badlogic.gdx.*;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
-public class PreferencesScreen implements Screen {
+public class
+PhaseOneScreen implements Screen {
 
     // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
     private RPGMain game;
+    private SpriteBatch batch;
+    private BitmapFont font;
+    private DialogHandler diag;
+    private Stage stage;
+
 
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
-    public PreferencesScreen(RPGMain game) {
+    public PhaseOneScreen(RPGMain game) {
         this.game = game;
+        stage =new Stage();
+        batch = new SpriteBatch();
+        font= new BitmapFont();
+        font.setColor(Color.WHITE);
+        Skin skin = new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json"));
+        diag=new DialogHandler(skin);
+
     }
 
     // --- METHODS -----------------------------------------------------------------------------------------------------
@@ -33,6 +51,21 @@ public class PreferencesScreen implements Screen {
      */
     @Override
     public void render(float delta) {
+        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        batch.begin();
+        if(Gdx.input.isKeyPressed(Input.Keys.ENTER)&& !diag.isActive()){
+
+            diag.activate();
+            diag.chooseFile("Peter");
+            System.out.println("test");
+            diag.show(stage);
+
+        }
+        batch.end();
+
+
+
 
     }
 

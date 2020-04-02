@@ -1,4 +1,4 @@
-package com.RPG.game.screens;
+package com.RPG.game.phase2.screens;
 
 import com.RPG.game.RPGMain;
 import com.badlogic.gdx.ApplicationListener;
