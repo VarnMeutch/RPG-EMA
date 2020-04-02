@@ -2,9 +2,8 @@
 <npc name ="Voix off">
 
     <Line id = "000">
-        <text> Bienvenu aventurier.
-            Avant de commencer dis moi comment tu t’appelles. </text>
         <options>
+            <text> Bienvenu aventurier. Avant de commencer dis moi comment tu t’appelles. </text>
             <option action = "001">"insert name here"</option>
         </options>
         <text> Bonjour “insert name here” !

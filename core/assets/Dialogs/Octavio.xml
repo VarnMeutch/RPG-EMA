@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <npc name ="Octavio">
-
     <Line id="000">
         <text>Salut toi, moi c’est Octavio.
             Aller en cours, ce n’est pas ton truc ?
@@ -9,5 +8,4 @@
             Utilise-la à bon escient !
             Par contre, tu ne peux pas t’en servir pour chapo le cours de Restriction de la Magie qui arrive… </text>
     </Line>
-
 </npc>
