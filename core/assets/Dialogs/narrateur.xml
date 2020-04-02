@@ -59,19 +59,33 @@
 
     <Line id = "004">
         <options>
-            <text>Vous avez dans ce cours, différentes activités, faîtes votre choix</text>
-            <option>Ultimate : + précision des coups </option>
-            <option>Lévitation : + vitesse de course</option>
-            <option>Sieste : + PV</option>
+            <text>Que veux tu faire ?</text>
+            <option action = "001">Sport
+                <text>Vous avez dans ce cours, différentes activités, faîtes votre choix</text>
+                <option action = "001.1">Ultimate : + précision des coups </option>
+                <option action = "001.2">Lévitation : + vitesse de course</option>
+                <option action = "001.3">Sieste : + PV</option>
+            </option>
+            <option action = "002">Chapo
+                <option action = "002.1">Explorer l'école</option>
+                <option action = "002.2">Aller au hangar</option>
+            </option>
         </options>
     </Line>
 
     <Line id = "005">
         <options>
-            <text name = "prof">Bienvenue au Cours de Maîtrise des Incantations.
-            Dans ce cours vous apprendrez de nombreuses incantations qui pourront vous servir à n’importe quel moment, alors écoutez bien et soyez assidus.
-            Attention les incantations sont très sensibles, une erreur de prononciation peut être fatale.
-            Il est donc primordial de ne chapo aucune séance de ce cours et de vous entraîner le plus souvent possible </text>
+            <text>Que veux tu faire</text>
+            <option action = "001">CMI
+                <text name = "prof">Bienvenue au Cours de Maîtrise des Incantations.
+                Dans ce cours vous apprendrez de nombreuses incantations qui pourront vous servir à n’importe quel moment, alors écoutez bien et soyez assidus.
+                Attention les incantations sont très sensibles, une erreur de prononciation peut être fatale.
+                Il est donc primordial de ne chapo aucune séance de ce cours et de vous entraîner le plus souvent possible </text>
+            </option>
+            <option action = "002">Chapo
+                <option action = "002.1">Explorer l'école</option>
+                <option action = "002.2">Aller au hangar</option>
+            </option>
         </options>
     </Line>
 
