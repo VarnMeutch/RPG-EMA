@@ -5,8 +5,12 @@
         <options>
             <text name = "Ron">Salut, moi c’est Ron.
             Il faut qu’on aille en cours de Restrictions de la Magie, il paraît que le prof est génial !</text>
-            <option action = "001">Ok allons-y</option>
-            <option action = "002">Cool vas-y je te rejoins</option>
+            <option action = "001">Accompagner Ron
+                <text name = "James">Ok allons-y</text>
+            </option>
+            <option action = "002">Continuer solo
+                <text name = "James">Cool vas-y je te rejoins</text>
+            </option>
         </options>
     </Line>
 

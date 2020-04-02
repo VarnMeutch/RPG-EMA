@@ -38,7 +38,6 @@ PhaseOneScreen implements Screen,InputProcessor {
         font.setColor(Color.WHITE);
         Skin skin = new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json"));
         diag=new DialogHandler(skin);
-        TiledMap map = new TmxMapLoader().load("core/assets/Maps/STAGE_1_EMA_RPG.tmx");
         float unitScale = 1 / 32f;
         OrthogonalTiledMapRenderer renderer = new OrthogonalTiledMapRenderer(map, unitScale);
         OrthographicCamera camera = new OrthographicCamera();
@@ -74,7 +73,6 @@ PhaseOneScreen implements Screen,InputProcessor {
             diag.activate();
             diag.chooseFile("Peter");
             System.out.println("test");
-            diag.show(stage);
 
         }
         batch.end();

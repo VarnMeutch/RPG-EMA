@@ -2,9 +2,11 @@ package com.RPG.game.dialogs;
 
 public class Text {
     private String text;
+    private String talkingName;
 
-    public Text(String text){
+    public Text(String text,String npcName){
         this.text=text;
+        this.talkingName=npcName;
     }
 
     public String getText() {

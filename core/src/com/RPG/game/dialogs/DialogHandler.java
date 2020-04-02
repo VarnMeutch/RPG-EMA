@@ -33,6 +33,10 @@ public class DialogHandler extends Dialog {
         conv=new ConversationHandler(currentFile);
     }
 
+    public void test (){
+        conv.test();
+    }
+
     public void activate(){
         isActive=true;
     }

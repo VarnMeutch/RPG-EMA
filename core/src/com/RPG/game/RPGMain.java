@@ -95,6 +95,10 @@ public class RPGMain extends Game {
 		}
 	}
 
+	public int previousScreen(){
+		return screenHistory.get(screenHistory.size() - 2);
+	}
+
 	/**
 	 * Called when the {@link  Application}is first created.
 	 */

@@ -3,6 +3,7 @@ package com.RPG.game.dialogs;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
+import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -21,8 +22,8 @@ public class XmlReader {
 
     }
 
-    public String read() {
-        String result = null;
+    public Npc read() {
+
         try {
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document xml = builder.parse(xmlFile);
@@ -39,19 +40,42 @@ public class XmlReader {
                 Node n = tabNoeuds.item(i);
                 Node nId = n.getAttributes().getNamedItem("id");
                 int id = Integer.parseInt(nId.getNodeValue());
-                NodeList tab =n.getChildNodes();
 
-                for (int j=0; j<tab.getLength(); j++ ){
+                Node options = n.getFirstChild();
+                NodeList tabOptions = options.getChildNodes();
+                ArrayList<Option> optionList = new ArrayList<>();
+                ArrayList<Text> textList =new ArrayList<>();
 
-                    Node nText = tab.item(j).getFirstChild();
-                    Text text = new Text(nText.getTextContent());
+
+                for (int j=0; j<tabOptions.getLength(); j++ ){
+
+                    Node nOptions = tabOptions.item(j);
+
+                    if(nOptions.getNodeName().equals("text")){
+                        String contText = nOptions.getTextContent();
+                        Node tmps = nOptions.getAttributes().getNamedItem("name");
+                        Text ajt = new Text(contText,tmps.getNodeValue());
+                        textList.add(ajt);
+                    }
+
+                    if (nOptions.getNodeName().equals("Option")){
+                        String contText = nOptions.getTextContent();
+                        Node tmps = nOptions.getAttributes().getNamedItem("action");
+                        int action = Integer.parseInt(tmps.getNodeValue());
+                        Option ajt = new Option(action,contText);
+                        optionList.add(ajt);
+                    }
+
 
                 }
 
-
-                lineList[i]=new Line(id,);
+                Options opt = new Options(optionList,textList);
+                lineList[i]=new Line(id,opt);
 
             }
+
+            npc.setLineList(lineList);
+            return npc;
 
 
 
@@ -64,7 +88,8 @@ public class XmlReader {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return result;
+
+        return null;
     }
 
 

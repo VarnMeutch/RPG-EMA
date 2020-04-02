@@ -71,14 +71,14 @@ public class PauseScreen implements Screen {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
                 //Pour l'instant en attendant de redéfinir l'historique des écrans
-                game.changeScreen(RPGMain.MAINMENU);
+                game.changeScreen(game.previousScreen());
             }
         });
 
         save.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                //game.changeScreen(RPGMain.SAVE);
+                game.changeScreen(RPGMain.SAVE);
             }
         });
 

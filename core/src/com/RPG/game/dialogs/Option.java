@@ -5,6 +5,11 @@ public class Option {
     private int action;
     private String text;
 
+    public Option (int action,String text) {
+        this.action=action;
+        this.text=text;
+    }
+
     public int getAction() {
         return action;
     }
