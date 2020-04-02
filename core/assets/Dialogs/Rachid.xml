@@ -12,4 +12,9 @@
     </options>
     </Line>
 
+    <Line id = "001">
+        <text> Mais qu’est-ce que tu fais là insert name, c’est déjà le matin ! Tu vas être en retard pour tes cours, et en plus tu meurs de faim ! Ahlala, qu’est-ce que les élèves feraient sans moi…
+            Allez, je t’offre un café, tu en as bien besoin !
+        </text>
+    </Line>
 </npc>

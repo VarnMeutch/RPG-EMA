@@ -9,4 +9,9 @@
     </options>
     </Line>
 
+    <Line id = "001">
+        <text>R- Hey salut, comment s’est passée ta journée ? Les 2A font une soirée d’intégration, il faut absolument que tu viennes ! </text>
+        <text>Cool ! J’arrive ! </text>
+    </Line>
+
 </npc>

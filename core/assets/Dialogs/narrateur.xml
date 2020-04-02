@@ -32,4 +32,12 @@
             <text>Bonjour à tous. Le cours d’énergie est un cours de Flux Magique. Vous serez initiés à la maîtrise des différents flux énergétiques qui existent grâce à la magie, à savoir les fluides, la chaleur ainsi que l’électricité. Au cours de l’année, vous devrez former des petits groupes pour vous entraîner à utiliser cette magie, et pour vous aider, vous aurez à disposition plusieurs professeurs. </text>
     </Line>
 
+    <Line id = "004">
+    <text>Vous avez dans ce cours, différentes activités, faîtes votre choix</text>
+    </Line>
+
+    <Line id = "005">
+        <text>Bienvenue au Cours de Maîtrise des Incantations. Dans ce cours vous apprendrez de nombreuses incantations qui pourront vous servir à n’importe quel moment, alors écoutez bien et soyez assidus. Attention les incantations sont très sensibles, une erreur de prononciation peut être fatale. Il est donc primordial de ne chapo aucune séance de ce cours et de vous entraîner le plus souvent possible </text>
+    </Line>
+
 </npc>
