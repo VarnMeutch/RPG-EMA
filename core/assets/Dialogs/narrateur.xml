@@ -20,7 +20,10 @@
                 Ce cours ne t’apportera rien mais si tu aimes perdre ton temps, tu es le bienvenu.
                 Reviens quand tu veux.</text>
             </option>
-            <option action = "002"> Chapo </option>
+            <option action = "002">Chapo
+                <option action = "002.1">Explorer l'école</option>
+                <option action = "002.2">Aller au hangar pour fabriquer des potions</option>
+            </option>
         </options>
     </Line>
 
@@ -40,16 +43,26 @@
 
     <Line id = "003">
         <options>
+            <text>Que veux tu faire ?</text>
+            <option action = "001"> Aller en Cours d'énergie
             <text name = "prof">Bonjour à tous.
                 Le cours d’énergie est un cours de Flux Magique.
                 Vous serez initiés à la maîtrise des différents flux énergétiques qui existent grâce à la magie, à savoir les fluides, la chaleur ainsi que l’électricité.
                 Au cours de l’année, vous devrez former des petits groupes pour vous entraîner à utiliser cette magie, et pour vous aider, vous aurez à disposition plusieurs professeurs. </text>
+            </option>
+            <option action = "002">Chapo
+                <option action = "002.1">Explorer l'école</option>
+                <option action = "002.2">Aller au hangar</option>
+            </option>
         </options>
     </Line>
 
     <Line id = "004">
         <options>
             <text>Vous avez dans ce cours, différentes activités, faîtes votre choix</text>
+            <option>Ultimate : + précision des coups </option>
+            <option>Lévitation : + vitesse de course</option>
+            <option>Sieste : + PV</option>
         </options>
     </Line>
 
