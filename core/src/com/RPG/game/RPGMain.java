@@ -7,6 +7,8 @@ import com.RPG.game.phase2.screens.PhaseTwoScreen;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Game;
 
+import java.util.ArrayList;
+
 public class RPGMain extends Game {
 
 	// --- ATTRIBUTES --------------------------------------------------------------------------------------------------
@@ -32,6 +34,8 @@ public class RPGMain extends Game {
 	public static final int PAUSE = 7;
 	public static final int PREFERENCES = 8;
 	public static final int SAVE = 9;
+
+	public ArrayList<Integer> screenHistory;
 
 	// --- METHODS -----------------------------------------------------------------------------------------------------
 
@@ -82,13 +86,21 @@ public class RPGMain extends Game {
 				this.setScreen(saveScreen);
 				break;
 		}
+		// Storing the screens
+		if (screenHistory.size() > 1 && screenHistory.get(screenHistory.size() - 2) == screen){
+			// If we go back to the previous screen, we just remove the old screen from the pile
+			screenHistory.remove(screenHistory.size() - 1);
+		} else {
+			screenHistory.add(screen);
+		}
 	}
 
 	/**
-	 * Called when the {@link Application} is first created.
+	 * Called when the {@link  Application}is first created.
 	 */
 	@Override
 	public void create () {
+		screenHistory = new ArrayList<>();
 		changeScreen(LOADING);
 	}
 
