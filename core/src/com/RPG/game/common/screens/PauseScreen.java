@@ -32,7 +32,6 @@ public class PauseScreen implements Screen {
 
         // Get events from the user
         stage = new Stage(new ScreenViewport());
-        Gdx.input.setInputProcessor(stage);
     }
 
     // --- METHODS -----------------------------------------------------------------------------------------------------
@@ -42,6 +41,7 @@ public class PauseScreen implements Screen {
      */
     @Override
     public void show() {
+        Gdx.input.setInputProcessor(stage);
         // Create a table that holds buttons
         Table table = new Table();
         table.setFillParent(true);
