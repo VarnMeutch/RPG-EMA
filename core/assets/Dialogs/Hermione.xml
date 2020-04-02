@@ -17,8 +17,7 @@
 
     <Line id="001">
         <options>
-            <text name = "Hermione">On a 15 min de pause avant le prochain cours, viens avec moi, je vais te montrer un endroit d’où tu ne voudra plus repartir !
-            </text>
+            <text name = "Hermione">On a 15 min de pause avant le prochain cours, viens avec moi, je vais te montrer un endroit d’où tu ne voudra plus repartir !</text>
             <text name = "James">Qu’est ce que c’est ?</text>
             <text name = "Hermione">Surprise, tu verra bien !</text>
         </options>
