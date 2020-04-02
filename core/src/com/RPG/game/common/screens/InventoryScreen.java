@@ -1,11 +1,15 @@
 package com.RPG.game.common.screens;
 
 import com.RPG.game.RPGMain;
+import com.RPG.game.ui.Inventory;
+import com.RPG.game.ui.Item;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 public class InventoryScreen implements Screen {
@@ -13,6 +17,7 @@ public class InventoryScreen implements Screen {
     // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
     private RPGMain game;
     private final Stage stage;
+    private static int tailleMax = 50;
 
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
@@ -29,6 +34,13 @@ public class InventoryScreen implements Screen {
      */
     @Override
     public void show() {
+        Gdx.input.setInputProcessor(stage);
+        Table[] pages = new Table[tailleMax/10];
+        for (Table T : pages) {
+            T.setFillParent(true);
+        }
+
+
 
     }
 
@@ -39,7 +51,10 @@ public class InventoryScreen implements Screen {
      */
     @Override
     public void render(float delta) {
-
+        Gdx.gl.glClearColor(0f, 0f, 0f, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
+        stage.draw();
     }
 
     /**
@@ -49,7 +64,7 @@ public class InventoryScreen implements Screen {
      */
     @Override
     public void resize(int width, int height) {
-
+        stage.getViewport().update(width, height, true);
     }
 
     /**
