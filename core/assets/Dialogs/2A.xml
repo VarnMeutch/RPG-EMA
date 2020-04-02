@@ -2,15 +2,19 @@
 <npc name ="2A">
 
     <Line id="000">
-        <text>Désolé, je suis occupé, reviens me voir plus tard </text>
+        <options>
+            <text name = "2A">Désolé, je suis occupé, reviens me voir plus tard </text>
+        </options>
     </Line>
 
     <Line id = "001">
-        <text>-Eh ! Viens boire quelque chose, tu vas te dessécher à ce rythme !
+        <options>
+            <text name = "2A">-Eh ! Viens boire quelque chose, tu vas te dessécher à ce rythme !
             Tu as le choix entre plusieurs boissons gratuites : magicobulle, champichapo, bavbinouze ou fondechaudron
             Elles font des merveilles !
             Choisis-en une et viens t’éclater avec nous !
-        </text>
+            </text>
+        </options>
     </Line>
 
 </npc>
