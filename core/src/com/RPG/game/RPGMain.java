@@ -1,6 +1,7 @@
 package com.RPG.game;
+//package com.RPG.action;
 
-
+import com.RPG.game.phase2.screens.PhaseTwoScreen;
 import com.RPG.game.screens.*;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Game;
@@ -81,8 +82,7 @@ public class RPGMain extends Game {
 	 */
 	@Override
 	public void create () {
-		loadingScreen = new LoadingScreen(this);
-		setScreen(loadingScreen);
+		changeScreen(PHASETWO);
 	}
 
 
