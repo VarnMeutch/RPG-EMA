@@ -82,7 +82,7 @@ public class RPGMain extends Game {
 	 */
 	@Override
 	public void create () {
-		changeScreen(PHASETWO);
+		changeScreen(LOADING);
 	}
 
 
