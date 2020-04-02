@@ -1,18 +1,18 @@
-package com.RPG.game.screens;
+package com.RPG.game.common.screens;
 
 import com.RPG.game.RPGMain;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 
-public class InventoryScreen implements Screen {
+public class PreferencesScreen implements Screen {
 
     // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
     private RPGMain game;
 
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
-    public InventoryScreen(RPGMain game) {
+    public PreferencesScreen(RPGMain game) {
         this.game = game;
     }
 
