@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 		<npc name ="Peter">
-			<Dialog id = "000">
+			<Line id = "000">
 				<text> Bienvenu aventurier ! Que venez-vous faire ici ? </text>
 				<options>
 					<option action = "002">Qu'avez-vous à vendre ?</option>
 					<option action = "001">Au revoir.</option>
 				</options>
-			</Dialog>
-			<Dialog id="001">
+			</Line>
+			<Line id="001">
 				<text>Au revoir! Revenez vite !</text>
-			</Dialog>
-			<Dialog id="002">
+			</Line>
+			<Line id="002">
 				<text> Regardez donc !</text>
-			</Dialog>
+			</Line>
 		</npc>
 
