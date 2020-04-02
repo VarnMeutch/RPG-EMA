@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name ="Albatar">
+
+    <Line id="000">
+    <text>Hey toi ! Qu’est-ce que tu fais là ? Tu es sur mon chemin, dégage !</text>
+    </Line>
+</npc>

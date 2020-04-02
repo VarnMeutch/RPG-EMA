@@ -20,6 +20,7 @@ public class RPGMain extends Game {
 	private InventoryScreen inventoryScreen;
 	private PauseScreen pauseScreen;
 	private PreferencesScreen preferencesScreen;
+	private SaveScreen saveScreen;
 
 	public static final int LOADING = 0;
 	public static final int MAINMENU = 1;
@@ -30,6 +31,7 @@ public class RPGMain extends Game {
 	public static final int INVENTORY = 6;
 	public static final int PAUSE = 7;
 	public static final int PREFERENCES = 8;
+	public static final int SAVE = 9;
 
 	// --- METHODS -----------------------------------------------------------------------------------------------------
 
@@ -74,6 +76,10 @@ public class RPGMain extends Game {
 			case PREFERENCES:
 				if(preferencesScreen == null) preferencesScreen = new PreferencesScreen(this);
 				this.setScreen(preferencesScreen);
+				break;
+			case SAVE:
+				if(saveScreen == null) saveScreen = new SaveScreen(this);
+				this.setScreen(saveScreen);
 				break;
 		}
 	}
