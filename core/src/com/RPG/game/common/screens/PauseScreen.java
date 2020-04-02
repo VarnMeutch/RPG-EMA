@@ -70,7 +70,8 @@ public class PauseScreen implements Screen {
         resume.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                game.changeScreen(RPGMain.LOADING);
+                //Pour l'instant en attendant de redéfinir l'historique des écrans
+                game.changeScreen(RPGMain.MAINMENU);
             }
         });
 
@@ -92,7 +93,7 @@ public class PauseScreen implements Screen {
         leave.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
-                Gdx.app.exit();
+                game.changeScreen(RPGMain.MAINMENU);
             }
         });
 
@@ -119,7 +120,7 @@ public class PauseScreen implements Screen {
      */
     @Override
     public void resize(int width, int height) {
-
+        stage.getViewport().update(width, height, true);
     }
 
     /**
