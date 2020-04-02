@@ -1,8 +1,9 @@
 package com.RPG.game;
 //package com.RPG.action;
 
+import com.RPG.game.common.screens.*;
+import com.RPG.game.phase1.screens.PhaseOneScreen;
 import com.RPG.game.phase2.screens.PhaseTwoScreen;
-import com.RPG.game.screens.*;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Game;
 
