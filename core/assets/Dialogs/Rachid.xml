@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name ="Rachid">
+
+    <Line id="000">
+    <text>Bonjour, “insert name here”, que désires-tu ?</text>
+
+</npc>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name ="2A">
+
+    <Line id="000">
+        <text>Désolé, je suis occupé, reviens me voir plus tard </text>
+    </Line>
+
+</npc>

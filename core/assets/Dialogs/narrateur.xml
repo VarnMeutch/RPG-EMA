@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name ="Voix off">
+
+    <Line id = "000">
+        <text> Bienvenu aventurier. Avant de commencer dis moi comment tu t’appelles. </text>
+        <options>
+            <option action = "001">"insert name here"</option>
+        </options>
+        <text> Bonjour “insert name here”
+            Déplace toi dans l’école pour découvrir l’univers de l’EMA et rencontre des personnages pour commencer ta partie
+        </text>
+    </Line>
+
+</npc>
