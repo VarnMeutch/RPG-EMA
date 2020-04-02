@@ -27,14 +27,31 @@ public class XmlReader {
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document xml = builder.parse(xmlFile);
 
-
-
             Element root = xml.getDocumentElement();
+            Npc npc = new Npc();
+            npc.setNpcName(root.getNodeValue());
+
             NodeList tabNoeuds = root.getChildNodes();
-            Node n = tabNoeuds.item(1);
-            result = n.getNodeName();
-            NamedNodeMap att= n.getAttributes();
-            result += att.item(0).getNodeValue();
+            Line [] lineList = new Line[tabNoeuds.getLength()];
+
+            for (int i = 0; i<tabNoeuds.getLength();i++){
+
+                Node n = tabNoeuds.item(i);
+                Node nId = n.getAttributes().getNamedItem("id");
+                int id = Integer.parseInt(nId.getNodeValue());
+                NodeList tab =n.getChildNodes();
+
+                for (int j=0; j<tab.getLength(); j++ ){
+
+                    Node nText = tab.item(j).getFirstChild();
+                    Text text = new Text(nText.getTextContent());
+
+                }
+
+
+                lineList[i]=new Line(id,);
+
+            }
 
 
 
