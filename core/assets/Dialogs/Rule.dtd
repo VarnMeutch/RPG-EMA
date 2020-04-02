@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!ELEMENT npc (Line)+ >
+        <!ATTLIST npc name CDATA #REQUIRED>
+
+        <!ELEMENT Line (text*,options*) >
+        <!ATTLIST Line id ID #REQUIRED>
+
+
+        <!ELEMENT options (option)+ >
+
+        <!ELEMENT option (#PCDATA) >
+        <!ATTLIST option action CDATA #REQUIRED>
+
+
+        <!ELEMENT text (#PCDATA) >
