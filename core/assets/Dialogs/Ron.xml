@@ -2,18 +2,20 @@
 <npc name ="Ron">
 
     <Line id="000">
-    <text>Salut, moi c’est Ron.
-        Il faut qu’on aille en cours de Restrictions de la Magie, il paraît que le prof est génial !</text>
-    <options>
-        <option action = "001">Ok allons-y</option>
-        <option action = "002">Cool vas-y je te rejoins</option>
-    </options>
+        <options>
+            <text name = "Ron">Salut, moi c’est Ron.
+            Il faut qu’on aille en cours de Restrictions de la Magie, il paraît que le prof est génial !</text>
+            <option action = "001">Ok allons-y</option>
+            <option action = "002">Cool vas-y je te rejoins</option>
+        </options>
     </Line>
 
     <Line id = "001">
-        <text>Hey salut, comment s’est passée ta journée ?
+        <options>
+            <text name = "Ron">Hey salut, comment s’est passée ta journée ?
             Les 2A font une soirée d’intégration, il faut absolument que tu viennes ! </text>
-        <text>Cool ! J’arrive ! </text>
+            <text name = "James">Cool ! J’arrive ! </text>
+        </options>
     </Line>
 
 </npc>
