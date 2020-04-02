@@ -4,14 +4,19 @@ import com.RPG.game.RPGMain;
 import com.RPG.game.dialogs.DialogHandler;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.Input;
 
 public class
-PhaseOneScreen implements Screen {
+PhaseOneScreen implements Screen,InputProcessor {
 
     // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
     private RPGMain game;
@@ -19,8 +24,10 @@ PhaseOneScreen implements Screen {
     private BitmapFont font;
     private DialogHandler diag;
     private Stage stage;
-
-
+    OrthographicCamera camera;
+    TiledMap map;
+    float unitScale;
+    OrthogonalTiledMapRenderer renderer;
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
     public PhaseOneScreen(RPGMain game) {
@@ -31,7 +38,12 @@ PhaseOneScreen implements Screen {
         font.setColor(Color.WHITE);
         Skin skin = new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json"));
         diag=new DialogHandler(skin);
-
+        TiledMap map = new TmxMapLoader().load("core/assets/Maps/STAGE_1_EMA_RPG.tmx");
+        float unitScale = 1 / 32f;
+        OrthogonalTiledMapRenderer renderer = new OrthogonalTiledMapRenderer(map, unitScale);
+        OrthographicCamera camera = new OrthographicCamera();
+        camera.setToOrtho(false,30,20);
+        camera.update();
     }
 
     // --- METHODS -----------------------------------------------------------------------------------------------------
@@ -54,6 +66,9 @@ PhaseOneScreen implements Screen {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
+        camera.update();
+        renderer.setView(camera);
+        renderer.render();
         if(Gdx.input.isKeyPressed(Input.Keys.ENTER)&& !diag.isActive()){
 
             diag.activate();
@@ -109,5 +124,53 @@ PhaseOneScreen implements Screen {
     @Override
     public void dispose() {
 
+    }
+
+    @Override
+    public boolean keyDown(int keycode) {
+        return false;
+    }
+
+    @Override
+    public boolean keyUp(int keycode) {
+        if(keycode == Input.Keys.LEFT)
+            camera.translate(-32,0);
+        if(keycode == Input.Keys.RIGHT)
+            camera.translate(32,0);
+        if(keycode == Input.Keys.UP)
+            camera.translate(0,-32);
+        if(keycode == Input.Keys.DOWN)
+            camera.translate(0,32);
+        return false;
+    }
+
+    @Override
+    public boolean keyTyped(char character) {
+        return false;
+    }
+
+    @Override
+    public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+        return false;
+    }
+
+    @Override
+    public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+        return false;
+    }
+
+    @Override
+    public boolean touchDragged(int screenX, int screenY, int pointer) {
+        return false;
+    }
+
+    @Override
+    public boolean mouseMoved(int screenX, int screenY) {
+        return false;
+    }
+
+    @Override
+    public boolean scrolled(int amount) {
+        return false;
     }
 }
