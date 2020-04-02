@@ -2,7 +2,17 @@
 <npc name ="H">
 
     <Line id="000">
-        <text>Hey salut insert name ! Toi non plus tu n’étais pas tenté(e) par les cours ? Je te comprends… Si tu n’a pas trouvé ton bonheur dans les différentes activités de l’école, tu ne sera pas déçu(e) d’être venu(e). Tu va t’éclater au hangar. Ici, tu peux fabriquer différents types de potions, qui ont chacune leur utilité. Il y a la potion d’invisibilité que tu as déjà vue puisque tu l’a utilisée pour chapo le cours. Seulement si tu veux encore chapo un cours, il te faut cette potion. Tu peux aussi fabriquer de la potion de vie, qui comme son nom l’indique régénère tous tes points de vie. Fabrique ta potion mana pour augmenter ta réserve de magie, et une potion de résistance pour devenir invincible. Tu as aussi la possibilité de fabriquer une boule de cristal qui te donnera un conseil quand tu es bloqué. Enfin, tu peux te fabriquer des armes qui te serviront dans tes prochains combats… À toi de faire ton choix.</text>
+        <text>Hey salut insert name !
+            Toi non plus tu n’étais pas tenté(e) par les cours ?
+            Je te comprends… Si tu n’a pas trouvé ton bonheur dans les différentes activités de l’école, tu ne sera pas déçu(e) d’être venu(e).
+            Tu va t’éclater au hangar. Ici, tu peux fabriquer différents types de potions, qui ont chacune leur utilité.
+            Il y a la potion d’invisibilité que tu as déjà vue puisque tu l’a utilisée pour chapo le cours.
+            Seulement si tu veux encore chapo un cours, il te faut cette potion.
+            Tu peux aussi fabriquer de la potion de vie, qui comme son nom l’indique régénère tous tes points de vie.
+            Fabrique ta potion mana pour augmenter ta réserve de magie, et une potion de résistance pour devenir invincible.
+            Tu as aussi la possibilité de fabriquer une boule de cristal qui te donnera un conseil quand tu es bloqué.
+            Enfin, tu peux te fabriquer des armes qui te serviront dans tes prochains combats…
+            À toi de faire ton choix.</text>
     </Line>
 
 </npc>
