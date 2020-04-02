@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <npc name ="H">
 
-    <Line id="000">
+    <Line id = "000">
         <options>
             <text name = "H">Hey salut James !
                 Toi non plus tu n’étais pas tenté(e) par les cours ?
