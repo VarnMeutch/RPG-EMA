@@ -15,11 +15,11 @@ public class Inventory {
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
 
-    public int getPieces() {
+    public int getCoins() {
         return coins;
     }
 
-    public void setPieces(int pieces) {
+    public void setCoins(int coins) {
         this.coins = coins;
     }
 
