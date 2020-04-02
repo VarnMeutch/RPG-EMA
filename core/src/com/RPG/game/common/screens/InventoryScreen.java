@@ -1,19 +1,25 @@
 package com.RPG.game.common.screens;
 
 import com.RPG.game.RPGMain;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 public class InventoryScreen implements Screen {
 
     // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
     private RPGMain game;
+    private final Stage stage;
 
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
     public InventoryScreen(RPGMain game) {
         this.game = game;
+        stage = new Stage(new ScreenViewport());
+        Gdx.input.setInputProcessor(stage);
     }
 
     // --- METHODS -----------------------------------------------------------------------------------------------------

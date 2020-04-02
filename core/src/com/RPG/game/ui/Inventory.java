@@ -9,18 +9,18 @@ public class Inventory {
 
     // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
     private int PV;
-    private int pieces;
+    private int coins;
     private Item[] inventaire;
 
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
 
     public int getPieces() {
-        return pieces;
+        return coins;
     }
 
     public void setPieces(int pieces) {
-        this.pieces = pieces;
+        this.coins = coins;
     }
 
     public int getPV() {
@@ -46,19 +46,19 @@ public class Inventory {
 
     /**
      * Cette méthode augmente le nombre de pièces du perso.
-     * @param nouvellesPieces nombre de pièces supplémentaires
+     * @param newCoins nombre de pièces supplémentaires
      */
-    public void gagnerPieces (int nouvellesPieces) {
-        pieces=pieces+nouvellesPieces;
+    public void gagnerPieces (int newCoins) {
+        coins=coins+newCoins;
     }
 
     /**
      * Cette méthode diminue le nombre de pièces du perso.
      * On suppose que le perso a plus de pièces qu'il n'en perd.
-     * @param piecesDepensees nombre de pièces dépensées
+     * @param spentCoins nombre de pièces dépensées
      */
-    public void depenserPieces(int piecesDepensees) {
-        pieces=pieces-piecesDepensees;
+    public void depenserPieces(int spentCoins) {
+        coins=coins-spentCoins;
     }
 
 
