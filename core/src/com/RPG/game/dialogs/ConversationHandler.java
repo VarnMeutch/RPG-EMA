@@ -13,7 +13,6 @@ public class ConversationHandler {
     public ConversationHandler(File file){
         reader=new XmlReader(file);
 
-
     }
 
 }

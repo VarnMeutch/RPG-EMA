@@ -1,14 +1,14 @@
 package com.RPG.game.dialogs;
 
+import java.util.ArrayList;
+
 public class Options {
 
-    private Option [] optionList;
+    private ArrayList<Option> optionList;
+    private ArrayList<Text> textList;
 
-    public Option[] getOptionList() {
-        return optionList;
-    }
-
-    public void setOptionList(Option[] optionList) {
+    public Options(ArrayList<Option> optionList, ArrayList<Text> textList) {
         this.optionList = optionList;
+        this.textList = textList;
     }
 }
