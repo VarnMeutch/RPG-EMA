@@ -2,13 +2,15 @@
 <npc name ="Ferlut">
 
     <Line id="000">
-        <text>Bonjour tout le monde !
+        <options>
+            <text name = "Ferlut">Bonjour tout le monde !
             Vous avez passé de bonnes vacances ?
             Bien, maintenant il est temps de repasser aux choses sérieuses.
             Ici c'est le cours de Restriction de la Magie, le meilleur cours de l'école !
             Je vais vous apprendre à utiliser la magie de manière juste et rigoureuse afin de résoudre les problèmes que vous pourriez rencontrer dans votre parcours ici et plus tard.
             Ce cours est important pour vous alors je vous déconseille de trop le chapo.
             Sans plus attendre, commençons le cours ! </text>
+        </options>
     </Line>
 
 </npc>

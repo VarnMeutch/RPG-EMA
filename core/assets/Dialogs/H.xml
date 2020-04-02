@@ -2,7 +2,8 @@
 <npc name ="H">
 
     <Line id="000">
-        <text>Hey salut insert name !
+        <options>
+            <text name = "H">Hey salut insert name !
             Toi non plus tu n’étais pas tenté(e) par les cours ?
             Je te comprends… Si tu n’a pas trouvé ton bonheur dans les différentes activités de l’école, tu ne sera pas déçu(e) d’être venu(e).
             Tu va t’éclater au hangar. Ici, tu peux fabriquer différents types de potions, qui ont chacune leur utilité.
@@ -13,6 +14,7 @@
             Tu as aussi la possibilité de fabriquer une boule de cristal qui te donnera un conseil quand tu es bloqué.
             Enfin, tu peux te fabriquer des armes qui te serviront dans tes prochains combats…
             À toi de faire ton choix.</text>
+        </options>
     </Line>
 
 </npc>

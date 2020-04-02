@@ -2,7 +2,8 @@
 <npc name ="Titi">
 
     <Line id="000">
-        <text>Chers élèves, bienvenue à l'École de Magie Avancée.
+        <actions>
+            <text name = "Titi">Chers élèves, bienvenue à l'École de Magie Avancée.
             Ici, vous apprendrez à manier les armes puissantes que sont le savoir et  la discipline.
             La magie est un art dangereux, et beaucoup de vos prédécesseurs ont laissé des traces de leur passage ici.
             Faites attention à où vous mettez les pieds ( et à ne pas être hors sol issou ), et soyez toujours sur vos gardes : vous pourriez faire de mauvaises rencontres.
@@ -11,7 +12,8 @@
             Mais attention, vous n’aurez pour cela que 3 tentatives, et à chaque échec vous perdrez un point de compétence lié à ce cours.
             Lorsque vous résolvez l’énigme vous gagnerez 5 points de compétence.
             Il est temps pour moi de vous laisser ; bonne journée à l'École de Magie Avancée !
-        </text>
+            </text>
+        </actions>
     </Line>
 
 </npc>

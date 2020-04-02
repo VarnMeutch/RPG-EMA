@@ -1,34 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <npc name ="Hermione">
     <Line id="000">
-        <text>Salut t’es nouveau ici ?</text>
-        <text> Oui, je viens d’arriver et je suis un peu perdu. </text>
-        <text>Moi, je m’appelle Hermione.
+        <options>
+            <text name ="Hermione">Salut t’es nouveau ici ?</text>
+            <text name = "James">Oui, je viens d’arriver et je suis un peu perdu. </text>
+            <text name = "Hermione">Moi, je m’appelle Hermione.
             Je suis arrivée hier, si tu veux je peux t’aider à te repérer. </text>
-        <text>Merci, moi c’est “insert name here”. </text>
-        <text>Viens, le Directeur va faire son discours de présentation, et ensuite on aura cours de RDM.
+            <text name = "James">Merci, moi c’est James</text>
+            <text name = "Hermione">Viens, le Directeur va faire son discours de présentation, et ensuite on aura cours de RDM.
             Regarde, c’est marqué sur ton emploi du temps.
             Pour le voir, tu as juste à cliquer sur l’icône (mettre image de l’icône) à droite.
             Et si tu es perdu, tu peux consulter la carte de l’école en cliquant sur mettre qqchose ici.
-            Suis-moi !
-        </text>
+            Suis-moi !</text>
+        </options>
     </Line>
 
     <Line id="001">
-        <text>On a 15 min de pause avant le prochain cours, viens avec moi, je vais te montrer un endroit d’où tu ne voudra plus repartir !
-        </text>
-        <text>Qu’est ce que c’est ?</text>
-        <text>Surprise, tu verra bien !</text>
+        <options>
+            <text name = "Hermione">On a 15 min de pause avant le prochain cours, viens avec moi, je vais te montrer un endroit d’où tu ne voudra plus repartir !
+            </text>
+            <text name = "James">Qu’est ce que c’est ?</text>
+            <text name = "Hermione">Surprise, tu verra bien !</text>
+        </options>
     </Line>
 
     <Line id="002">
-        <text>Waouh ! Il y a beaucoup de monde, c’est génial ici !
-        </text>
-        <text> Oui, on est “chez Rachid”, ici tu peux acheter de la nourriture pour récupérer des PV en mangeant.
+        <options>
+            <text name = "James">Waouh ! Il y a beaucoup de monde, c’est génial ici !</text>
+            <text name = "Hermione">Oui, on est “chez Rachid”, ici tu peux acheter de la nourriture pour récupérer des PV en mangeant.
             Il te faut à tout prix vérifier le plus souvent possible tes PV, ils peuvent diminuer à chaque instant.
             Mais chez Rachid, tu peux aussi faire de nombreuses rencontres.
-            Bon, assez discuté, je te laisse, je dois réviser pour mon Devoir de Sorcellerie.
-        </text>
+            Bon, assez discuté, je te laisse, je dois réviser pour mon Devoir de Sorcellerie.</text>
+        </options>
     </Line>
 
 </npc>
