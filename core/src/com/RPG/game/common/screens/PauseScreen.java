@@ -6,35 +6,33 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 public class PauseScreen implements Screen {
 
     // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
     private RPGMain game;
-    Texture img;
-    SpriteBatch batch;
-    Sprite sprite;
+    private final Stage stage;
 
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
-    public PauseScreen(RPGMain game){
+    public PauseScreen(RPGMain game) {
         this.game = game;
-    }
 
-    public PauseScreen(RPGMain game, Texture img) {
-        this.game = game;
-        batch = new SpriteBatch();
-        this.sprite = new Sprite(img);
-        TextButton resume = new TextButton("Resume",new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json")));
-        TextButton save = new TextButton("Save",new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json")));
-        TextButton options = new TextButton("Options",new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json")));
-        TextButton leave = new TextButton("Leave",new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json")));
+        // Get events from the user
+        stage = new Stage(new ScreenViewport());
+        Gdx.input.setInputProcessor(stage);
     }
 
     // --- METHODS -----------------------------------------------------------------------------------------------------
@@ -44,7 +42,60 @@ public class PauseScreen implements Screen {
      */
     @Override
     public void show() {
-        //img = new Texture("inserer nom de l'image de l'écran de pause".jpg)
+        // Create a table that holds buttons
+        Table table = new Table();
+        table.setFillParent(true);
+        //table.setDebug(true);
+        stage.addActor(table);
+
+        // Time to create buttons !
+        Skin skin = new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json"));
+        TextButton resume = new TextButton("Resume", skin);
+        TextButton save = new TextButton("Save", skin);
+        TextButton preferences = new TextButton("Preferences", skin);
+        TextButton leave = new TextButton("Leave", skin);
+
+        // Put them on the table !
+        table.add(resume);
+        table.row().pad(10, 10, 10, 10);
+        table.add(save);
+        table.row().pad(10, 10, 10, 10);
+        table.add(preferences);
+        table.row().pad(10, 10, 10, 10);
+        table.add(leave);
+        table.row().pad(10, 10, 10, 10);
+
+
+        // Give some actions to the buttons !
+        resume.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                game.changeScreen(RPGMain.LOADING);
+            }
+        });
+
+        save.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                //game.changeScreen(RPGMain.SAVE);
+            }
+        });
+
+
+        preferences.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                game.changeScreen(RPGMain.PREFERENCES);
+            }
+        });
+
+        leave.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                Gdx.app.exit();
+            }
+        });
+
     }
 
     /**
@@ -54,7 +105,10 @@ public class PauseScreen implements Screen {
      */
     @Override
     public void render(float delta) {
-
+        Gdx.gl.glClearColor(0f, 0f, 0f, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        stage.act(Math.min(Gdx.graphics.getDeltaTime(), 1 / 30f));
+        stage.draw();
 
     }
 
