@@ -1,5 +1,7 @@
 package com.RPG.game.phase2.screens;
 
+import com.RPG.game.phase2.entities.Entity;
+
 import com.RPG.game.RPGMain;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
@@ -23,6 +25,7 @@ public class PhaseTwoScreen implements Screen {
     Texture m_imgCharacter, m_imgRock;
     Sprite sprite, sprite_rock;
     OrthographicCamera camera;
+    private Entity m_player;
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
     public PhaseTwoScreen(RPGMain game)
@@ -35,9 +38,12 @@ public class PhaseTwoScreen implements Screen {
         sprite = new Sprite(m_imgCharacter);
         sprite_rock = new Sprite(m_imgRock);
         sprite.scale(2f);
-        //sprite.setCenter(16,16);
         sprite_rock.scale(2f);
         sprite_rock.setPosition(200,200);
+
+        m_player = new Entity();
+        m_player.setPosition(20,50);
+        m_player.scale(3f);
     }
 
     // --- METHODS -----------------------------------------------------------------------------------------------------
@@ -70,7 +76,7 @@ public class PhaseTwoScreen implements Screen {
         camera.position.set(sprite.getX()  + sprite.getWidth()/2, sprite.getY()  + sprite.getHeight()/2, 0);
         //sprite.setPosition(0,0);
 
-        Gdx.gl.glClearColor(1, 1, 1, 1);
+        Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         camera.update();
@@ -82,6 +88,7 @@ public class PhaseTwoScreen implements Screen {
         sprite_rock.setPosition(100,50);
         sprite_rock.draw(batch);
         sprite.draw(batch);
+        m_player.draw(batch);
         batch.end();
     }
 

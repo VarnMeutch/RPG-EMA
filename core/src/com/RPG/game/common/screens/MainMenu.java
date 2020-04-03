@@ -27,6 +27,7 @@ public class MainMenu implements Screen {
 
         // Get events from the user
         stage = new Stage(new ScreenViewport());
+
     }
 
     // --- METHODS -----------------------------------------------------------------------------------------------------
