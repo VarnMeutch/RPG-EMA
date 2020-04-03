@@ -23,7 +23,7 @@ public class PhaseTwoScreen implements Screen {
 
     SpriteBatch batch;
     Texture m_imgCharacter, m_imgRock;
-    Sprite sprite, sprite_rock;
+    Sprite  sprite_rock;
     OrthographicCamera camera;
     private Entity m_player;
 
@@ -35,14 +35,12 @@ public class PhaseTwoScreen implements Screen {
         batch = new SpriteBatch();
         m_imgCharacter = new Texture("core/assets/Sprite/test-sprites/npc_darkguy.png");
         m_imgRock = new Texture("Sprite/test-sprites/rock.png");
-        sprite = new Sprite(m_imgCharacter);
         sprite_rock = new Sprite(m_imgRock);
-        sprite.scale(2f);
         sprite_rock.scale(2f);
         sprite_rock.setPosition(200,200);
 
         m_player = new Entity();
-        m_player.setPosition(20,50);
+        m_player.setPosition(0,0);
         m_player.scale(3f);
     }
 
@@ -65,15 +63,15 @@ public class PhaseTwoScreen implements Screen {
     public void render(float delta)
     {
         if(Gdx.input.isKeyPressed(Input.Keys.RIGHT))
-            sprite.translateX(+5);
+            m_player.move(5, 0);
         if(Gdx.input.isKeyPressed(Input.Keys.LEFT))
-            sprite.translateX(-5);
+            m_player.move(-5, 0);
         if(Gdx.input.isKeyPressed(Input.Keys.UP))
-            sprite.translateY(+5);
+            m_player.move(0, 5);
         if(Gdx.input.isKeyPressed(Input.Keys.DOWN))
-            sprite.translateY(-5);
+            m_player.move(0, -5);
 
-        camera.position.set(sprite.getX()  + sprite.getWidth()/2, sprite.getY()  + sprite.getHeight()/2, 0);
+        camera.position.set(m_player.getX()  + 48, m_player.getY()  + 48, 0);
         //sprite.setPosition(0,0);
 
         Gdx.gl.glClearColor(0, 0, 0, 1);
@@ -87,7 +85,6 @@ public class PhaseTwoScreen implements Screen {
         sprite_rock.draw(batch);
         sprite_rock.setPosition(100,50);
         sprite_rock.draw(batch);
-        sprite.draw(batch);
         m_player.draw(batch);
         batch.end();
     }
