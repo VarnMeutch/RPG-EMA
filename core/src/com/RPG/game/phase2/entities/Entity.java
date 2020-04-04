@@ -14,13 +14,22 @@ import java.util.ArrayList;
  * cette classse va servir pour toutes les entités graphiques animées de la phase action
  *
  */
-public class Entity
+public abstract class Entity
 {
     private float m_x, m_y;
-    private Animation m_animation;
     private boolean m_visible;
     float m_scale;
-    private float m_elapsedTime;
+    protected float m_elapsedTime;
+    private ArrayList<Animation<TextureRegion>> m_animationList;
+    private int m_animationIndex;
+
+
+    /**
+     * actualise le comportement de l'entité
+     * cette méthode est abstraite, elle sera définit dans chaques classes héritant de Entity
+     * ainsi elle chacunes leurs propres comportements
+     */
+    abstract void updateBehavior();
 
     public Entity()
     {
@@ -29,26 +38,48 @@ public class Entity
         m_visible = true;
         m_scale = 1f;
         m_elapsedTime = 0f;
+        m_animationIndex = 0;
+        m_animationList = new ArrayList<Animation<TextureRegion>>();
 
-        TextureAtlas textureAtlas = new TextureAtlas(Gdx.files.internal("Sprite/test-sprites/spriteSheetTest.atlas"));
-        m_animation = new Animation<TextureRegion>(1/10f,
-                textureAtlas.findRegion("Actor2-0,0"),
-                textureAtlas.findRegion("Actor2-1,0"),
-                textureAtlas.findRegion("Actor2-2,0"));
-        m_animation.setPlayMode(Animation.PlayMode.LOOP);
+
 
     }
 
     public void draw(SpriteBatch batch)
     {
-        if(m_visible && m_animation!= null)
+        if(m_visible && m_animationList.size() > 0 )
         {
             m_elapsedTime += Gdx.graphics.getDeltaTime();
-            TextureRegion t =  (TextureRegion)m_animation.getKeyFrame(m_elapsedTime,true);
+            TextureRegion t =  m_animationList.get(m_animationIndex).getKeyFrame(m_elapsedTime);
             batch.draw(t, m_x, m_y, t.getRegionHeight()*m_scale, t.getRegionWidth()*m_scale);
         }
 
     }
+
+    /**
+     * ajoute une animation à liste des animations de l'entité si newAnimation != null
+     * return l'index de cette animation
+     * @param newAnimation
+     */
+    public int addAnimation(Animation newAnimation)
+    {
+        if(newAnimation != null)
+            m_animationList.add(newAnimation);
+        return  m_animationList.size()-1;
+    }
+
+    /**
+     * change l'animation actuellement jouée par l'animation d'index 'index' (l'index correspond à l'ordre d'ajout)
+     * @param index
+     */
+    public void setAnimationIndex(int index)
+    {
+        if( index >= 0 && index < m_animationList.size() )
+        {
+            m_animationIndex = index;
+        }
+    }
+    protected Animation getCurrentAnimation() {return m_animationList.get(m_animationIndex);}
 
     public void move(float deltaX, float deltaY) {m_x+=deltaX; m_y+=deltaY;}
     public void setPosition(float x, float y) {m_x=x; m_y=y;}
