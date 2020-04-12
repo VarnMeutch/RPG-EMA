@@ -65,14 +65,15 @@ PhaseOneScreen implements Screen,InputProcessor {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         batch.begin();
-        camera.update();
-        renderer.setView(camera);
-        renderer.render();
+        //camera.update();
+        //renderer.setView(camera);
+        //renderer.render();
         if(Gdx.input.isKeyPressed(Input.Keys.ENTER)&& !diag.isActive()){
 
             diag.activate();
             diag.chooseFile("Peter");
             System.out.println("test");
+            diag.test();
 
         }
         batch.end();

@@ -29,7 +29,7 @@ public class DialogHandler extends Dialog {
 
     public void chooseFile (String npcName){
         this.npcName=npcName;
-        currentFile=new File("core/assets/dialogs/"+npcName+".xml");
+        currentFile=new File("core/assets/Dialogs/"+npcName+".xml");
         conv=new ConversationHandler(currentFile);
     }
 

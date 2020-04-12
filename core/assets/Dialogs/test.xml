@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<npc name ="Peter">
+    <Noeud1>
+        <Noeud2>
+            <Noeud3>
+                test
+            </Noeud3>
+        </Noeud2>
+    </Noeud1>
+    <Noeud1>
+        test
+    </Noeud1>
+</npc>
+

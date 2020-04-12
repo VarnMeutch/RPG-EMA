@@ -3,6 +3,7 @@ package com.RPG.game.dialogs;
 import org.w3c.dom.*;
 import org.xml.sax.SAXException;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -13,24 +14,28 @@ import java.io.IOException;
 
 public class XmlReader {
 
-    public static  DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+
     private DocumentBuilder builder;
     private File xmlFile;
 
     public XmlReader ( File xmlFile ){
         this.xmlFile = xmlFile;
 
+
     }
 
     public Npc read() {
 
         try {
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            factory.setIgnoringElementContentWhitespace(true);
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document xml = builder.parse(xmlFile);
 
             Element root = xml.getDocumentElement();
             Npc npc = new Npc();
-            npc.setNpcName(root.getNodeValue());
+            NamedNodeMap attList= root.getAttributes();
+            npc.setNpcName(attList.item(0).getNodeValue());
 
             NodeList tabNoeuds = root.getChildNodes();
             Line [] lineList = new Line[tabNoeuds.getLength()];

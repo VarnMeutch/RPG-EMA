@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <npc name ="Ferlut">
-
     <Line id="000">
         <options>
             <text name = "Ferlut">Bonjour tout le monde !
@@ -12,5 +11,4 @@
             Sans plus attendre, commençons le cours ! </text>
         </options>
     </Line>
-
 </npc>

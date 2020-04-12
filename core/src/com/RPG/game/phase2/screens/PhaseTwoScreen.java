@@ -1,6 +1,9 @@
 package com.RPG.game.phase2.screens;
 
+import com.RPG.game.phase2.entities.Entity;
+
 import com.RPG.game.RPGMain;
+import com.RPG.game.phase2.entities.Player;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
@@ -13,6 +16,10 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+
 
 public class PhaseTwoScreen implements Screen {
 
@@ -21,8 +28,9 @@ public class PhaseTwoScreen implements Screen {
 
     SpriteBatch batch;
     Texture m_imgCharacter, m_imgRock;
-    Sprite sprite, sprite_rock;
+    Sprite  sprite_rock;
     OrthographicCamera camera;
+    private Player m_player;
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
     public PhaseTwoScreen(RPGMain game)
@@ -32,12 +40,15 @@ public class PhaseTwoScreen implements Screen {
         batch = new SpriteBatch();
         m_imgCharacter = new Texture("core/assets/Sprite/test-sprites/npc_darkguy.png");
         m_imgRock = new Texture("Sprite/test-sprites/rock.png");
-        sprite = new Sprite(m_imgCharacter);
         sprite_rock = new Sprite(m_imgRock);
-        sprite.scale(2f);
-        //sprite.setCenter(16,16);
         sprite_rock.scale(2f);
         sprite_rock.setPosition(200,200);
+
+        m_player = new Player(camera);
+
+
+
+
     }
 
     // --- METHODS -----------------------------------------------------------------------------------------------------
@@ -58,20 +69,11 @@ public class PhaseTwoScreen implements Screen {
     @Override
     public void render(float delta)
     {
-        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT))
-            sprite.translateX(+5);
-        if(Gdx.input.isKeyPressed(Input.Keys.LEFT))
-            sprite.translateX(-5);
-        if(Gdx.input.isKeyPressed(Input.Keys.UP))
-            sprite.translateY(+5);
-        if(Gdx.input.isKeyPressed(Input.Keys.DOWN))
-            sprite.translateY(-5);
 
-        camera.position.set(sprite.getX()  + sprite.getWidth()/2, sprite.getY()  + sprite.getHeight()/2, 0);
-        //sprite.setPosition(0,0);
-
-        Gdx.gl.glClearColor(1, 1, 1, 1);
+        Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        m_player.updateBehavior();
 
         camera.update();
         batch.setProjectionMatrix(camera.combined);
@@ -81,7 +83,7 @@ public class PhaseTwoScreen implements Screen {
         sprite_rock.draw(batch);
         sprite_rock.setPosition(100,50);
         sprite_rock.draw(batch);
-        sprite.draw(batch);
+        m_player.draw(batch);
         batch.end();
     }
 
