@@ -41,6 +41,7 @@ public class MainMenu implements Screen {
      */
     @Override
     public void render(float delta) {
+        this.game.changeScreen(RPGMain.DEBUG);
     }
 
     /**
