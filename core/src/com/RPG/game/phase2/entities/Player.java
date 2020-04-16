@@ -17,7 +17,7 @@ public class Player extends Entity
     {
         super();
         m_camera = travellingCamera;
-        TextureAtlas textureAtlas = new TextureAtlas(Gdx.files.internal("Sprite/test-sprites/spriteSheetTest.atlas"));
+        TextureAtlas textureAtlas = new TextureAtlas(Gdx.files.internal("core/assets/Sprite/test-sprites/spriteSheetTest.atlas"));
         Animation animation_upwardWalk = new Animation<TextureRegion>(1/10f,
                 textureAtlas.findRegion("Actor2-2,3"),
                 textureAtlas.findRegion("Actor2-1,3"),
