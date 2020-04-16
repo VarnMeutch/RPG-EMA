@@ -32,5 +32,16 @@ public class ConversationHandler {
 
     }
 
+    public Line finLine(int id){
+        for (Line l:convTab){
+            if(l.getId()==id){
+                return l;
+            }
+        }
+
+        return null;
+
+    }
+
 
 }
