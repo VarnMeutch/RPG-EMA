@@ -9,6 +9,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
@@ -27,6 +28,7 @@ public class InventoryScreen implements Screen {
         this.game = game;
         stage = new Stage(new ScreenViewport());
         Gdx.input.setInputProcessor(stage);
+        //this.inventory = save.loadInventory();
     }
 
     // --- METHODS -----------------------------------------------------------------------------------------------------
@@ -37,11 +39,14 @@ public class InventoryScreen implements Screen {
     @Override
     public void show() {
         Gdx.input.setInputProcessor(stage);
-        Table[] pages = new Table[tailleMax/10];
-        for (Table T : pages) {
-            T.setFillParent(true);
+        Table table = new Table();
+        table.setFillParent(true);
+        stage.addActor(table);
+        for ( Item item : inventory.getInventory() ) {
+            //table.add(item);
+            table.row().pad(10, 10, 10, 10);
         }
-        stage.addActor(pages[0]);
+        ScrollPane scp = new ScrollPane(table);
 
 
     }

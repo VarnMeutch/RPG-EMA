@@ -17,6 +17,7 @@ public class DialogHandler extends Dialog {
     private boolean isActive;
     private ConversationHandler conv;
 
+
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
 
     public DialogHandler(Skin skin){

@@ -1,6 +1,6 @@
 package com.RPG.game.dialogs;
 
-public class Text {
+public class  Text {
     private String text;
     private String talkingName;
 
