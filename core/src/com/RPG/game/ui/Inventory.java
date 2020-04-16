@@ -5,23 +5,15 @@ import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Inventory {
 
     // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
-    private int HP;
+    private int PV;
     private int coins;
-    private List<Item> inventory;
-
+    private Item[] inventaire;
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
-    public Inventory(int HP, int coins) {
-        this.HP = HP;
-        this.coins = coins;
-        this.inventory = new ArrayList<Item>();
-    }
+
     public int getCoins() {
         return coins;
     }
@@ -30,24 +22,23 @@ public class Inventory {
         this.coins = coins;
     }
 
-    public int getHP() {
-        return HP;
+    public int getPV() {
+        return PV;
     }
 
-    public void setHP(int HP) {  //les HP sont limités : max 100
-        if (HP <= 100) {
-            this.HP = HP;
+    public void setPV(int PV) {  //les PV sont limités : max 100
+        if (PV <= 100) {
+            this.PV = PV;
         }
     }
 
-    public List<Item> getInventory() {
-        return inventory;
+    public Item[] getInventaire() {
+        return inventaire;
     }
 
-    public void earnItem(Item item) {
-            this.inventory.add(item);
+    public void setInventaire(Item[] inventaire) {
+        this.inventaire = inventaire;
     }
-
 
     // --- METHODS -----------------------------------------------------------------------------------------------------
 
@@ -55,7 +46,7 @@ public class Inventory {
      * Cette méthode augmente le nombre de pièces du perso.
      * @param newCoins nombre de pièces supplémentaires
      */
-    public void earnCoins (int newCoins) {
+    public void gagnerPieces (int newCoins) {
         coins=coins+newCoins;
     }
 
@@ -64,12 +55,8 @@ public class Inventory {
      * On suppose que le perso a plus de pièces qu'il n'en perd.
      * @param spentCoins nombre de pièces dépensées
      */
-    public void spendCoins(int spentCoins) {
+    public void depenserPieces(int spentCoins) {
         coins=coins-spentCoins;
     }
 
-    public void useItem(Item item) {
-        inventory.remove(item);
-        // effet de l'item à effectuer
-    }
 }
