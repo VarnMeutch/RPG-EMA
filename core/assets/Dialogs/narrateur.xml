@@ -1,32 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name ="Voix off">
+<!DOCTYPE npc SYSTEM "Rule.dtd">
 
-    <Line id = "000">
-        <options>
-            <text> Bienvenue James!
+    <npc name ="Voix off">
+
+        <Line id = "000">
+            <text name = '...'> Bienvenue James!
             Déplace toi dans l’école pour découvrir l’univers de l’EMA et rencontrer des personnages pour commencer ta partie</text>
-        </options>
-    </Line>
+        </Line>
 
-    <Line id = "001">
-        <options>
-            <text> Où veux-tu aller ?</text>
-            <option action = "001">Cours de DPI (Divination par Induction)
-                <text> .....................</text>
-                <text>Le cours de Divination par Induction est terminé, tu ne gagnes aucun points bonus.
-                Ce cours ne t’apportera rien mais si tu aimes perdre ton temps, tu es le bienvenu.
-                Reviens quand tu veux.</text>
-            </option>
-            <option action = "002">Chapo
-                <option action = "002.1">Explorer l'école</option>
-                <option action = "002.2">Aller au hangar pour fabriquer des potions</option>
-            </option>
-        </options>
-    </Line>
+        <Line id = "001">
+            <text name = '...'> Où veux-tu aller ?</text>
+            <options>
+                <option action = "001">Cours de DPI (Divination par Induction)
+                    <text name = '...'> .....................</text>
+                    <text name = '...'>Le cours de Divination par Induction est terminé, tu ne gagnes aucun points bonus.
+                    Ce cours ne t’apportera rien mais si tu aimes perdre ton temps, tu es le bienvenu.
+                    Reviens quand tu veux.</text>
+                </option>
+                <option action = "002">Chapo
+                    <option action = "002.1">Explorer l'école</option>
+                    <option action = "002.2">Aller au hangar pour fabriquer des potions</option>
+                </option>
+            </options>
+        </Line>
 
-    <Line id = "002">
-        <options>
-            <text> Bienvenue dans l’EMA de l’autre côté du miroir : l’Ecole des Mines d’Alès.
+        <Line id = "002">
+            <text name = '...'> Bienvenue dans l’EMA de l’autre côté du miroir : l’Ecole des Mines d’Alès.
             Il s’agit d’un monde parallèle, d’un monde maléfique qui ressemble en tout point à l’EMA que tu as déjà eu la chance de visiter.
             Tu peux accéder à ce monde à chaque fois que tu rencontres un pentagramme.
             Les pentagrammes sont disséminés un peu partout dans ton école.
@@ -35,55 +34,54 @@
             Lors des affrontements, tu auras néanmoins le choix de t’enfuir et de revenir au monde réel à n’importe quel instant.
             Mais attention: si tu t’enfuis après avoir perdu des PV contre le monstre, tu ne les récupéreras pas en retrouvant le monde réel.
             Alors bon courage ! </text>
-        </options>
-    </Line>
+        </Line>
 
-    <Line id = "003">
-        <options>
-            <text>Que veux tu faire ?</text>
-            <option action = "001"> Aller en Cours d'énergie
-                <text name = "prof">Bonjour à tous.
-                Le cours d’énergie est un cours de Flux Magique.
-                Vous serez initiés à la maîtrise des différents flux énergétiques qui existent grâce à la magie, à savoir les fluides, la chaleur ainsi que l’électricité.
-                Au cours de l’année, vous devrez former des petits groupes pour vous entraîner à utiliser cette magie, et pour vous aider, vous aurez à disposition plusieurs professeurs. </text>
-            </option>
-            <option action = "002">Chapo
-                <option action = "002.1">Explorer l'école</option>
-                <option action = "002.2">Aller au hangar</option>
-            </option>
-        </options>
-    </Line>
+        <Line id = "003">
+            <text name = '...'>Que veux tu faire ?</text>
+            <options>
+                <option action = "001"> Aller en Cours d'énergie
+                    <text name = "prof">Bonjour à tous.
+                    Le cours d’énergie est un cours de Flux Magique.
+                    Vous serez initiés à la maîtrise des différents flux énergétiques qui existent grâce à la magie, à savoir les fluides, la chaleur ainsi que l’électricité.
+                    Au cours de l’année, vous devrez former des petits groupes pour vous entraîner à utiliser cette magie, et pour vous aider, vous aurez à disposition plusieurs professeurs. </text>
+                </option>
+                <option action = "002">Chapo
+                    <option action = "002.1">Explorer l'école</option>
+                    <option action = "002.2">Aller au hangar</option>
+                </option>
+            </options>
+        </Line>
 
-    <Line id = "004">
-        <options>
-            <text>Que veux tu faire ?</text>
-            <option action = "001">Sport
-                <text>Vous avez dans ce cours, différentes activités, faîtes votre choix</text>
-                <option action = "001.1">Ultimate : + précision des coups </option>
-                <option action = "001.2">Lévitation : + vitesse de course</option>
-                <option action = "001.3">Sieste : + PV</option>
-            </option>
-            <option action = "002">Chapo
-                <option action = "002.1">Explorer l'école</option>
-                <option action = "002.2">Aller au hangar</option>
-            </option>
-        </options>
-    </Line>
+        <Line id = "004">
+            <text name = '...'>Que veux tu faire ?</text>
+            <options>
+                <option action = "001">Sport
+                    <text name = '...'>Vous avez dans ce cours, différentes activités, faîtes votre choix</text>
+                    <option action = "001.1">Ultimate : + précision des coups </option>
+                    <option action = "001.2">Lévitation : + vitesse de course</option>
+                    <option action = "001.3">Sieste : + PV</option>
+                </option>
+                <option action = "002">Chapo
+                    <option action = "002.1">Explorer l'école</option>
+                    <option action = "002.2">Aller au hangar</option>
+                </option>
+            </options>
+        </Line>
 
-    <Line id = "005">
-        <options>
-            <text>Que veux tu faire</text>
-            <option action = "001">CMI
-                <text name = "prof">Bienvenue au Cours de Maîtrise des Incantations.
-                Dans ce cours vous apprendrez de nombreuses incantations qui pourront vous servir à n’importe quel moment, alors écoutez bien et soyez assidus.
-                Attention les incantations sont très sensibles, une erreur de prononciation peut être fatale.
-                Il est donc primordial de ne chapo aucune séance de ce cours et de vous entraîner le plus souvent possible </text>
-            </option>
-            <option action = "002">Chapo
-                <option action = "002.1">Explorer l'école</option>
-                <option action = "002.2">Aller au hangar</option>
-            </option>
-        </options>
-    </Line>
+        <Line id = "005">
+            <text name = '...'>Que veux tu faire</text>
+            <options>
+                <option action = "001">CMI
+                    <text name = "prof">Bienvenue au Cours de Maîtrise des Incantations.
+                    Dans ce cours vous apprendrez de nombreuses incantations qui pourront vous servir à n’importe quel moment, alors écoutez bien et soyez assidus.
+                    Attention les incantations sont très sensibles, une erreur de prononciation peut être fatale.
+                    Il est donc primordial de ne chapo aucune séance de ce cours et de vous entraîner le plus souvent possible </text>
+                </option>
+                <option action = "002">Chapo
+                    <option action = "002.1">Explorer l'école</option>
+                    <option action = "002.2">Aller au hangar</option>
+                </option>
+            </options>
+        </Line>
 
-</npc>
+    </npc>

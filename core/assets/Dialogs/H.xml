@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name ="H">
+<!DOCTYPE npc SYSTEM "Rule.dtd">
 
-    <Line id = "000">
-        <options>
+    <npc name ="H">
+
+        <Line id = "000">
             <text name = "H">Hey salut James !
                 Toi non plus tu n’étais pas tenté(e) par les cours ?
             Je te comprends… Si tu n’a pas trouvé ton bonheur dans les différentes activités de l’école, tu ne sera pas déçu(e) d’être venu(e).
@@ -14,7 +15,6 @@
             Tu as aussi la possibilité de fabriquer une boule de cristal qui te donnera un conseil quand tu es bloqué.
             Enfin, tu peux te fabriquer des armes qui te serviront dans tes prochains combats…
             À toi de faire ton choix.</text>
-        </options>
-    </Line>
+        </Line>
 
-</npc>
+    </npc>
