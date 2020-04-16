@@ -59,7 +59,7 @@ public class Item {
     /**
      * Cette méthode augmente la quantité d'un Item
      */
-    public void gagnerItem() {
+    public void earnItem() {
         quantity=quantity+1;
     }
 
@@ -67,7 +67,7 @@ public class Item {
      * Cette méthode diminue la quantité d'un Item
      * On suppose que le perso a au moins 1 occurrence de cet Item
      */
-    public void depenserItem() {
+    public void useItem() {
         quantity=quantity-1;
     }
 
