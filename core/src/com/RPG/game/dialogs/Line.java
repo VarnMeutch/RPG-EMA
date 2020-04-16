@@ -26,6 +26,10 @@ public class Line {
         return options;
     }
 
+    public ArrayList<Text> getTexts() {
+        return textList;
+    }
+
     public void setOptions(Options options) {
         this.options = options;
     }
