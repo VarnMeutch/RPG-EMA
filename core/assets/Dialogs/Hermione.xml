@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name ="Hermione">
-    <Line id="000">
-        <options>
+<!DOCTYPE npc SYSTEM "Rule.dtd">
+
+    <npc name ="Hermione">
+        <Line id="000">
             <text name ="Hermione">Salut t’es nouveau ici ?</text>
             <text name = "James">Oui, je viens d’arriver et je suis un peu perdu. </text>
             <text name = "Hermione">Moi, je m’appelle Hermione.
@@ -12,25 +13,20 @@
             Pour le voir, tu as juste à cliquer sur l’icône (mettre image de l’icône) à droite.
             Et si tu es perdu, tu peux consulter la carte de l’école en cliquant sur mettre qqchose ici.
             Suis-moi !</text>
-        </options>
-    </Line>
+        </Line>
 
-    <Line id="001">
-        <options>
+        <Line id="001">
             <text name = "Hermione">On a 15 min de pause avant le prochain cours, viens avec moi, je vais te montrer un endroit d’où tu ne voudra plus repartir !</text>
             <text name = "James">Qu’est ce que c’est ?</text>
             <text name = "Hermione">Surprise, tu verra bien !</text>
-        </options>
-    </Line>
+        </Line>
 
-    <Line id="002">
-        <options>
+        <Line id="002">
             <text name = "James">Waouh ! Il y a beaucoup de monde, c’est génial ici !</text>
             <text name = "Hermione">Oui, on est “chez Rachid”, ici tu peux acheter de la nourriture pour récupérer des PV en mangeant.
             Il te faut à tout prix vérifier le plus souvent possible tes PV, ils peuvent diminuer à chaque instant.
             Mais chez Rachid, tu peux aussi faire de nombreuses rencontres.
             Bon, assez discuté, je te laisse, je dois réviser pour mon Devoir de Sorcellerie.</text>
-        </options>
-    </Line>
+        </Line>
 
-</npc>
+    </npc>

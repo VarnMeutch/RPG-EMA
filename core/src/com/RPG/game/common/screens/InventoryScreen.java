@@ -17,7 +17,9 @@ public class InventoryScreen implements Screen {
     // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
     private RPGMain game;
     private final Stage stage;
+    private Inventory inventory;
     private static int tailleMax = 50;
+
 
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
@@ -39,7 +41,7 @@ public class InventoryScreen implements Screen {
         for (Table T : pages) {
             T.setFillParent(true);
         }
-
+        stage.addActor(pages[0]);
 
 
     }
