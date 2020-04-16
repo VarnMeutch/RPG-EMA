@@ -1,4 +1,4 @@
-package com.RPG.game.phase2.entities;
+package com.RPG.game.common;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
@@ -17,11 +17,12 @@ import java.util.ArrayList;
 public abstract class Entity
 {
     private float m_x, m_y;
-    private boolean m_visible;
+    protected boolean m_visible;
     float m_scale;
     protected float m_elapsedTime;
     private ArrayList<Animation<TextureRegion>> m_animationList;
     private int m_animationIndex;
+    protected boolean m_destroy; // indique si l'objet doit être détruit
 
 
     /**
@@ -29,7 +30,7 @@ public abstract class Entity
      * cette méthode est abstraite, elle sera définit dans chaques classes héritant de Entity
      * ainsi elle chacunes leurs propres comportements
      */
-    abstract void updateBehavior();
+    public abstract void updateBehavior();
 
     public Entity()
     {
@@ -40,7 +41,7 @@ public abstract class Entity
         m_elapsedTime = 0f;
         m_animationIndex = 0;
         m_animationList = new ArrayList<Animation<TextureRegion>>();
-
+        m_destroy = false;
 
 
     }
@@ -79,7 +80,10 @@ public abstract class Entity
             m_animationIndex = index;
         }
     }
+
     protected Animation getCurrentAnimation() {return m_animationList.get(m_animationIndex);}
+
+    public boolean getDestroy() {return m_destroy;}
 
     public void move(float deltaX, float deltaY) {m_x+=deltaX; m_y+=deltaY;}
     public void setPosition(float x, float y) {m_x=x; m_y=y;}

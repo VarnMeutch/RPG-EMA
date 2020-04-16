@@ -1,12 +1,12 @@
 package com.RPG.game.phase2.entities;
 
+import com.RPG.game.common.Entity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.g3d.utils.AnimationController;
 
 public class Player extends Entity
 {
@@ -74,9 +74,9 @@ public class Player extends Entity
         if(up)
         {
             if(right)
-                move(2.36068f,2.36068f );
+                move(3.5355339f,3.5355339f );
             else if(left)
-                move(-2.36068f,2.36068f );
+                move(-3.5355339f,3.5355339f );
             else
                 move(0,5 );
 
@@ -86,9 +86,9 @@ public class Player extends Entity
         if(down)
         {
             if(right)
-                move(2.36068f,-2.36068f );
+                move(3.5355339f,-3.5355339f );
             else if(left)
-                move(-2.36068f,-2.36068f );
+                move(-3.5355339f,-3.5355339f );
             else
                 move(0,-5 );
             setAnimationIndex(1);
