@@ -98,5 +98,4 @@ public class NonPlayingCharacter { //phase1
         return dialogue;
     }
 
-
 }
