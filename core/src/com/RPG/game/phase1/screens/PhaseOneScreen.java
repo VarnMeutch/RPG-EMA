@@ -72,7 +72,6 @@ PhaseOneScreen implements Screen,InputProcessor {
 
             diag.activate();
             diag.chooseFile("Peter");
-            System.out.println("test");
             diag.test();
 
         }

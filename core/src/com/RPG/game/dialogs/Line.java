@@ -4,10 +4,12 @@ public class Line {
 
     private int id;
     private Options options;
+    private Text text;
 
-    public Line(int id, Options options){
+    public Line(int id, Options options,Text text){
         this.id=id;
         this.options=options;
+        this.text=text;
     }
 
     public int getId() {

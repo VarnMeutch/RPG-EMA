@@ -13,3 +13,4 @@
 
 
         <!ELEMENT text (#PCDATA) >
+        <!ATTLIST text name CDATA #REQUIRED>
