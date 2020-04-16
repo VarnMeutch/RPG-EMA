@@ -1,5 +1,6 @@
 package com.RPG.game;
 
+import com.RPG.game.mainMenu.MainMenu;
 import com.RPG.game.common.screens.*;
 import com.RPG.game.phase1.screens.PhaseOneScreen;
 import com.RPG.game.phase2.screens.PhaseTwoScreen;

@@ -1,4 +1,4 @@
-package com.RPG.game.common.screens;
+package com.RPG.game.mainMenu;
 
 import com.RPG.game.RPGMain;
 import com.badlogic.gdx.ApplicationListener;
@@ -8,18 +8,13 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 public class MainMenu implements Screen {
 
     // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
     private RPGMain game;
+
+    private MenuControl menuControl;
 
     private SpriteBatch batch;
     private Texture background;
@@ -31,6 +26,8 @@ public class MainMenu implements Screen {
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
     public MainMenu(RPGMain game) {
         this.game = game;
+
+        this.menuControl = new MenuControl(this);
 
         this.background = new Texture("core/assets/Menus/MainMenu/EcranTitre.png");
 
@@ -46,6 +43,8 @@ public class MainMenu implements Screen {
     public void show() {
         background_width = Gdx.graphics.getWidth();
         background_height = Gdx.graphics.getHeight();
+
+        Gdx.input.setInputProcessor(menuControl);
 
         // Clear the screen
         Gdx.gl.glClearColor(0f, 0f, 0f, 1);
@@ -103,5 +102,13 @@ public class MainMenu implements Screen {
      */
     @Override
     public void dispose() {
+    }
+
+    /**
+     * Called when the menu screen is no longer on the "Press a button" state
+     */
+    public void trigger(){
+        // this.game.changeScreen(new MenuScreen2(this.game));
+        System.out.println("Triggered");
     }
 }
