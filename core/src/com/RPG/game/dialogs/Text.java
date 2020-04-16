@@ -17,5 +17,7 @@ public class Text {
         this.text = text;
     }
 
+    public String getTalkingName(){return talkingName;}
+
 
 }
