@@ -2,6 +2,9 @@ package com.RPG.game.phase2.entities;
 
 import com.RPG.game.common.Entity;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 public class Projectile extends Entity
 {
@@ -13,11 +16,21 @@ public class Projectile extends Entity
 
     public Projectile(float direction, float speed, float lifeSpan, int damage)
     {
+        super();
         m_direction = direction;
         m_speed = speed;
         m_lifeSpan = lifeSpan;
         m_damage = damage;
         m_camp = 1;
+
+        TextureAtlas textureAtlas = new TextureAtlas(Gdx.files.internal("Sprite/SpriteSheets/spriteSheet.atlas"));
+        Animation animation = new Animation<TextureRegion>(1/10f,
+                textureAtlas.findRegion("Feu-1"),
+                textureAtlas.findRegion("Feu-2"),
+                textureAtlas.findRegion("Feu-3"));
+        animation.setPlayMode(Animation.PlayMode.LOOP_PINGPONG);
+        addAnimation(animation);
+        setScale(4f);
     }
 
     public void updateBehavior()
@@ -31,7 +44,7 @@ public class Projectile extends Entity
         }
         else
         {
-            move(m_speed*delta*(float)Math.cos(m_direction), m_speed*delta*(float)Math.sin(m_direction));
+            move(m_speed*(float)Math.cos(m_direction), m_speed*(float)Math.sin(m_direction));
         }
     }
 

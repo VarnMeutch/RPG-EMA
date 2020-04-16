@@ -17,7 +17,7 @@ public class Player extends Entity
     {
         super();
         m_camera = travellingCamera;
-        TextureAtlas textureAtlas = new TextureAtlas(Gdx.files.internal("Sprite/test-sprites/spriteSheetTest.atlas"));
+        /*TextureAtlas textureAtlas = new TextureAtlas(Gdx.files.internal("Sprite/test-sprites/spriteSheetTest.atlas"));
         Animation animation_upwardWalk = new Animation<TextureRegion>(1/10f,
                 textureAtlas.findRegion("Actor2-2,3"),
                 textureAtlas.findRegion("Actor2-1,3"),
@@ -37,7 +37,27 @@ public class Player extends Entity
                 textureAtlas.findRegion("Actor2-2,2"),
                 textureAtlas.findRegion("Actor2-1,2"),
                 textureAtlas.findRegion("Actor2-0,2"),
-                textureAtlas.findRegion("Actor2-1,2"));
+                textureAtlas.findRegion("Actor2-1,2"));*/
+
+        TextureAtlas textureAtlas = new TextureAtlas(Gdx.files.internal("Sprite/SpriteSheets/spriteSheet.atlas"));
+        Animation animation_upwardWalk = new Animation<TextureRegion>(1/10f,
+                textureAtlas.findRegion("Tt-3,2"),
+                textureAtlas.findRegion("Tt-3,1"),
+                textureAtlas.findRegion("Tt-3,0"),
+                textureAtlas.findRegion("Tt-3,1"));
+        Animation animation_downwardWalk = new Animation<TextureRegion>(1/10f,
+                textureAtlas.findRegion("Tt-0,3"),
+                textureAtlas.findRegion("Tt-0,1"),
+                textureAtlas.findRegion("Tt-0,0"),
+                textureAtlas.findRegion("Tt-0,1"));
+        Animation animation_leftWalk = new Animation<TextureRegion>(1/10f,
+                textureAtlas.findRegion("Tt-1,0"),
+                textureAtlas.findRegion("Tt-1,1"),
+                textureAtlas.findRegion("Tt-1,2"));
+        Animation animation_rightWalk = new Animation<TextureRegion>(1/10f,
+                textureAtlas.findRegion("Tt-2,0"),
+                textureAtlas.findRegion("Tt-2,1"),
+                textureAtlas.findRegion("Tt-2,2"));
 
         addAnimation(animation_upwardWalk);
         addAnimation(animation_downwardWalk);

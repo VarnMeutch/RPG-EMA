@@ -41,7 +41,8 @@ public class PhaseTwoScreen implements Screen {
 
         m_player = new Player(camera);
 
-        m_projectile = new Projectile(0f, 10f, 5f, 20);
+        m_projectile = new Projectile(0.5f*(float)Math.PI, 4f, 20f, 20);
+
 
 
 
@@ -67,7 +68,7 @@ public class PhaseTwoScreen implements Screen {
     public void render(float delta)
     {
 
-        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClearColor(64, 64, 64, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         m_player.updateBehavior();
