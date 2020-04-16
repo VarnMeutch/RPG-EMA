@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name ="2A">
+<!DOCTYPE npc SYSTEM "Rule.dtd">
 
-    <Line id="000">
-        <options>
+    <npc name ="2A">
+
+        <Line id="000">
             <text name = "2A">Désolé, je suis occupé, reviens me voir plus tard </text>
-        </options>
-    </Line>
+        </Line>
 
-    <Line id = "001">
-        <options>
+        <Line id = "001">
             <text name = "2A">-Eh ! Viens boire quelque chose, tu vas te dessécher à ce rythme !
-            Tu as le choix entre plusieurs boissons gratuites : magicobulle, champichapo, bavbinouze ou fondechaudron
-            Elles font des merveilles !
-            Choisis-en une et viens t’éclater avec nous !</text>
-        </options>
-    </Line>
+                Tu as le choix entre plusieurs boissons gratuites : magicobulle, champichapo, bavbinouze ou fondechaudron
+                Elles font des merveilles !
+                Choisis-en une et viens t’éclater avec nous !</text>
+        </Line>
 
-</npc>
+    </npc>

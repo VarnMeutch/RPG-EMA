@@ -3,6 +3,7 @@ package com.RPG.game.dialogs;
 
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class ConversationHandler {
 
@@ -23,6 +24,22 @@ public class ConversationHandler {
         System.out.println("--------------");
         Line tmp = convTab[0];
         System.out.println(tmp.getId());
+        ArrayList<Text> textList = tmp.getTexts();
+        for(Text t:textList){
+            System.out.println(t.getTalkingName() + ": " + t.getText());
+        }
+
+
+    }
+
+    public Line finLine(int id){
+        for (Line l:convTab){
+            if(l.getId()==id){
+                return l;
+            }
+        }
+
+        return null;
 
     }
 

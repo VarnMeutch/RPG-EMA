@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name ="Ron">
+<!DOCTYPE npc SYSTEM "Rule.dtd">
 
-    <Line id="000">
-        <options>
+    <npc name ="Ron">
+
+        <Line id="000">
             <text name = "Ron">Salut, moi c’est Ron.
             Il faut qu’on aille en cours de Restrictions de la Magie, il paraît que le prof est génial !</text>
-            <option action = "001">Accompagner Ron
-                <text name = "James">Ok allons-y</text>
-            </option>
-            <option action = "002">Continuer solo
-                <text name = "James">Cool vas-y je te rejoins</text>
-            </option>
-        </options>
-    </Line>
+            <options>
+                <option action = "001">Accompagner Ron</option>
+                <option action = "002">Continuer solo</option>
+            </options>
+        </Line>
 
-    <Line id = "001">
-        <options>
+        <Line id = "001">
+            <text name = "James">Ok allons-y</text>
+        </Line>
+
+        <Line id = "002">
+            <text name = "James">Cool vas-y je te rejoins</text>
+        </Line>
+
+        <Line id = "003">
             <text name = "Ron">Hey salut, comment s’est passée ta journée ?
             Les 2A font une soirée d’intégration, il faut absolument que tu viennes ! </text>
             <text name = "James">Cool ! J’arrive ! </text>
-        </options>
-    </Line>
+        </Line>
 
-</npc>
+    </npc>

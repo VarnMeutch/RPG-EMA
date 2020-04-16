@@ -7,12 +7,16 @@ public class Item {
     // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
     private String name;
     private int image;  // je met int parce que je ne sais pas encore comment mettre une image sur java
-    private int quantity;  // pour savoir combien d'occurrences de l'Item il y a
     private int price; // nombre de pièces que l'Item coûte
     private String description; // peut-être mettre un html à la place ?
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
 
+    public Item(String name, int price, String description) {
+        this.name = name;
+        this.price = price;
+        this.description = description;
+    }
     public String getName() {
         return name;
     }
@@ -27,14 +31,6 @@ public class Item {
 
     public void setImage(int image) { //il faut ajouter une image et pas un int
         this.image = image;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
     }
 
     public int getPrice() {
@@ -56,19 +52,6 @@ public class Item {
 
 // --- METHODS -----------------------------------------------------------------------------------------------------
 
-    /**
-     * Cette méthode augmente la quantité d'un Item
-     */
-    public void earnItem() {
-        quantity=quantity+1;
-    }
 
-    /**
-     * Cette méthode diminue la quantité d'un Item
-     * On suppose que le perso a au moins 1 occurrence de cet Item
-     */
-    public void useItem() {
-        quantity=quantity-1;
-    }
 
 }

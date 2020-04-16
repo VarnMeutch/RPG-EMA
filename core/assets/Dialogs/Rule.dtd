@@ -3,7 +3,7 @@
         <!ATTLIST npc name CDATA #REQUIRED>
 
         <!ELEMENT Line (text*,options*) >
-        <!ATTLIST Line id ID #REQUIRED>
+        <!ATTLIST Line id CDATA #REQUIRED>
 
 
         <!ELEMENT options (option)+ >
