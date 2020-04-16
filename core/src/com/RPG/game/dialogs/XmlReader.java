@@ -47,7 +47,7 @@ public class XmlReader {
                 int id = Integer.parseInt(nId.getNodeValue());
 
                 NodeList nList = n.getChildNodes();
-                for (int k =0 )
+               // for (int k =0 )
 
                 Node options = n.getFirstChild();
                 NodeList tabOptions = options.getChildNodes();
