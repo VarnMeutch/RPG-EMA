@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<npc name ="Ferlut">
-    <Line id="000">
-        <options>
+<!DOCTYPE npc SYSTEM "Rule.dtd">
+
+    <npc name ="Ferlut">
+
+        <Line id="000">
             <text name = "Ferlut">Bonjour tout le monde !
             Vous avez passé de bonnes vacances ?
             Bien, maintenant il est temps de repasser aux choses sérieuses.
@@ -9,6 +11,6 @@
             Je vais vous apprendre à utiliser la magie de manière juste et rigoureuse afin de résoudre les problèmes que vous pourriez rencontrer dans votre parcours ici et plus tard.
             Ce cours est important pour vous alors je vous déconseille de trop le chapo.
             Sans plus attendre, commençons le cours ! </text>
-        </options>
-    </Line>
-</npc>
+        </Line>
+
+    </npc>

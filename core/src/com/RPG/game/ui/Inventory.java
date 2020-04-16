@@ -8,37 +8,37 @@ import com.badlogic.gdx.Screen;
 public class Inventory {
 
     // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
-    private int PV;
+    private int HP;
     private int coins;
-    private Item[] inventaire;
+    private Item[] inventory;
 
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
 
-    public int getPieces() {
+    public int getCoins() {
         return coins;
     }
 
-    public void setPieces(int pieces) {
+    public void setCoins(int coins) {
         this.coins = coins;
     }
 
-    public int getPV() {
-        return PV;
+    public int getHP() {
+        return HP;
     }
 
-    public void setPV(int PV) {  //les PV sont limités : max 100
-        if (PV <= 100) {
-            this.PV = PV;
+    public void setHP(int HP) {  //les HP sont limités : max 100
+        if (HP <= 100) {
+            this.HP = HP;
         }
     }
 
-    public Item[] getInventaire() {
-        return inventaire;
+    public Item[] getInventory() {
+        return inventory;
     }
 
-    public void setInventaire(Item[] inventaire) {
-        this.inventaire = inventaire;
+    public void setInventory(Item[] inventory) {
+        this.inventory = inventory;
     }
 
 
@@ -48,7 +48,7 @@ public class Inventory {
      * Cette méthode augmente le nombre de pièces du perso.
      * @param newCoins nombre de pièces supplémentaires
      */
-    public void gagnerPieces (int newCoins) {
+    public void earnCoins (int newCoins) {
         coins=coins+newCoins;
     }
 
@@ -57,7 +57,7 @@ public class Inventory {
      * On suppose que le perso a plus de pièces qu'il n'en perd.
      * @param spentCoins nombre de pièces dépensées
      */
-    public void depenserPieces(int spentCoins) {
+    public void spendCoins(int spentCoins) {
         coins=coins-spentCoins;
     }
 
