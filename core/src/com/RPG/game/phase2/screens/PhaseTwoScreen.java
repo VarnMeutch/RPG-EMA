@@ -2,6 +2,7 @@ package com.RPG.game.phase2.screens;
 
 import com.RPG.game.RPGMain;
 import com.RPG.game.phase2.entities.Player;
+import com.RPG.game.phase2.entities.Projectile;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
@@ -24,6 +25,7 @@ public class PhaseTwoScreen implements Screen {
     Sprite  sprite_rock;
     OrthographicCamera camera;
     private Player m_player;
+    private Projectile m_projectile;
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
     public PhaseTwoScreen(RPGMain game)
@@ -38,6 +40,8 @@ public class PhaseTwoScreen implements Screen {
         sprite_rock.setPosition(200,200);
 
         m_player = new Player(camera);
+
+        m_projectile = new Projectile(0f, 10f, 5f, 20);
 
 
 
@@ -67,6 +71,7 @@ public class PhaseTwoScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         m_player.updateBehavior();
+        m_projectile.updateBehavior();
 
         camera.update();
         batch.setProjectionMatrix(camera.combined);
@@ -77,6 +82,7 @@ public class PhaseTwoScreen implements Screen {
         sprite_rock.setPosition(100,50);
         sprite_rock.draw(batch);
         m_player.draw(batch);
+        m_projectile.draw(batch);
         batch.end();
     }
 

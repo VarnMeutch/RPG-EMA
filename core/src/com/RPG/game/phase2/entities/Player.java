@@ -74,9 +74,9 @@ public class Player extends Entity
         if(up)
         {
             if(right)
-                move(2.36068f,2.36068f );
+                move(3.5355339f,3.5355339f );
             else if(left)
-                move(-2.36068f,2.36068f );
+                move(-3.5355339f,3.5355339f );
             else
                 move(0,5 );
 
@@ -86,9 +86,9 @@ public class Player extends Entity
         if(down)
         {
             if(right)
-                move(2.36068f,-2.36068f );
+                move(3.5355339f,-3.5355339f );
             else if(left)
-                move(-2.36068f,-2.36068f );
+                move(-3.5355339f,-3.5355339f );
             else
                 move(0,-5 );
             setAnimationIndex(1);
