@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
+import java.util.ArrayList;
+
 public class Projectile extends Entity
 {
     private float m_direction;
@@ -13,15 +15,18 @@ public class Projectile extends Entity
     private float m_speed;
     private int m_camp; // 0 = allié, 1=ennemis 2=neutre
     private int m_damage;
+    //private Entity m_boundEntity;
 
-    public Projectile(float direction, float speed, float lifeSpan, int damage)
+    public Projectile(ArrayList<Entity> entitiesList, float direction, float speed, float lifeSpan, int damage)
     {
-        super();
+        super(entitiesList);
         m_direction = direction;
         m_speed = speed;
         m_lifeSpan = lifeSpan;
         m_damage = damage;
         m_camp = 1;
+        //m_boundEntity = null;
+
 
         TextureAtlas textureAtlas = new TextureAtlas(Gdx.files.internal("Sprite/SpriteSheets/spriteSheet.atlas"));
         Animation animation = new Animation<TextureRegion>(1/10f,
@@ -50,6 +55,9 @@ public class Projectile extends Entity
 
     public void setCamp(int camp) {m_camp  = camp;}
     public int getCamp() {return  m_camp;}
+
+    /*public Entity getBoundEntity() {return m_boundEntity;}
+    public void setBoundEntity(Entity boundEntity) {m_boundEntity = boundEntity;}*/
 
 
 }

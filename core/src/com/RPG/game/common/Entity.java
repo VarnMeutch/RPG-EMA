@@ -23,6 +23,7 @@ public abstract class Entity
     private ArrayList<Animation<TextureRegion>> m_animationList;
     private int m_animationIndex;
     protected boolean m_destroy; // indique si l'objet doit être détruit
+    protected ArrayList<Entity> m_entitiesList;
 
 
     /**
@@ -32,7 +33,7 @@ public abstract class Entity
      */
     public abstract void updateBehavior();
 
-    public Entity()
+    public Entity(ArrayList<Entity> entitiesList)
     {
         m_x=0;
         m_y=0;
@@ -42,6 +43,7 @@ public abstract class Entity
         m_animationIndex = 0;
         m_animationList = new ArrayList<Animation<TextureRegion>>();
         m_destroy = false;
+        m_entitiesList = entitiesList;
 
 
     }

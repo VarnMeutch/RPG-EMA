@@ -1,6 +1,7 @@
 package com.RPG.game.phase2.screens;
 
 import com.RPG.game.RPGMain;
+import com.RPG.game.common.Entity;
 import com.RPG.game.phase2.entities.Player;
 import com.RPG.game.phase2.entities.Projectile;
 import com.badlogic.gdx.ApplicationListener;
@@ -13,6 +14,8 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+
+import java.util.ArrayList;
 
 
 public class PhaseTwoScreen implements Screen {
@@ -27,6 +30,8 @@ public class PhaseTwoScreen implements Screen {
     private Player m_player;
     private Projectile m_projectile;
 
+    private ArrayList<Entity> m_entitiesList;
+
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
     public PhaseTwoScreen(RPGMain game)
     {
@@ -39,11 +44,15 @@ public class PhaseTwoScreen implements Screen {
         sprite_rock.scale(2f);
         sprite_rock.setPosition(200,200);
 
-        m_player = new Player(camera);
+        m_entitiesList = new ArrayList<Entity>();
 
-        m_projectile = new Projectile(0.5f*(float)Math.PI, 4f, 20f, 20);
+        m_player = new Player(m_entitiesList, camera);
+
+        m_projectile = new Projectile(m_entitiesList,.5f*(float)Math.PI, 4f, 20f, 20);
 
 
+        m_entitiesList.add(m_player);
+        m_entitiesList.add(m_projectile);
 
 
 
@@ -71,8 +80,15 @@ public class PhaseTwoScreen implements Screen {
         Gdx.gl.glClearColor(64, 64, 64, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        m_player.updateBehavior();
-        m_projectile.updateBehavior();
+        for (int i=0 ; i<m_entitiesList.size(); i++)
+        {
+            m_entitiesList.get(i).updateBehavior();
+            if( m_entitiesList.get(i).getDestroy() )
+            {
+                m_entitiesList.remove(i);
+                //si l'entité fait une requete de suppression, on le retire de la liste
+            }
+        }
 
         camera.update();
         batch.setProjectionMatrix(camera.combined);
@@ -82,8 +98,11 @@ public class PhaseTwoScreen implements Screen {
         sprite_rock.draw(batch);
         sprite_rock.setPosition(100,50);
         sprite_rock.draw(batch);
-        m_player.draw(batch);
-        m_projectile.draw(batch);
+        for (int i=0 ; i<m_entitiesList.size(); i++)
+        {
+            m_entitiesList.get(i).draw(batch);
+        }
+
         batch.end();
     }
 

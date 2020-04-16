@@ -7,15 +7,18 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Vector3;
+
+import java.util.ArrayList;
 
 public class Player extends Entity
 {
     //sert à actualiser la positon de la camera pour qu'elle suive le joueur
     private OrthographicCamera m_camera;
 
-    public Player(OrthographicCamera travellingCamera)
+    public Player(ArrayList<Entity> entitiesList, OrthographicCamera travellingCamera)
     {
-        super();
+        super(entitiesList);
         m_camera = travellingCamera;
         /*TextureAtlas textureAtlas = new TextureAtlas(Gdx.files.internal("Sprite/test-sprites/spriteSheetTest.atlas"));
         Animation animation_upwardWalk = new Animation<TextureRegion>(1/10f,
@@ -129,6 +132,19 @@ public class Player extends Entity
         if(!up && !down && !right && !left)
         {
             getCurrentAnimation().setPlayMode(Animation.PlayMode.NORMAL);
+        }
+
+        if(Gdx.input.isButtonPressed(Input.Buttons.LEFT))
+        {
+            Vector3 mousePos = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
+            m_camera.unproject(mousePos);
+            //Vector3 clickPos = new Vector3();
+            Projectile fireBall = new Projectile(m_entitiesList,
+                    0.5f*(float)Math.PI-(float)Math.atan2((float)mousePos.x - getX(), (float)mousePos.y - getY()),
+                    8f, 1f, 20);
+            fireBall.setPosition(getX(), getY());
+            m_entitiesList.add(fireBall);
+
         }
 
 
