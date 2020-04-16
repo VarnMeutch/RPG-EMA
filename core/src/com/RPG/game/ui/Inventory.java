@@ -5,16 +5,23 @@ import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Inventory {
 
     // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
     private int HP;
     private int coins;
-    private Item[] inventory;
+    private List<Item> inventory;
 
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
-
+    public Inventory(int HP, int coins) {
+        this.HP = HP;
+        this.coins = coins;
+        this.inventory = new ArrayList<Item>();
+    }
     public int getCoins() {
         return coins;
     }
@@ -33,12 +40,12 @@ public class Inventory {
         }
     }
 
-    public Item[] getInventory() {
+    public List<Item> getInventory() {
         return inventory;
     }
 
-    public void setInventory(Item[] inventory) {
-        this.inventory = inventory;
+    public void earnItem(Item item) {
+            this.inventory.add(item);
     }
 
 
@@ -61,5 +68,8 @@ public class Inventory {
         coins=coins-spentCoins;
     }
 
-
+    public void useItem(Item item) {
+        inventory.remove(item);
+        // effet de l'item à effectuer
+    }
 }
