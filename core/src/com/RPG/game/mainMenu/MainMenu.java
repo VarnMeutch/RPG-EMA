@@ -7,7 +7,10 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 
 public class MainMenu implements Screen {
 
@@ -22,6 +25,9 @@ public class MainMenu implements Screen {
     private int background_width;
     private int background_height;
 
+    private BitmapFont font;
+    private GlyphLayout layout;
+
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
     public MainMenu(RPGMain game) {
@@ -32,6 +38,16 @@ public class MainMenu implements Screen {
         this.background = new Texture("core/assets/Menus/MainMenu/EcranTitre.png");
 
         batch = new SpriteBatch();
+
+
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("core/assets/Font/HARRINGT.TTF"));
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter.size = 60;
+        font = generator.generateFont(parameter);
+        generator.dispose();
+
+        layout = new GlyphLayout();
+        layout.setText(font, "Appuyez sur une touche pour commencer !");
     }
 
     // --- METHODS -----------------------------------------------------------------------------------------------------
@@ -49,6 +65,7 @@ public class MainMenu implements Screen {
         // Clear the screen
         Gdx.gl.glClearColor(0f, 0f, 0f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
     }
 
     /**
@@ -60,6 +77,7 @@ public class MainMenu implements Screen {
     public void render(float delta) {
         batch.begin();
         batch.draw(background, 0, 0, background_width, background_height);
+        font.draw(batch, layout, background_width * 0.5f  - layout.width * 0.5f, 100);
         batch.end();
     }
 
