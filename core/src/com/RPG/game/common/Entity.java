@@ -1,4 +1,4 @@
-package com.RPG.game.phase2.entities;
+package com.RPG.game.common;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
