@@ -71,7 +71,7 @@ PhaseOneScreen implements Screen,InputProcessor {
         if(Gdx.input.isKeyPressed(Input.Keys.ENTER)&& !diag.isActive()){
 
             diag.activate();
-            diag.chooseFile("Hermione");
+            diag.chooseFile("Peter");
             diag.test();
 
         }
