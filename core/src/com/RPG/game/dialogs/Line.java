@@ -1,15 +1,17 @@
 package com.RPG.game.dialogs;
 
+import java.util.ArrayList;
+
 public class Line {
 
     private int id;
     private Options options;
-    private Text text;
+    private ArrayList<Text> textList;
 
-    public Line(int id, Options options,Text text){
+    public Line(int id, Options options,ArrayList<Text> textList){
         this.id=id;
         this.options=options;
-        this.text=text;
+        this.textList=textList;
     }
 
     public int getId() {
