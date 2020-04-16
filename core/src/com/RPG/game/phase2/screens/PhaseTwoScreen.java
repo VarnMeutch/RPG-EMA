@@ -34,7 +34,7 @@ public class PhaseTwoScreen implements Screen {
         camera = new OrthographicCamera(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
         batch = new SpriteBatch();
         m_imgCharacter = new Texture("core/assets/Sprite/test-sprites/npc_darkguy.png");
-        m_imgRock = new Texture("Sprite/test-sprites/rock.png");
+        m_imgRock = new Texture("core/assets/Sprite/test-sprites/rock.png");
         sprite_rock = new Sprite(m_imgRock);
         sprite_rock.scale(2f);
         sprite_rock.setPosition(200,200);
