@@ -39,7 +39,7 @@ public class InventoryScreen implements Screen {
         for (Table T : pages) {
             T.setFillParent(true);
         }
-
+        stage.addActor(pages[0]);
 
 
     }
