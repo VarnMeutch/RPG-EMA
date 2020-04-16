@@ -8,7 +8,7 @@
 
         <!ELEMENT options (option)+ >
 
-        <!ELEMENT option (#PCDATA,text,option) >
+        <!ELEMENT option (#PCDATA) >
         <!ATTLIST option action CDATA #REQUIRED>
 
 
