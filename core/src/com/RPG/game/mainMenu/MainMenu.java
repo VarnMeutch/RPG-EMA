@@ -7,7 +7,10 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 
 public class MainMenu implements Screen {
 
@@ -22,6 +25,9 @@ public class MainMenu implements Screen {
     private int background_width;
     private int background_height;
 
+    private BitmapFont font;
+    private GlyphLayout layout;
+
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
     public MainMenu(RPGMain game) {
@@ -32,6 +38,21 @@ public class MainMenu implements Screen {
         this.background = new Texture("core/assets/Menus/MainMenu/EcranTitre.png");
 
         batch = new SpriteBatch();
+
+        // Le truc pour créer des polices qui peuvent s'agrandir
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("core/assets/Font/HARRINGT.TTF"));
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        // La taille de la police
+        parameter.size = 60;
+        // On créé notre police à l'aide de notre générateur
+        font = generator.generateFont(parameter);
+        // On tue notre générateur (il aura bien servi)
+        generator.dispose();
+
+        // Je veux pouvoir récupérer la taille de mon texte pour pouvoir le centrer
+        layout = new GlyphLayout();
+        // Je lui donne mon texte
+        layout.setText(font, "Appuyez sur une touche pour commencer !");
     }
 
     // --- METHODS -----------------------------------------------------------------------------------------------------
@@ -41,9 +62,11 @@ public class MainMenu implements Screen {
      */
     @Override
     public void show() {
+        // Je veux que mon background remplisse la fenêtre
         background_width = Gdx.graphics.getWidth();
         background_height = Gdx.graphics.getHeight();
 
+        // Je veux pouvoir détecter quand le joueur appuie sur un bouton
         Gdx.input.setInputProcessor(menuControl);
 
         // Clear the screen
@@ -59,7 +82,10 @@ public class MainMenu implements Screen {
     @Override
     public void render(float delta) {
         batch.begin();
+        // J'affiche le background
         batch.draw(background, 0, 0, background_width, background_height);
+        // J'affiche le texte centré
+        font.draw(batch, layout, background_width * 0.5f  - layout.width * 0.5f, 100);
         batch.end();
     }
 
@@ -102,6 +128,7 @@ public class MainMenu implements Screen {
      */
     @Override
     public void dispose() {
+        font.dispose();
     }
 
     /**

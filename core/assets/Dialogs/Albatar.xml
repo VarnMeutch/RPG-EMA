@@ -3,7 +3,7 @@
 
     <npc name ="Albatar">
 
-        <Line id="000">
+        <Line id = "000">
             <text name = "Albatar">Hey toi ! Qu’est-ce que tu fais là ? Tu es sur mon chemin, dégage !</text>
         </Line>
 

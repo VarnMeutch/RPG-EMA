@@ -1,24 +1,18 @@
 package com.RPG.game.phase2.screens;
 
-import com.RPG.game.phase2.entities.Entity;
-
 import com.RPG.game.RPGMain;
 import com.RPG.game.phase2.entities.Player;
+import com.RPG.game.phase2.entities.Projectile;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
 
 public class PhaseTwoScreen implements Screen {
@@ -31,6 +25,7 @@ public class PhaseTwoScreen implements Screen {
     Sprite  sprite_rock;
     OrthographicCamera camera;
     private Player m_player;
+    private Projectile m_projectile;
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
     public PhaseTwoScreen(RPGMain game)
@@ -39,12 +34,14 @@ public class PhaseTwoScreen implements Screen {
         camera = new OrthographicCamera(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
         batch = new SpriteBatch();
         m_imgCharacter = new Texture("core/assets/Sprite/test-sprites/npc_darkguy.png");
-        m_imgRock = new Texture("Sprite/test-sprites/rock.png");
+        m_imgRock = new Texture("core/assets/Sprite/test-sprites/rock.png");
         sprite_rock = new Sprite(m_imgRock);
         sprite_rock.scale(2f);
         sprite_rock.setPosition(200,200);
 
         m_player = new Player(camera);
+
+        m_projectile = new Projectile(0f, 10f, 5f, 20);
 
 
 
@@ -74,6 +71,7 @@ public class PhaseTwoScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         m_player.updateBehavior();
+        m_projectile.updateBehavior();
 
         camera.update();
         batch.setProjectionMatrix(camera.combined);
@@ -84,6 +82,7 @@ public class PhaseTwoScreen implements Screen {
         sprite_rock.setPosition(100,50);
         sprite_rock.draw(batch);
         m_player.draw(batch);
+        m_projectile.draw(batch);
         batch.end();
     }
 
@@ -106,6 +105,7 @@ public class PhaseTwoScreen implements Screen {
     }
 
     /**
+     *
      * @see ApplicationListener#resume()
      */
     @Override

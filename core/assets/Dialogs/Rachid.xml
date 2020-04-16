@@ -7,15 +7,19 @@
             <text name = "Rachid">Bonjour James, que désires-tu ?</text>
             <options>
                 <option action = "001">café : 5 PV - 1 pièce</option>
-                <option action = "002">viennoiseries : 10 PV - 2 pièces</option>
-                <option action = "003">cookie : 20 PV - 3 pièces</option>
-                <option action = "004">crêpe nutella : 50 PV - 5 pièces</option>
-                <option action = "005">sandwich : 100 PV - 9 pièces</option>
+                <option action = "001">viennoiseries : 10 PV - 2 pièces</option>
+                <option action = "001">cookie : 20 PV - 3 pièces</option>
+                <option action = "001">crêpe nutella : 50 PV - 5 pièces</option>
+                <option action = "001">sandwich : 100 PV - 9 pièces</option>
             </options>
         </Line>
 
         <Line id = "001">
-            <text name = "Rachid"> Mais qu’est-ce que tu fais là insert name, c’est déjà le matin !
+            <text name = "Rachid">Très bon choix ! Reviens me voir quand tu veux.</text>
+        </Line>
+
+        <Line id = "002">
+            <text name = "Rachid"> Mais qu’est-ce que tu fais là James, c’est déjà le matin !
             Tu vas être en retard pour tes cours, et en plus tu meurs de faim !
             Ahlala, qu’est-ce que les élèves feraient sans moi…
             Allez, je t’offre un café, tu en as bien besoin !</text>

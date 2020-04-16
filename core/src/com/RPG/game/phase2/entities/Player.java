@@ -1,12 +1,12 @@
 package com.RPG.game.phase2.entities;
 
+import com.RPG.game.common.Entity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.g3d.utils.AnimationController;
 
 public class Player extends Entity
 {
@@ -17,7 +17,7 @@ public class Player extends Entity
     {
         super();
         m_camera = travellingCamera;
-        TextureAtlas textureAtlas = new TextureAtlas(Gdx.files.internal("Sprite/test-sprites/spriteSheetTest.atlas"));
+        TextureAtlas textureAtlas = new TextureAtlas(Gdx.files.internal("core/assets/Sprite/test-sprites/spriteSheetTest.atlas"));
         Animation animation_upwardWalk = new Animation<TextureRegion>(1/10f,
                 textureAtlas.findRegion("Actor2-2,3"),
                 textureAtlas.findRegion("Actor2-1,3"),
@@ -74,9 +74,9 @@ public class Player extends Entity
         if(up)
         {
             if(right)
-                move(2.36068f,2.36068f );
+                move(3.5355339f,3.5355339f );
             else if(left)
-                move(-2.36068f,2.36068f );
+                move(-3.5355339f,3.5355339f );
             else
                 move(0,5 );
 
@@ -86,9 +86,9 @@ public class Player extends Entity
         if(down)
         {
             if(right)
-                move(2.36068f,-2.36068f );
+                move(3.5355339f,-3.5355339f );
             else if(left)
-                move(-2.36068f,-2.36068f );
+                move(-3.5355339f,-3.5355339f );
             else
                 move(0,-5 );
             setAnimationIndex(1);
