@@ -3,9 +3,7 @@
 
     <Line id = "000">
         <options>
-            <text> Bienvenu aventurier. Avant de commencer dis moi comment tu t’appelles. </text>
-            <option action = "001">"insert name here"</option>
-            <text> Bonjour James!
+            <text> Bienvenue James!
             Déplace toi dans l’école pour découvrir l’univers de l’EMA et rencontrer des personnages pour commencer ta partie</text>
         </options>
     </Line>
