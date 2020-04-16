@@ -1,6 +1,6 @@
 package com.RPG.game;
-//package com.RPG.action;
 
+import com.RPG.game.mainMenu.MainMenu;
 import com.RPG.game.common.screens.*;
 import com.RPG.game.phase1.screens.PhaseOneScreen;
 import com.RPG.game.phase2.screens.PhaseTwoScreen;
@@ -24,6 +24,7 @@ public class RPGMain extends Game {
 	private PauseScreen pauseScreen;
 	private PreferencesScreen preferencesScreen;
 	private SaveScreen saveScreen;
+	private DebugScreen debugScreen;
 
 	public static final int LOADING = 0;
 	public static final int MAINMENU = 1;
@@ -35,6 +36,7 @@ public class RPGMain extends Game {
 	public static final int PAUSE = 7;
 	public static final int PREFERENCES = 8;
 	public static final int SAVE = 9;
+	public static final int DEBUG = 10;
 
 	public ArrayList<Integer> screenHistory;
 
@@ -42,7 +44,7 @@ public class RPGMain extends Game {
 
 	/**
 	 * Go to another screen
-	 * @param screen
+	 * @param screen the screen we're changing for
 	 */
 	public void changeScreen(int screen){
 		switch(screen){
@@ -86,6 +88,10 @@ public class RPGMain extends Game {
 				if(saveScreen == null) saveScreen = new SaveScreen(this);
 				this.setScreen(saveScreen);
 				break;
+			case DEBUG:
+				if(debugScreen == null) debugScreen = new DebugScreen(this);
+				this.setScreen(debugScreen);
+				break;
 		}
 		// Storing the screens
 		if (screenHistory.size() > 1 && screenHistory.get(screenHistory.size() - 2) == screen){
@@ -107,7 +113,7 @@ public class RPGMain extends Game {
 	public void create () {
 		screenHistory = new ArrayList<>();
 		Gdx.graphics.setWindowedMode(1024,768); // pour changer la taille de la fenetre
-		changeScreen(LOADING);
+		changeScreen(DEBUG);
 
 	}
 

@@ -14,7 +14,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
-public class MainMenu implements Screen {
+public class DebugScreen implements Screen {
 
     // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
     private RPGMain game;
@@ -22,7 +22,7 @@ public class MainMenu implements Screen {
 
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
-    public MainMenu(RPGMain game) {
+    public DebugScreen(RPGMain game) {
         this.game = game;
 
         // Get events from the user
@@ -181,7 +181,7 @@ public class MainMenu implements Screen {
      */
     @Override
     public void hide() {
-
+        Gdx.input.setInputProcessor(null);
     }
 
     /**
@@ -191,4 +191,6 @@ public class MainMenu implements Screen {
     public void dispose() {
         stage.dispose();
     }
+
 }
+
