@@ -3,19 +3,26 @@ package com.RPG.game.phase1.screens;
 import com.RPG.game.RPGMain;
 import com.RPG.game.dialogs.DialogHandler;
 import com.RPG.game.phase2.entities.Player;
+import com.RPG.game.ui.DialogueBox;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.NinePatch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.utils.Align;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
+
 
 public class
 PhaseOneScreen implements Screen {
@@ -33,10 +40,13 @@ PhaseOneScreen implements Screen {
     OrthogonalTiledMapRenderer renderer;
     private Player m_player;
 
+    //private Table root;
+    //private DialogueBox dialogueBox;
+
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
     public PhaseOneScreen(RPGMain game) {
         this.game = game;
-        //stage = new Stage();
+        stage = new Stage();
         batch = new SpriteBatch();
         m_imgCharacter = new Texture("core/assets/Sprite/test-sprites/npc_darkguy.png");
         font = new BitmapFont();
@@ -49,10 +59,10 @@ PhaseOneScreen implements Screen {
         map = new TmxMapLoader().load("core/assets/Maps/EMA_RPG_STAGE1_MAP.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, unitScale);
 
+        //initUI();
     }
 
     // --- METHODS -----------------------------------------------------------------------------------------------------
-
     /**
      * Called when this screen becomes the current screen for a {@link Game}.
      */
@@ -68,7 +78,7 @@ PhaseOneScreen implements Screen {
      */
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClearColor(1, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         m_player.updateBehavior();
         camera.update();
@@ -77,13 +87,30 @@ PhaseOneScreen implements Screen {
         m_player.draw(batch);
         renderer.setView(camera);
         renderer.render();
+
         //diag.activate();
         //diag.chooseFile("Peter");
         //System.out.println("test");
         //diag.test();
+
         batch.end();
+
+        //stage.act(delta);
         }
 
+        /*public void initUI(){
+            Skin skin = new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json"));
+
+            stage = new Stage();
+            root = new Table();
+            root.setFillParent(true);
+            stage.addActor(root);
+
+            dialogueBox = new DialogueBox(skin);
+            dialogueBox.animateText("Bienvenu aventurier!\nTu es arrivé à l'EMA");
+
+            root.add(dialogueBox).expand().align(Align.bottom).pad(8f);
+        }*/
 
 
     /**

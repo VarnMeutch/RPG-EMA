@@ -23,7 +23,7 @@ public class DialogueBox extends Table {
 
     public DialogueBox(Skin skin){
         super(skin);
-        this.setBackground("dialoguebox");
+        //this.setBackground("dialoguebox");
         textLabel = new Label("\n", skin);
         this.add(textLabel).expand().align(Align.left).pad(5f);
     }
