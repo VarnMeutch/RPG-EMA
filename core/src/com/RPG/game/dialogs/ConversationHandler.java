@@ -22,7 +22,8 @@ public class ConversationHandler {
         System.out.println(npc.getNpcName());
         System.out.println("--------------");
         Line tmp = convTab[0];
-        System.out.println();
+        System.out.println(tmp.getId());
+
     }
 
 
