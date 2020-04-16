@@ -114,8 +114,8 @@ public class PauseScreen implements Screen {
     }
 
     /**
-     * @param width
-     * @param height
+     * @param width width of the new window
+     * @param height height of the new window
      * @see ApplicationListener#resize(int, int)
      */
     @Override
@@ -144,7 +144,7 @@ public class PauseScreen implements Screen {
      */
     @Override
     public void hide() {
-
+        Gdx.input.setInputProcessor(null);
     }
 
     /**

@@ -6,6 +6,8 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -19,10 +21,20 @@ public class MainMenu implements Screen {
     // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
     private RPGMain game;
 
+    private SpriteBatch batch;
+    private Texture background;
+
+    private int background_width;
+    private int background_height;
+
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
     public MainMenu(RPGMain game) {
         this.game = game;
+
+        this.background = new Texture("core/assets/Menus/MainMenu/EcranTitre.png");
+
+        batch = new SpriteBatch();
     }
 
     // --- METHODS -----------------------------------------------------------------------------------------------------
@@ -32,6 +44,12 @@ public class MainMenu implements Screen {
      */
     @Override
     public void show() {
+        background_width = Gdx.graphics.getWidth();
+        background_height = Gdx.graphics.getHeight();
+
+        // Clear the screen
+        Gdx.gl.glClearColor(0f, 0f, 0f, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
     }
 
     /**
@@ -41,7 +59,9 @@ public class MainMenu implements Screen {
      */
     @Override
     public void render(float delta) {
-        this.game.changeScreen(RPGMain.DEBUG);
+        batch.begin();
+        batch.draw(background, 0, 0, background_width, background_height);
+        batch.end();
     }
 
     /**
@@ -51,7 +71,7 @@ public class MainMenu implements Screen {
      */
     @Override
     public void resize(int width, int height) {
-
+        Gdx.graphics.setWindowedMode(width, height);
     }
 
     /**
