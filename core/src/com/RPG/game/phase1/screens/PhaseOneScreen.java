@@ -36,7 +36,7 @@ PhaseOneScreen implements Screen {
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
     public PhaseOneScreen(RPGMain game) {
         this.game = game;
-        stage = new Stage();
+        //stage = new Stage();
         batch = new SpriteBatch();
         m_imgCharacter = new Texture("core/assets/Sprite/test-sprites/npc_darkguy.png");
         font = new BitmapFont();
@@ -44,9 +44,10 @@ PhaseOneScreen implements Screen {
         Skin skin = new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json"));
         diag=new DialogHandler(skin);
         float unitScale = 1 / 32f;
-        OrthogonalTiledMapRenderer renderer = new OrthogonalTiledMapRenderer(map, unitScale);
         camera = new OrthographicCamera(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
         m_player = new Player(camera);
+        map = new TmxMapLoader().load("core/assets/Maps/EMA_RPG_STAGE1_MAP.tmx");
+        renderer = new OrthogonalTiledMapRenderer(map, unitScale);
 
     }
 
@@ -74,8 +75,8 @@ PhaseOneScreen implements Screen {
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
         m_player.draw(batch);
-        //renderer.setView(camera);
-        //renderer.render();
+        renderer.setView(camera);
+        renderer.render();
         //diag.activate();
         //diag.chooseFile("Peter");
         //System.out.println("test");
