@@ -39,14 +39,19 @@ public class MainMenu implements Screen {
 
         batch = new SpriteBatch();
 
-
+        // Le truc pour créer des polices qui peuvent s'agrandir
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("core/assets/Font/HARRINGT.TTF"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        // La taille de la police
         parameter.size = 60;
+        // On créé notre police à l'aide de notre générateur
         font = generator.generateFont(parameter);
+        // On tue notre générateur (il aura bien servi)
         generator.dispose();
 
+        // Je veux pouvoir récupérer la taille de mon texte pour pouvoir le centrer
         layout = new GlyphLayout();
+        // Je lui donne mon texte
         layout.setText(font, "Appuyez sur une touche pour commencer !");
     }
 
@@ -57,15 +62,16 @@ public class MainMenu implements Screen {
      */
     @Override
     public void show() {
+        // Je veux que mon background remplisse la fenêtre
         background_width = Gdx.graphics.getWidth();
         background_height = Gdx.graphics.getHeight();
 
+        // Je veux pouvoir détecter quand le joueur appuie sur un bouton
         Gdx.input.setInputProcessor(menuControl);
 
         // Clear the screen
         Gdx.gl.glClearColor(0f, 0f, 0f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
     }
 
     /**
@@ -76,7 +82,9 @@ public class MainMenu implements Screen {
     @Override
     public void render(float delta) {
         batch.begin();
+        // J'affiche le background
         batch.draw(background, 0, 0, background_width, background_height);
+        // J'affiche le texte centré
         font.draw(batch, layout, background_width * 0.5f  - layout.width * 0.5f, 100);
         batch.end();
     }
@@ -120,6 +128,7 @@ public class MainMenu implements Screen {
      */
     @Override
     public void dispose() {
+        font.dispose();
     }
 
     /**
