@@ -1,12 +1,17 @@
 package com.RPG.game.common;
 
+import com.RPG.game.phase2.entities.Projectile;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.utils.Disposable;
 
 import java.util.ArrayList;
 
@@ -14,16 +19,19 @@ import java.util.ArrayList;
  * cette classse va servir pour toutes les entités graphiques animées de la phase action
  *
  */
-public abstract class Entity
+public abstract class Entity implements Comparable<Entity>
 {
-    private float m_x, m_y;
+    private float m_x, m_y, m_z;
     protected boolean m_visible;
     float m_scale;
+    private float m_rotation; //en rad
     protected float m_elapsedTime;
+    protected float m_originX, m_originY;
     private ArrayList<Animation<TextureRegion>> m_animationList;
     private int m_animationIndex;
     protected boolean m_destroy; // indique si l'objet doit être détruit
     protected ArrayList<Entity> m_entitiesList;
+    protected AssetManager m_assetManager;
 
 
     /**
@@ -33,10 +41,14 @@ public abstract class Entity
      */
     public abstract void updateBehavior();
 
-    public Entity(ArrayList<Entity> entitiesList)
+    public Entity(ArrayList<Entity> entitiesList, AssetManager assetManager)
     {
         m_x=0;
         m_y=0;
+        m_z=0;
+        m_originX = 0;
+        m_originY = 0;
+        m_rotation = 0f;
         m_visible = true;
         m_scale = 1f;
         m_elapsedTime = 0f;
@@ -44,7 +56,7 @@ public abstract class Entity
         m_animationList = new ArrayList<Animation<TextureRegion>>();
         m_destroy = false;
         m_entitiesList = entitiesList;
-
+        m_assetManager = assetManager;
 
     }
 
@@ -53,8 +65,13 @@ public abstract class Entity
         if(m_visible && m_animationList.size() > 0 )
         {
             m_elapsedTime += Gdx.graphics.getDeltaTime();
-            TextureRegion t =  m_animationList.get(m_animationIndex).getKeyFrame(m_elapsedTime);
-            batch.draw(t, m_x, m_y, t.getRegionHeight()*m_scale, t.getRegionWidth()*m_scale);
+            TextureRegion tr =  m_animationList.get(m_animationIndex).getKeyFrame(m_elapsedTime);
+            //if(this instanceof Projectile) batch.setColor(Color.GREEN);
+            //batch.draw(tr, m_x - m_originX*m_scale, m_y - m_originY*m_scale, t.getRegionHeight()*m_scale, t.getRegionWidth()*m_scale);
+
+            batch.draw(tr, m_x, m_y, m_originX*m_scale, m_originY*m_scale,
+                       tr.getRegionWidth(),tr.getRegionHeight(), m_scale, m_scale, m_rotation);
+            //batch.setColor(Color.WHITE);
         }
 
     }
@@ -83,6 +100,14 @@ public abstract class Entity
         }
     }
 
+    @Override
+    public int compareTo(Entity entity)
+    {
+        if(m_z  > entity.m_z) return +1;
+        if(m_z  < entity.m_z) return -1;
+        return 0;
+    }
+
     protected Animation getCurrentAnimation() {return m_animationList.get(m_animationIndex);}
 
     public boolean getDestroy() {return m_destroy;}
@@ -91,8 +116,10 @@ public abstract class Entity
     public void setPosition(float x, float y) {m_x=x; m_y=y;}
     public void setX(float x) {m_x=x;}
     public void setY(float y) {m_y=y;}
+    public void setZ(float z) {m_z=z;}
     public float getX() {return m_x;}
     public float getY() {return m_y;}
+    public float getZ() {return m_z;}
 
     public void setVisibility(boolean visible) {m_visible = visible;}
     public boolean getVisibility() {return m_visible;}
@@ -100,4 +127,7 @@ public abstract class Entity
     public void scale(float scaleFactor) {m_scale*=scaleFactor;}
     public void setScale(float newScaleFactor) {m_scale=newScaleFactor;}
     public float getScale() {return m_scale;}
+    public int getAnimationIndex() {return m_animationIndex;}
+
+
 }

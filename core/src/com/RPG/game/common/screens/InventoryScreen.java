@@ -42,10 +42,10 @@ public class InventoryScreen implements Screen {
         Table table = new Table();
         table.setFillParent(true);
         stage.addActor(table);
-        for ( Item item : inventory.getInventory() ) {
+        /*for ( Item item : inventory.getInventory() ) {
             //table.add(item);
             table.row().pad(10, 10, 10, 10);
-        }
+        }*/
         ScrollPane scp = new ScrollPane(table);
 
 

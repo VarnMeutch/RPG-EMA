@@ -2,6 +2,7 @@ package com.RPG.game.phase2.entities;
 
 import com.RPG.game.common.Entity;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -17,9 +18,9 @@ public class Projectile extends Entity
     private int m_damage;
     //private Entity m_boundEntity;
 
-    public Projectile(ArrayList<Entity> entitiesList, float direction, float speed, float lifeSpan, int damage)
+    public Projectile(ArrayList<Entity> entitiesList, AssetManager assetManager, float direction, float speed, float lifeSpan, int damage)
     {
-        super(entitiesList);
+        super(entitiesList, assetManager);
         m_direction = direction;
         m_speed = speed;
         m_lifeSpan = lifeSpan;
@@ -30,12 +31,22 @@ public class Projectile extends Entity
 
         TextureAtlas textureAtlas = new TextureAtlas(Gdx.files.internal("Sprite/SpriteSheets/spriteSheet.atlas"));
         Animation animation = new Animation<TextureRegion>(1/10f,
-                textureAtlas.findRegion("Feu-1"),
-                textureAtlas.findRegion("Feu-2"),
-                textureAtlas.findRegion("Feu-3"));
+                textureAtlas.findRegion("bouleFeu1"),
+                textureAtlas.findRegion("bouleFeu2"),
+                textureAtlas.findRegion("bouleFeu3"),
+                textureAtlas.findRegion("bouleFeu4"));
         animation.setPlayMode(Animation.PlayMode.LOOP_PINGPONG);
         addAnimation(animation);
-        setScale(4f);
+        Animation animationE = new Animation<TextureRegion>(1/4f,
+                textureAtlas.findRegion("FeuExplo1"),
+                textureAtlas.findRegion("FeuExplo2"),
+                textureAtlas.findRegion("FeuExplo3"));
+        animationE.setPlayMode(Animation.PlayMode.NORMAL);
+        addAnimation(animationE);
+        setScale(1.5f);
+        m_originX = textureAtlas.findRegion("bouleFeu1").getRegionWidth()/2;
+        m_originY = textureAtlas.findRegion("bouleFeu1").getRegionHeight()/2;
+
     }
 
     public void updateBehavior()
@@ -44,8 +55,20 @@ public class Projectile extends Entity
         m_lifeTime +=  delta;
         if(m_lifeTime > m_lifeSpan)
         {
-            m_destroy = true;
-            setVisibility(false);
+            if(getAnimationIndex() == 0) // la boule de feu vient d'arriver à ça fin de vie
+            {
+                setAnimationIndex(1);
+                m_speed = 0;
+                scale(1.5f);
+            }
+            else
+            {
+                if(getCurrentAnimation().isAnimationFinished(m_elapsedTime)) //l'animation de destruction est finie
+                {
+                    m_destroy = true;
+                    setVisibility(false);
+                }
+            }
         }
         else
         {

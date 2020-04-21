@@ -4,23 +4,23 @@ size: 512,256
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-Feu-1
+Feu0
   rotate: false
-  xy: 100, 3
+  xy: 269, 19
   size: 28, 31
   orig: 28, 31
   offset: 0, 0
   index: -1
-Feu-2
+Feu1
   rotate: false
-  xy: 163, 18
+  xy: 379, 101
   size: 28, 31
   orig: 28, 31
   offset: 0, 0
   index: -1
-Feu-3
+Feu2
   rotate: false
-  xy: 130, 18
+  xy: 236, 19
   size: 31, 31
   orig: 31, 31
   offset: 0, 0
@@ -315,6 +315,34 @@ bouleFeu3
 bouleFeu4
   rotate: false
   xy: 66, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+firebolt0
+  rotate: false
+  xy: 100, 2
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+firebolt1
+  rotate: false
+  xy: 134, 17
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+firebolt2
+  rotate: false
+  xy: 168, 17
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+firebolt3
+  rotate: false
+  xy: 202, 18
   size: 32, 32
   orig: 32, 32
   offset: 0, 0

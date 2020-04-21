@@ -5,6 +5,7 @@ import com.RPG.game.dialogs.DialogHandler;
 import com.RPG.game.phase2.entities.Player;
 import com.RPG.game.ui.DialogueBox;
 import com.badlogic.gdx.*;
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -39,7 +40,7 @@ PhaseOneScreen implements Screen {
     float unitScale;
     OrthogonalTiledMapRenderer renderer;
     private Player m_player;
-
+    private AssetManager m_assetManager;
     //private Table root;
     //private DialogueBox dialogueBox;
 
@@ -55,7 +56,8 @@ PhaseOneScreen implements Screen {
         diag=new DialogHandler(skin);
         float unitScale = 1 / 32f;
         camera = new OrthographicCamera(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
-        m_player = new Player(camera);
+        m_assetManager = new AssetManager();
+        m_player = new Player(null, m_assetManager, camera);
         map = new TmxMapLoader().load("core/assets/Maps/EMA_RPG_STAGE1_MAP.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, unitScale);
 

@@ -7,6 +7,7 @@ import com.RPG.game.phase2.screens.PhaseTwoScreen;
 import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.assets.AssetManager;
 
 import java.util.ArrayList;
 
@@ -39,6 +40,8 @@ public class RPGMain extends Game {
 	public static final int DEBUG = 10;
 
 	public ArrayList<Integer> screenHistory;
+
+
 
 	// --- METHODS -----------------------------------------------------------------------------------------------------
 
@@ -110,12 +113,11 @@ public class RPGMain extends Game {
 	 * Called when the {@link  Application}is first created.
 	 */
 	@Override
-	public void create () {
+	public void create ()
+	{
 		screenHistory = new ArrayList<>();
 		Gdx.graphics.setWindowedMode(1024,768); // pour changer la taille de la fenetre
 		changeScreen(DEBUG);
 
 	}
-
-
 }
