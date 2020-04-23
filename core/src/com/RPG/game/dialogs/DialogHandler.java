@@ -3,6 +3,7 @@ package com.RPG.game.dialogs;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import org.w3c.dom.Node;
 
@@ -16,6 +17,7 @@ public class DialogHandler extends Dialog {
     private File currentFile;
     private boolean isActive;
     private ConversationHandler conv;
+    private String currentText;
 
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
@@ -23,7 +25,9 @@ public class DialogHandler extends Dialog {
     public DialogHandler(Skin skin){
         super("Dialogue", skin);
         isActive=false;
+        currentText="Ceci est un test";
     }
+
 
 
     // --- METHODS -----------------------------------------------------------------------------------------------------
@@ -38,6 +42,14 @@ public class DialogHandler extends Dialog {
         conv.test();
     }
 
+
+    public void displayText () {
+
+        text(currentText);
+    }
+
+
+
     public void activate(){
         isActive=true;
     }
@@ -47,11 +59,6 @@ public class DialogHandler extends Dialog {
     }
     public boolean isActive(){
         return isActive;
-    }
-
-
-    public String nextLine (){
-        return null;
     }
 
 
