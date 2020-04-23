@@ -65,10 +65,13 @@ public class PreferencesScreen implements Screen {
     public void show() {
         Gdx.input.setInputProcessor(stage);
         stage.addActor(diag);
+        diag.setFillParent(false);
+        diag.setPosition(0,0);
+        diag.setSize(Gdx.graphics.getWidth(),100);
 
         Label.LabelStyle lb= new Label.LabelStyle(font, BLACK);
         diag.text("qsjihhsdfsfhqbdfihqdfisqfj",lb);
-        diag.show(stage);
+
 
 
     }
