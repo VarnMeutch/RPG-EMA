@@ -14,12 +14,15 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.RPG.game.dialogs.DialogHandler;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+
+import static com.badlogic.gdx.graphics.Color.BLACK;
 
 public class PreferencesScreen implements Screen {
 
@@ -36,6 +39,7 @@ public class PreferencesScreen implements Screen {
 
 
 
+
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
     public PreferencesScreen(RPGMain game) {
 
@@ -44,10 +48,12 @@ public class PreferencesScreen implements Screen {
         stage = new Stage();
         batch = new SpriteBatch();
         font = new BitmapFont();
-        font.setColor(Color.WHITE);
+        font.setColor(BLACK);
         Skin skin = new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json"));
         diag=new DialogHandler(skin);
         camera = new OrthographicCamera(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+
+
     }
 
     // --- METHODS -----------------------------------------------------------------------------------------------------
@@ -57,6 +63,16 @@ public class PreferencesScreen implements Screen {
      */
     @Override
     public void show() {
+        Gdx.input.setInputProcessor(stage);
+        stage.addActor(diag);
+        diag.setFillParent(false);
+        diag.setPosition(0,0);
+        diag.setSize(Gdx.graphics.getWidth(),100);
+
+        Label.LabelStyle lb= new Label.LabelStyle(font, BLACK);
+        diag.text("qsjihhsdfsfhqbdfihqdfisqfj",lb);
+
+
 
     }
 
@@ -78,27 +94,27 @@ public class PreferencesScreen implements Screen {
         diag.activate();
         diag.chooseFile("Peter");
 
-        root.setFillParent(true);
-        stage.addActor(root);
-        dialogueBox = new DialogueBox(new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json")));
-        if(Gdx.input.isKeyPressed(Input.Keys.ENTER)){
-            dialogueBox = new DialogueBox(new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json")));
-            dialogueBox.animateText("Bienvenu aventurier!\nIci c'est l'EMA");
+        //root.setFillParent(true);
+        //stage.addActor(root);
+        //dialogueBox = new DialogueBox(new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json")));
+        if(Gdx.input.isKeyPressed(Input.Keys.ENTER)) {
+            //dialogueBox = new DialogueBox(new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json")));
+            //dialogueBox.animateText("Bienvenu aventurier!\nIci c'est l'EMA");
 
-            root.add(dialogueBox).expand().align(Align.bottom).pad(80f);
-            if( dialogueBox.isFinished()){
-                dialogueBox.clearChildren();
-
-        }
+            //root.add(dialogueBox).expand().align(Align.bottom).pad(80f);
+            // if( dialogueBox.isFinished()){
+            //dialogueBox.clearLabel();
 
         }
-
 
         stage.draw();
         stage.act(delta);
         batch.end();
+        }
 
-    }
+
+
+
 
     /**
      * @param width

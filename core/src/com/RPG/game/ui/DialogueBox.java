@@ -28,6 +28,10 @@ public class DialogueBox extends Table {
         this.add(textLabel).expand().align(Align.left).pad(5f);
     }
 
+    public void clearLabel(){
+        textLabel.clear();
+    }
+
     public void animateText(String text){
         targetText = text;
         animationTotalTime = text.length()*TIME_PER_CHARACTER;
