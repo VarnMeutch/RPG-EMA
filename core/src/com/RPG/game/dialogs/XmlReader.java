@@ -27,16 +27,20 @@ public class XmlReader {
     public Npc read() {
 
         try {
+            // On build l'outil pour lire les fichiers xml.
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             factory.setIgnoringElementContentWhitespace(true);
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document xml = builder.parse(xmlFile);
 
+            //On se met à la racine du document et on récupère le nom du npc.
             Element root = xml.getDocumentElement();
             Npc npc = new Npc();
             NamedNodeMap attList= root.getAttributes();
             npc.setNpcName(attList.item(0).getNodeValue());
 
+
+            // On va regarder parmi les enfants du noeuds Racine pour trouver et construir tous les noeuds Line.
             NodeList tabNoeuds = root.getChildNodes();
             Line [] lineList = new Line[tabNoeuds.getLength()];
 
@@ -44,41 +48,39 @@ public class XmlReader {
 
                 Node n = tabNoeuds.item(i);
                 Node nId = n.getAttributes().getNamedItem("id");
-                int id = Integer.parseInt(nId.getNodeValue());
+                int id = Integer.parseInt(nId.getNodeValue()); // On récupère L'id de la ligne.
 
                 NodeList nList = n.getChildNodes();
-               // for (int k =0 )
-
-                Node options = n.getFirstChild();
-                NodeList tabOptions = options.getChildNodes();
                 ArrayList<Option> optionList = new ArrayList<>();
                 ArrayList<Text> textList =new ArrayList<>();
 
+                //Pour une Ligne on récupère les objets Texte et les objets Options
+                for (int k =0; k<nList.getLength();k++){
 
-                for (int j=0; j<tabOptions.getLength(); j++ ){
+                    Node cuNode = nList.item(k);
 
-                    Node nOptions = tabOptions.item(j);
-
-                    if(nOptions.getNodeName().equals("text")){
-                        String contText = nOptions.getTextContent();
-                        Node tmps = nOptions.getAttributes().getNamedItem("name");
+                    if(cuNode.getNodeName().equals("text")){
+                        String contText = cuNode.getTextContent();
+                        Node tmps = cuNode.getAttributes().getNamedItem("name");
                         Text ajt = new Text(contText,tmps.getNodeValue());
                         textList.add(ajt);
                     }
 
-                    if (nOptions.getNodeName().equals("Option")){
-                        String contText = nOptions.getTextContent();
-                        Node tmps = nOptions.getAttributes().getNamedItem("action");
+                    if (cuNode.getNodeName().equals("Option")){
+                        String contText = cuNode.getTextContent();
+                        Node tmps = cuNode.getAttributes().getNamedItem("action");
                         int action = Integer.parseInt(tmps.getNodeValue());
                         Option ajt = new Option(action,contText);
                         optionList.add(ajt);
                     }
 
 
+
+
                 }
 
-                //Options opt = new Options(optionList,textList);
-               // lineList[i]=new Line(id,opt);
+                Options opt = new Options(optionList);
+                lineList[i]=new Line(id,opt,textList);
 
             }
 
