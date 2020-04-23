@@ -18,7 +18,10 @@ import java.util.ArrayList;
 
 public class Bat extends Entity implements Damageable
 {
-    HitBox m_hitbox;
+    private HitBox m_hitbox;
+    private float m_time;
+    private float m_timeLastAttack;
+    private float m_attackRate;
 
     public Bat(float x, float y, ArrayList<Entity> entitiesList, AssetManager assetManager)
     {
@@ -37,6 +40,9 @@ public class Bat extends Entity implements Damageable
         setScale(2f);
         m_originX = 31;
         m_originY = 7;
+        m_timeLastAttack = 0;
+        m_time = 0;
+        m_attackRate = 1f;
 
         m_hitbox = new RectHitBox(62*getScale(), 14*getScale(), -m_originX*getScale(), -m_originY*getScale());
     }
@@ -44,6 +50,8 @@ public class Bat extends Entity implements Damageable
     @Override
     public void updateBehavior()
     {
+        m_time += Gdx.graphics.getDeltaTime();
+
         for (Entity e : m_entitiesList)
         {
             if(e instanceof FireBall)
@@ -53,6 +61,10 @@ public class Bat extends Entity implements Damageable
                     m_destroy = true;
                 }
             }
+        }
+        if(m_time > m_attackRate + m_timeLastAttack)
+        {
+
         }
     }
 
