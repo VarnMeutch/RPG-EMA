@@ -158,7 +158,8 @@ public class DebugScreen implements Screen {
      */
     @Override
     public void resize(int width, int height) {
-        stage.getViewport().update(width, height, true);    }
+        stage.getViewport().update(width, height, true);
+    }
 
     /**
      * @see ApplicationListener#pause()

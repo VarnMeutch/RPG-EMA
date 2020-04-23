@@ -1,5 +1,8 @@
 package com.RPG.game.common.hitbox;
 
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+
 public abstract class HitBox
 {
     float m_offsetX, m_offsetY;
@@ -19,5 +22,6 @@ public abstract class HitBox
      * @return true si il y a collision
      */
     public abstract boolean testCollision(HitBox otherHitBox, float x1, float y1, float x2, float y2);
+    public abstract void drawHitBox(float x, float y, Color color, OrthographicCamera camera);
 }
 

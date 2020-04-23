@@ -1,6 +1,9 @@
 package com.RPG.game.phase2.entities;
 
 import com.RPG.game.common.Entity;
+import com.RPG.game.phase2.entities.projectile.FireBall;
+import com.RPG.game.phase2.entities.projectile.Projectile;
+import com.RPG.game.phase2.screens.PhaseTwoScreen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.assets.AssetManager;
@@ -23,7 +26,8 @@ public class Player extends Entity
         super(entitiesList, assetManager);
         m_camera = travellingCamera;
         setZ(1f);
-        TextureAtlas textureAtlas = new TextureAtlas(Gdx.files.internal("Sprite/SpriteSheets/spriteSheet.atlas"));
+        //TextureAtlas textureAtlas = new TextureAtlas(Gdx.files.internal("Sprite/SpriteSheets/spriteSheet.atlas"));
+        TextureAtlas textureAtlas = assetManager.get(PhaseTwoScreen.PATH_SPRITESHEET);
         Animation animation_upwardWalk = new Animation<TextureRegion>(1/10f,
                 textureAtlas.findRegion("Perso-4,1"),
                 textureAtlas.findRegion("Perso-4,2"),
@@ -132,9 +136,9 @@ public class Player extends Entity
             float speed = 12f;
             float lifespan = (float) Math.sqrt(Math.pow((float)mousePos.y - getY(),2)+
                     Math.pow((float)mousePos.x - getX(),2))*(1/(speed*60));
-            Projectile fireBall = new Projectile(m_entitiesList, m_assetManager,
+            FireBall fireBall = new FireBall(m_entitiesList, m_assetManager,
                     0.5f*(float)Math.PI-(float)Math.atan2((float)mousePos.x - getX(), (float)mousePos.y - getY()),
-                    speed, lifespan, 20);
+                    speed, lifespan);
             fireBall.setPosition(getX(), getY());
             m_entitiesList.add(fireBall);
 

@@ -1,5 +1,12 @@
 package com.RPG.game.common.hitbox;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import javafx.scene.Camera;
+
 public class RectHitBox extends HitBox
 {
 
@@ -10,6 +17,29 @@ public class RectHitBox extends HitBox
         super(offsetX, offsetY);
         m_width = width;
         m_height = height;
+    }
+
+    /**
+     * ne doit pas être appelée durant un spriteBatch !!!
+     * (l'utilisation de ShapeRenderer modifie les états openGL et entre en conflie avec
+     * un sprite batch)
+     * @param color
+     * @param camera
+     */
+    public void drawHitBox(float x, float y, Color color, OrthographicCamera camera)
+    {
+        Gdx.gl.glEnable(GL20.GL_BLEND);
+        Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
+
+        ShapeRenderer shapeRenderer = new ShapeRenderer();
+        shapeRenderer.setProjectionMatrix(camera.combined);
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Filled);
+        shapeRenderer.setColor(color);
+        shapeRenderer.rect(x + m_offsetX, y + m_offsetY, m_width, m_height);
+        shapeRenderer.end();
+        shapeRenderer.dispose();
+
+        Gdx.gl.glDisable(GL20.GL_BLEND);
     }
 
     public boolean testCollision(HitBox otherHitBox, float x1, float y1, float x2, float y2)
@@ -40,14 +70,14 @@ public class RectHitBox extends HitBox
              */
             if( (x1 < x2) && (x1 + m_width > x2) ) //côtés AB et CD
             {
-                if( ( y1-y2 < r) ||         //côté CD
-                    (y2-(y1+m_height) < r) ) //côté AB
+                if( ( Math.abs(-y1+y2) < r) ||         //côté CD
+                        (Math.abs(y2-(y1+m_height)) < r) ) //côté AB
                 return true;
             }
             if( (y1 < y2) && (y1 + m_height > y2) ) //côtés BC et DA
             {
-                if( ( x1-x2 < r) ||         //côté DA
-                     (x2-(x1+m_width) < r) ) //côté BC
+                if( ( Math.abs(-x1+x2) < r) ||         //côté DA
+                     (Math.abs(x2-(x1+m_width)) < r) ) //côté BC
                     return true;
             }
             //dernier cas à tester : si l'un des coins du rectangle est dans le cercle
