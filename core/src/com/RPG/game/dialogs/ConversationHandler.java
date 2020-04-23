@@ -32,7 +32,7 @@ public class ConversationHandler {
 
     }
 
-    public Line finLine(int id){
+    public Line findLine(int id){
         for (Line l:convTab){
             if(l.getId()==id){
                 return l;

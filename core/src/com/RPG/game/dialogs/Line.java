@@ -2,6 +2,7 @@ package com.RPG.game.dialogs;
 
 import java.util.ArrayList;
 
+
 public class Line {
 
     private int id;
