@@ -37,7 +37,7 @@ public class Projectile extends Entity
                 textureAtlas.findRegion("bouleFeu4"));
         animation.setPlayMode(Animation.PlayMode.LOOP_PINGPONG);
         addAnimation(animation);
-        Animation animationE = new Animation<TextureRegion>(1/4f,
+        Animation animationE = new Animation<TextureRegion>(1/10f,
                 textureAtlas.findRegion("FeuExplo1"),
                 textureAtlas.findRegion("FeuExplo2"),
                 textureAtlas.findRegion("FeuExplo3"));
@@ -47,16 +47,20 @@ public class Projectile extends Entity
         m_originX = textureAtlas.findRegion("bouleFeu1").getRegionWidth()/2;
         m_originY = textureAtlas.findRegion("bouleFeu1").getRegionHeight()/2;
 
+        setRotation((float) (m_direction*180f/Math.PI));
+
     }
 
     public void updateBehavior()
     {
+
         float delta = Gdx.graphics.getDeltaTime();
         m_lifeTime +=  delta;
         if(m_lifeTime > m_lifeSpan)
         {
             if(getAnimationIndex() == 0) // la boule de feu vient d'arriver à ça fin de vie
             {
+                m_elapsedTime = 0;
                 setAnimationIndex(1);
                 m_speed = 0;
                 scale(1.5f);

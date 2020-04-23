@@ -70,6 +70,7 @@ public class Player extends Entity
         left = Gdx.input.isKeyPressed(Input.Keys.Q);
         right = Gdx.input.isKeyPressed(Input.Keys.D);
 
+
         //on neutralise les directions opposées
         if(up && down)
         {

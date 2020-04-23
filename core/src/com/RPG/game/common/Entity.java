@@ -69,7 +69,7 @@ public abstract class Entity implements Comparable<Entity>
             //if(this instanceof Projectile) batch.setColor(Color.GREEN);
             //batch.draw(tr, m_x - m_originX*m_scale, m_y - m_originY*m_scale, t.getRegionHeight()*m_scale, t.getRegionWidth()*m_scale);
 
-            batch.draw(tr, m_x, m_y, m_originX*m_scale, m_originY*m_scale,
+            batch.draw(tr, m_x - m_originX, m_y - m_originY, m_originX, m_originY,
                        tr.getRegionWidth(),tr.getRegionHeight(), m_scale, m_scale, m_rotation);
             //batch.setColor(Color.WHITE);
         }
@@ -129,5 +129,7 @@ public abstract class Entity implements Comparable<Entity>
     public float getScale() {return m_scale;}
     public int getAnimationIndex() {return m_animationIndex;}
 
+    public void setRotation(float rotation) {m_rotation = rotation;}
+    public float getRotation() {return m_rotation;}
 
 }
