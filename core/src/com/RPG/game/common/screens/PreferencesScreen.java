@@ -28,7 +28,6 @@ public class PreferencesScreen implements Screen {
     private Table root = new Table();
     private DialogueBox dialogueBox;
     private DialogHandler diag;
-    private RPGMain game;
     SpriteBatch batch;
     private BitmapFont font;
     private Stage stage;
