@@ -80,11 +80,17 @@ public class PreferencesScreen implements Screen {
 
         root.setFillParent(true);
         stage.addActor(root);
+        dialogueBox = new DialogueBox(new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json")));
         if(Gdx.input.isKeyPressed(Input.Keys.ENTER)){
             dialogueBox = new DialogueBox(new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json")));
             dialogueBox.animateText("Bienvenu aventurier!\nIci c'est l'EMA");
 
             root.add(dialogueBox).expand().align(Align.bottom).pad(80f);
+            if( dialogueBox.isFinished()){
+                dialogueBox.clearChildren();
+
+        }
+
         }
 
 
