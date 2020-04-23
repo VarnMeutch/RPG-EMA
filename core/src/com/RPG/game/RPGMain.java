@@ -56,7 +56,7 @@ public class RPGMain extends Game {
 				this.setScreen(loadingScreen);
 				break;
 			case MAINMENU:
-				if(mainMenu == null) mainMenu = new MainMenu(this);
+				mainMenu = new MainMenu(this);
 				this.setScreen(mainMenu);
 				break;
 			case LOADGAME:

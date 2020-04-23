@@ -43,6 +43,7 @@ public class MainMenu implements Screen {
     private boolean triggered;
 
     private Stage stage;
+    private Table table;
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
     public MainMenu(RPGMain game) {
@@ -93,14 +94,14 @@ public class MainMenu implements Screen {
 
             batch = (SpriteBatch) stage.getBatch();
 
+            table = new Table();
             // Create a table that holds buttons
-            Table table = new Table();
             table.setFillParent(false);
             table.setPosition(0 + background_width / 2f,0 + background_height / 8f );
             stage.addActor(table);
 
             // Time to create buttons !
-            Skin skin = new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json"));
+            Skin skin = new Skin(Gdx.files.internal("core/assets/Skin/glassy2/glassy2-ui.json"));
             TextButton _continue = new TextButton("Continuer", skin);
             TextButton newGame = new TextButton("Nouveau", skin);
             TextButton preferences = new TextButton("Options", skin);
@@ -185,7 +186,13 @@ public class MainMenu implements Screen {
      */
     @Override
     public void resize(int width, int height) {
+        float scaleX, scaleY;
+        scaleX = (float) width / Gdx.graphics.getWidth();
+        scaleY = (float) height / Gdx.graphics.getHeight();
         Gdx.graphics.setWindowedMode(width, height);
+        if (triggered) {
+            table.scaleBy(scaleX, scaleY);
+        }
     }
 
     /**
