@@ -3,10 +3,7 @@ package com.RPG.game.common.screens;
 import com.RPG.game.RPGMain;
 import com.RPG.game.phase2.entities.Player;
 import com.RPG.game.ui.DialogueBox;
-import com.badlogic.gdx.ApplicationListener;
-import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.*;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -21,6 +18,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.RPG.game.dialogs.DialogHandler;
 import com.badlogic.gdx.utils.Align;
+import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class PreferencesScreen implements Screen {
 
@@ -33,12 +32,15 @@ public class PreferencesScreen implements Screen {
     private BitmapFont font;
     private Stage stage;
     OrthographicCamera camera;
+    private Viewport gameViewport;
 
 
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
     public PreferencesScreen(RPGMain game) {
+
         this.game = game;
+        gameViewport = new ScreenViewport();
         stage = new Stage();
         batch = new SpriteBatch();
         font = new BitmapFont();
@@ -78,11 +80,13 @@ public class PreferencesScreen implements Screen {
 
         root.setFillParent(true);
         stage.addActor(root);
+        if(Gdx.input.isKeyPressed(Input.Keys.ENTER)){
+            dialogueBox = new DialogueBox(new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json")));
+            dialogueBox.animateText("Bienvenu aventurier!\nIci c'est l'EMA");
 
-        dialogueBox = new DialogueBox(new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json")));
-        dialogueBox.animateText("Bienvenu aventurier!\nIci c'est l'EMA");
+            root.add(dialogueBox).expand().align(Align.bottom).pad(80f);
+        }
 
-        root.add(dialogueBox).expand().align(Align.bottom).pad(80f);
 
         stage.draw();
         stage.act(delta);
@@ -129,6 +133,7 @@ public class PreferencesScreen implements Screen {
      */
     @Override
     public void dispose() {
+        batch.dispose();
 
     }
 }
