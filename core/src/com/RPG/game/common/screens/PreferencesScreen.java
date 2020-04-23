@@ -1,24 +1,49 @@
 package com.RPG.game.common.screens;
 
 import com.RPG.game.RPGMain;
+import com.RPG.game.phase2.entities.Player;
 import com.RPG.game.ui.DialogueBox;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.RPG.game.dialogs.DialogHandler;
+import com.badlogic.gdx.utils.Align;
 
 public class PreferencesScreen implements Screen {
 
     // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
     private RPGMain game;
-    private Table root;
+    private Table root = new Table();
     private DialogueBox dialogueBox;
-    diag=new DialogHandler(skin);
+    private DialogHandler diag;
+    private RPGMain game;
+    SpriteBatch batch;
+    private BitmapFont font;
+    private Stage stage;
+
 
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
     public PreferencesScreen(RPGMain game) {
         this.game = game;
+        stage = new Stage();
+        batch = new SpriteBatch();
+        font = new BitmapFont();
+        font.setColor(Color.WHITE);
+        Skin skin = new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json"));
+        diag=new DialogHandler(skin);
     }
 
     // --- METHODS -----------------------------------------------------------------------------------------------------
@@ -43,7 +68,6 @@ public class PreferencesScreen implements Screen {
         System.out.println("test");
         diag.test();
 
-        root = new Table();
         root.setFillParent(true);
         stage.addActor(root);
 

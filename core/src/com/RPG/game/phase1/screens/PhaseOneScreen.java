@@ -41,6 +41,8 @@ PhaseOneScreen implements Screen {
     OrthogonalTiledMapRenderer renderer;
     private Player m_player;
     private AssetManager m_assetManager;
+    //private Table root;
+    //private DialogueBox dialogueBox;
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
     public PhaseOneScreen(RPGMain game) {
@@ -58,6 +60,8 @@ PhaseOneScreen implements Screen {
         m_player = new Player(null, m_assetManager, camera);
         map = new TmxMapLoader().load("core/assets/Maps/EMA_RPG_STAGE1_MAP.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, unitScale);
+
+        //initUI();
     }
 
     // --- METHODS -----------------------------------------------------------------------------------------------------
@@ -76,7 +80,7 @@ PhaseOneScreen implements Screen {
      */
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClearColor(1, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         m_player.updateBehavior();
         camera.update();
@@ -93,19 +97,22 @@ PhaseOneScreen implements Screen {
 
         batch.end();
 
-        /*root = new Table();
-        root.setFillParent(true);
-        stage.addActor(root);
-
-        dialogueBox = new DialogueBox(new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json")));
-        dialogueBox.animateText("Bienvenu aventurier!\nIci c'est l'EMA");
-
-        root.add(dialogueBox).expand().align(Align.bottom).pad(80f);
-
-        stage.draw();
-        stage.act(delta);*/
-
+        //stage.act(delta);
         }
+
+        /*public void initUI(){
+            Skin skin = new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json"));
+
+            stage = new Stage();
+            root = new Table();
+            root.setFillParent(true);
+            stage.addActor(root);
+
+            dialogueBox = new DialogueBox(skin);
+            dialogueBox.animateText("Bienvenu aventurier!\nTu es arrivé à l'EMA");
+
+            root.add(dialogueBox).expand().align(Align.bottom).pad(8f);
+        }*/
 
 
     /**
