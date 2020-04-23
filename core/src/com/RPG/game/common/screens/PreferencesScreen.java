@@ -32,6 +32,7 @@ public class PreferencesScreen implements Screen {
     SpriteBatch batch;
     private BitmapFont font;
     private Stage stage;
+    OrthographicCamera camera;
 
 
 
@@ -44,6 +45,7 @@ public class PreferencesScreen implements Screen {
         font.setColor(Color.WHITE);
         Skin skin = new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json"));
         diag=new DialogHandler(skin);
+        camera = new OrthographicCamera(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
     }
 
     // --- METHODS -----------------------------------------------------------------------------------------------------
@@ -63,9 +65,13 @@ public class PreferencesScreen implements Screen {
      */
     @Override
     public void render(float delta) {
-
-        Gdx.gl.glClearColor(0.2f, 0.2f, 0.2f, 1);
+        camera.update();
+        batch.setProjectionMatrix(camera.combined);
+        Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        batch.begin();
+
 
         diag.activate();
         diag.chooseFile("Peter");
@@ -80,6 +86,8 @@ public class PreferencesScreen implements Screen {
 
         stage.draw();
         stage.act(delta);
+        batch.end();
+
     }
 
     /**
