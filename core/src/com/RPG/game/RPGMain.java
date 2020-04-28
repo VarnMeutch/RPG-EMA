@@ -10,6 +10,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class RPGMain extends Game {
 
@@ -40,6 +41,8 @@ public class RPGMain extends Game {
 	public static final int DEBUG = 10;
 
 	public ArrayList<Integer> screenHistory;
+
+	public static Random random = new Random();
 
 
 

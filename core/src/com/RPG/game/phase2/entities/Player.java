@@ -1,7 +1,10 @@
 package com.RPG.game.phase2.entities;
 
 import com.RPG.game.common.Entity;
+import com.RPG.game.common.hitbox.HitBox;
+import com.RPG.game.common.hitbox.RectHitBox;
 import com.RPG.game.phase2.entities.projectile.FireBall;
+import com.RPG.game.phase2.entities.projectile.FireBolt;
 import com.RPG.game.phase2.entities.projectile.Projectile;
 import com.RPG.game.phase2.screens.PhaseTwoScreen;
 import com.badlogic.gdx.Gdx;
@@ -20,6 +23,7 @@ public class Player extends Entity
     //sert à actualiser la positon de la camera pour qu'elle suive le joueur
     private OrthographicCamera m_camera;
     private float m_timeLastSpell;
+    HitBox m_hitBox;
 
     public Player(ArrayList<Entity> entitiesList, AssetManager assetManager, OrthographicCamera travellingCamera)
     {
@@ -56,13 +60,11 @@ public class Player extends Entity
 
         m_originX = textureAtlas.findRegion("Perso-4,1").getRegionWidth()/2;
         m_originY = textureAtlas.findRegion("Perso-4,1").getRegionHeight()/2;
-
+        m_hitBox = new RectHitBox(48,128, -24, -64);
 
         //pour eviter de jouer une fois l'animation au début
         m_elapsedTime = getCurrentAnimation().getAnimationDuration();
         m_timeLastSpell = -0.2f;
-
-
         scale(2f);
     }
 
@@ -144,6 +146,16 @@ public class Player extends Entity
 
         }
 
+        for(Entity e : m_entitiesList)
+        {
+            if(e instanceof FireBolt)
+            {
+                if(((FireBolt) e).testHit(m_hitBox, getX(), getY()))
+                {
+                    e.destroy();;
+                }
+            }
+        }
 
         m_camera.position.set(getX()  + 48, getY()  + 48, 0);
     }

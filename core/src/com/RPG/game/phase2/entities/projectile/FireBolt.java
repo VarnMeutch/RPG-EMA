@@ -20,19 +20,19 @@ public class FireBolt extends Projectile
         super(entitiesList, assetManager, direction, speed, lifeSpan);
         //TextureAtlas textureAtlas = new TextureAtlas(Gdx.files.internal("Sprite/SpriteSheets/spriteSheet.atlas"));
         TextureAtlas textureAtlas = assetManager.get(PhaseTwoScreen.PATH_SPRITESHEET);
-        Animation animation = new Animation<TextureRegion>(1/10f,
-                textureAtlas.findRegion("firebolt0"),
-                textureAtlas.findRegion("firebolt1"),
-                textureAtlas.findRegion("firebolt2"),
-                textureAtlas.findRegion("firebolt3"));
+        Animation animation = new Animation<TextureRegion>(1/5f,
+                textureAtlas.findRegion("green_firebolt0"),
+                textureAtlas.findRegion("green_firebolt1"),
+                textureAtlas.findRegion("green_firebolt2"),
+                textureAtlas.findRegion("green_firebolt3"));
         animation.setPlayMode(Animation.PlayMode.LOOP_PINGPONG);
         addAnimation(animation);
-        setScale(1.5f);
         m_originX = 16;
-        m_originY = 8;
-
-        setRotation((float) (m_direction*180f/Math.PI));
-        m_hitbox = new CircularHitBox(10*getScale(), 0, 0);
+        m_originY = 24;
+        setScale(2.5f);
+        setRotation(-90+(float) ((m_direction)*180f/Math.PI));
+        //setColor(new Color(0f, 0f, 0f, 1f));
+        m_hitbox = new CircularHitBox(4*getScale(), 0, 0);
     }
 
     public void updateBehavior()
@@ -53,7 +53,7 @@ public class FireBolt extends Projectile
 
     public void drawHitBox(OrthographicCamera camera)
     {
-        m_hitbox.drawHitBox(getX(), getY(), new Color(0,0.5f,0.5f,0.5f), camera);
+        m_hitbox.drawHitBox(getX(), getY(), new Color(1f,0,0,0.5f), camera);
     }
 }
 

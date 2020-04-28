@@ -6,21 +6,21 @@ filter: Nearest,Nearest
 repeat: none
 Feu0
   rotate: false
-  xy: 269, 19
+  xy: 413, 101
   size: 28, 31
   orig: 28, 31
   offset: 0, 0
   index: -1
 Feu1
   rotate: false
-  xy: 379, 101
+  xy: 413, 68
   size: 28, 31
   orig: 28, 31
   offset: 0, 0
   index: -1
 Feu2
   rotate: false
-  xy: 236, 19
+  xy: 443, 151
   size: 31, 31
   orig: 31, 31
   offset: 0, 0
@@ -343,6 +343,34 @@ firebolt2
 firebolt3
   rotate: false
   xy: 202, 18
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+green_firebolt0
+  rotate: false
+  xy: 236, 18
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+green_firebolt1
+  rotate: false
+  xy: 270, 18
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+green_firebolt2
+  rotate: false
+  xy: 379, 100
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+green_firebolt3
+  rotate: false
+  xy: 379, 66
   size: 32, 32
   orig: 32, 32
   offset: 0, 0

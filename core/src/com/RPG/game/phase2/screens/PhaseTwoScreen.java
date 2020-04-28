@@ -8,6 +8,7 @@ import com.RPG.game.common.hitbox.RectHitBox;
 import com.RPG.game.phase2.entities.Player;
 import com.RPG.game.phase2.entities.ennemies.Bat;
 import com.RPG.game.phase2.entities.projectile.FireBall;
+import com.RPG.game.phase2.entities.projectile.FireBolt;
 import com.RPG.game.phase2.entities.projectile.Projectile;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
@@ -40,6 +41,7 @@ public class PhaseTwoScreen implements Screen {
     Sprite  sprite_rock;
     OrthographicCamera camera;
     private Player m_player;
+    FireBolt fireBolt;
 
     private ArrayList<Entity> m_entitiesList;
     private AssetManager m_assetManager;
@@ -47,7 +49,6 @@ public class PhaseTwoScreen implements Screen {
     public static final String PATH_SPRITESHEET = new String("Sprite/SpriteSheets/spriteSheet.atlas");
     public static final  String PATH_ROCK = new String("core/assets/Sprite/test-sprites/rock.png");
 
-    Random random = new Random();
 
     //test hitbox
     //HitBox hb_test1 = new RectHitBox(48,128, -24, -64);
@@ -79,20 +80,19 @@ public class PhaseTwoScreen implements Screen {
         m_entitiesList = new ArrayList<Entity>();
 
         m_player = new Player(m_entitiesList, m_assetManager, camera);
+        m_entitiesList.add(m_player);
         for(int i=0; i<5; i+=1)
         {
-            Bat bat = new Bat(random.nextInt(400)-200 , random.nextInt(400)-200, m_entitiesList, m_assetManager);
+            Bat bat = new Bat(RPGMain.random.nextInt(1000)-500 , RPGMain.random.nextInt(1000)-500, m_entitiesList, m_assetManager);
 
             m_entitiesList.add(bat);
         }
 
-
-        m_entitiesList.add(m_player);
-
-
-
+        fireBolt = new FireBolt(m_entitiesList, m_assetManager, (float) Math.PI/2, 1, +1f/+0f);
+        m_entitiesList.add(fireBolt);
 
     }
+
 
     // --- METHODS -----------------------------------------------------------------------------------------------------
 
@@ -144,8 +144,8 @@ public class PhaseTwoScreen implements Screen {
         shapeRenderer.setProjectionMatrix(camera.combined);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
         shapeRenderer.setColor(0, 1, 1, 1);
-        shapeRenderer.line(m_bat.getX()-5, m_bat.getY(), m_bat.getX()+5, m_bat.getY());
-        shapeRenderer.line(m_bat.getX(), m_bat.getY()-5, m_bat.getX(), m_bat.getY()+5);
+        shapeRenderer.line(fireBolt.getX()-5, fireBolt.getY(), fireBolt.getX()+5, fireBolt.getY());
+        shapeRenderer.line(fireBolt.getX(), fireBolt.getY()-5, fireBolt.getX(), fireBolt.getY()+5);
         shapeRenderer.end();
         shapeRenderer.dispose();*/
         /*if(!hb_test1.testCollision(hb_test2, m_player.getX(), m_player.getY(), 0, 0) )
@@ -161,12 +161,12 @@ public class PhaseTwoScreen implements Screen {
 
         hb_test2.drawHitBox(0, 0,
                 new Color(0,1,0,0.5f), camera);*/
-        /*if(!m_bat.getDestroy())m_bat.drawHitBox(camera);
-        for(Entity e: m_entitiesList)
+        //if(!m_bat.getDestroy())m_bat.drawHitBox(camera);
+        /*for(Entity e: m_entitiesList)
         {
-            if(e instanceof FireBall)
+            if(e instanceof FireBolt)
             {
-                ((FireBall) e).drawHitBox(camera);
+                ((FireBolt) e).drawHitBox(camera);
             }
         }*/
     }
