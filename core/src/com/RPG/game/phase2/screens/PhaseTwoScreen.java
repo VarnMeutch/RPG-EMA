@@ -46,8 +46,8 @@ public class PhaseTwoScreen implements Screen {
     private ArrayList<Entity> m_entitiesList;
     private AssetManager m_assetManager;
 
-    public static final String PATH_SPRITESHEET = new String("Sprite/SpriteSheets/spriteSheet.atlas");
-    public static final  String PATH_ROCK = new String("core/assets/Sprite/test-sprites/rock.png");
+    public static final String PATH_SPRITESHEET = "Sprite/SpriteSheets/spriteSheet.atlas";
+    public static final  String PATH_ROCK = "core/assets/Sprite/test-sprites/rock.png";
 
 
     //test hitbox
@@ -59,6 +59,8 @@ public class PhaseTwoScreen implements Screen {
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
     public PhaseTwoScreen(RPGMain game)
     {
+        Gdx.graphics.setWindowedMode(1280,800);
+
         this.game = game;
         camera = new OrthographicCamera(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
         batch = new SpriteBatch();
@@ -77,11 +79,11 @@ public class PhaseTwoScreen implements Screen {
         sprite_rock.scale(2f);
         sprite_rock.setPosition(200,200);
 
-        m_entitiesList = new ArrayList<Entity>();
+        m_entitiesList = new ArrayList<>();
 
         m_player = new Player(m_entitiesList, m_assetManager, camera);
         m_entitiesList.add(m_player);
-        for(int i=0; i<5; i+=1)
+        for(int i=0; i<7; i+=1)
         {
             Bat bat = new Bat(RPGMain.random.nextInt(1000)-500 , RPGMain.random.nextInt(1000)-500, m_entitiesList, m_assetManager);
 
@@ -90,6 +92,7 @@ public class PhaseTwoScreen implements Screen {
 
         fireBolt = new FireBolt(m_entitiesList, m_assetManager, (float) Math.PI/2, 1, +1f/+0f);
         m_entitiesList.add(fireBolt);
+
 
     }
 
@@ -100,8 +103,9 @@ public class PhaseTwoScreen implements Screen {
      * Called when this screen becomes the current screen for a {@link Game}.
      */
     @Override
-    public void show() {
-
+    public void show()
+    {
+        Gdx.graphics.setWindowedMode(1280,800);
     }
 
     /**
@@ -140,6 +144,8 @@ public class PhaseTwoScreen implements Screen {
             m_entitiesList.get(i).draw(batch);
         }
         batch.end();
+
+        //m_player.drawHitBox(camera);
         /*ShapeRenderer shapeRenderer = new ShapeRenderer();
         shapeRenderer.setProjectionMatrix(camera.combined);
         shapeRenderer.begin(ShapeRenderer.ShapeType.Line);

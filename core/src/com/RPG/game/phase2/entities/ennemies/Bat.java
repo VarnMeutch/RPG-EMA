@@ -83,10 +83,22 @@ public class Bat extends Entity implements Damageable
                     m_destroy = true;
                 }
             }
+            if(e instanceof Bat && e!=this)
+            {
+                if(m_hitbox.testCollision(((Bat) e).m_hitbox,getX(),getY(),e.getX(),e.getY()))
+                {
+                    m_frameNextJump+=(int)(RPGMain.random.nextGaussian()*2f + 10f );
+                    float bat_direction = (float)Math.PI/2f-(float)Math.atan2(e.getX() - getX(), e.getY() - getY());
+                    m_jumpDirection = (float) (-bat_direction + (float)RPGMain.random.nextGaussian()*Math.PI/6);
+
+                }
+            }
+
         }
         if(m_frameCount > m_attackRate + m_frameLastAttack)
         {
             float direction=0.5f*(float)Math.PI-(float)Math.atan2(m_player.getX() - getX(), m_player.getY() - getY());
+            direction += (RPGMain.random.nextGaussian() * Math.PI) / 18;
             FireBolt fireBolt = new FireBolt(m_entitiesList,m_assetManager, direction, 6, 10);
             fireBolt.setPosition(getX(), getY());
             m_entitiesList.add(fireBolt);
@@ -103,7 +115,11 @@ public class Bat extends Entity implements Damageable
             if(player_distance > 500) sigma/=8;
             float m = player_direction;
             if(player_distance < 200) m*=-1;
-            m_jumpDirection = (float)RPGMain.random.nextGaussian()*sigma + m;
+            //m_jumpDirection = (float)RPGMain.random.nextGaussian()*sigma + m;
+            if(RPGMain.random.nextFloat() > 0.5)
+                m_jumpDirection = (float)RPGMain.random.nextGaussian()*sigma + (m-(float)Math.PI/4);
+            else
+                m_jumpDirection = (float)RPGMain.random.nextGaussian()*sigma + (m+(float)Math.PI/4);
             m_frameNextJump+=(int)(RPGMain.random.nextGaussian()*2f + 10f );
         }
 

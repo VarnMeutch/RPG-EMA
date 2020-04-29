@@ -10,6 +10,7 @@ import com.RPG.game.phase2.screens.PhaseTwoScreen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -22,8 +23,11 @@ public class Player extends Entity
 {
     //sert à actualiser la positon de la camera pour qu'elle suive le joueur
     private OrthographicCamera m_camera;
-    private float m_timeLastSpell;
-    HitBox m_hitBox;
+    private long m_frameLastSpell;
+    private long m_frameCount;
+    private HitBox m_hitBox;
+    long m_frameEndIntangibility;
+
 
     public Player(ArrayList<Entity> entitiesList, AssetManager assetManager, OrthographicCamera travellingCamera)
     {
@@ -58,18 +62,22 @@ public class Player extends Entity
         addAnimation(animation_rightWalk);
         addAnimation(animation_leftWalk);
 
-        m_originX = textureAtlas.findRegion("Perso-4,1").getRegionWidth()/2;
-        m_originY = textureAtlas.findRegion("Perso-4,1").getRegionHeight()/2;
-        m_hitBox = new RectHitBox(48,128, -24, -64);
+        m_originX = textureAtlas.findRegion("Perso-4,1").getRegionWidth()/2f;
+        m_originY = textureAtlas.findRegion("Perso-4,1").getRegionHeight()/2f;
+        m_hitBox = new RectHitBox(32,72, -16, -64);
+        //height = 128 si on cveut inculre la tête dans la hitbox
 
         //pour eviter de jouer une fois l'animation au début
         m_elapsedTime = getCurrentAnimation().getAnimationDuration();
-        m_timeLastSpell = -0.2f;
+        m_frameLastSpell = -1000;
         scale(2f);
+        m_frameCount=0;
+        m_frameEndIntangibility=0;
     }
 
     public void updateBehavior()
     {
+        m_frameCount+=1;
         boolean up, left, right, down;
         up = Gdx.input.isKeyPressed(Input.Keys.Z);
         down = Gdx.input.isKeyPressed(Input.Keys.S);
@@ -129,17 +137,17 @@ public class Player extends Entity
             getCurrentAnimation().setPlayMode(Animation.PlayMode.NORMAL);
         }
 
-        if(Gdx.input.isButtonPressed(Input.Buttons.LEFT) && m_timeLastSpell + 0.4f<m_elapsedTime )
+        if(Gdx.input.isButtonPressed(Input.Buttons.LEFT) && m_frameCount >  m_frameLastSpell + 24 )
         {
-            m_timeLastSpell = m_elapsedTime;
+            m_frameLastSpell = m_frameCount;
             Vector3 mousePos = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
             m_camera.unproject(mousePos);
             //Vector3 clickPos = new Vector3();
             float speed = 12f;
-            float lifespan = (float) Math.sqrt(Math.pow((float)mousePos.y - getY(),2)+
-                    Math.pow((float)mousePos.x - getX(),2))*(1/(speed*60));
+            float lifespan = (float) Math.sqrt(Math.pow(mousePos.y - getY(),2)+
+                    Math.pow(mousePos.x - getX(),2))*(1/(speed*60));
             FireBall fireBall = new FireBall(m_entitiesList, m_assetManager,
-                    0.5f*(float)Math.PI-(float)Math.atan2((float)mousePos.x - getX(), (float)mousePos.y - getY()),
+                    0.5f*(float)Math.PI-(float)Math.atan2(mousePos.x - getX(), mousePos.y - getY()),
                     speed, lifespan);
             fireBall.setPosition(getX(), getY());
             m_entitiesList.add(fireBall);
@@ -152,11 +160,30 @@ public class Player extends Entity
             {
                 if(((FireBolt) e).testHit(m_hitBox, getX(), getY()))
                 {
-                    e.destroy();;
+                    e.destroy();
+                    if(m_frameCount > m_frameEndIntangibility)
+                    {
+                        m_frameEndIntangibility = m_frameCount + 10;
+                    }
                 }
             }
         }
 
+        if(m_frameCount < m_frameEndIntangibility)
+            setColor(new Color(1,0,0,1));
+        else
+            setColor(Color.WHITE);
+
         m_camera.position.set(getX()  + 48, getY()  + 48, 0);
+    }
+
+    public boolean testCollision(HitBox hitBox, float x, float y)
+    {
+        return m_hitBox.testCollision(hitBox, getX(), getY(), x, y);
+    }
+
+    public void drawHitBox(OrthographicCamera camera)
+    {
+        m_hitBox.drawHitBox(getX(), getY(), new Color(0f,1,0,0.5f), camera);
     }
 }
