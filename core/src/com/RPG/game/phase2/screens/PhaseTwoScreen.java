@@ -10,6 +10,7 @@ import com.RPG.game.phase2.entities.ennemies.Bat;
 import com.RPG.game.phase2.entities.projectile.FireBall;
 import com.RPG.game.phase2.entities.projectile.FireBolt;
 import com.RPG.game.phase2.entities.projectile.Projectile;
+import com.RPG.game.phase2.ActionHUD;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
@@ -41,7 +42,7 @@ public class PhaseTwoScreen implements Screen {
     Sprite  sprite_rock;
     OrthographicCamera camera;
     private Player m_player;
-    FireBolt fireBolt;
+    private ActionHUD m_hud;
 
     private ArrayList<Entity> m_entitiesList;
     private AssetManager m_assetManager;
@@ -80,8 +81,10 @@ public class PhaseTwoScreen implements Screen {
         sprite_rock.setPosition(200,200);
 
         m_entitiesList = new ArrayList<>();
+        m_hud = new ActionHUD(m_assetManager);
 
         m_player = new Player(m_entitiesList, m_assetManager, camera);
+        m_player.setHUD(m_hud);
         m_entitiesList.add(m_player);
         for(int i=0; i<7; i+=1)
         {
@@ -89,10 +92,6 @@ public class PhaseTwoScreen implements Screen {
 
             m_entitiesList.add(bat);
         }
-
-        fireBolt = new FireBolt(m_entitiesList, m_assetManager, (float) Math.PI/2, 1, +1f/+0f);
-        m_entitiesList.add(fireBolt);
-
 
     }
 
@@ -145,6 +144,7 @@ public class PhaseTwoScreen implements Screen {
         }
         batch.end();
 
+        m_hud.draw();
         //m_player.drawHitBox(camera);
         /*ShapeRenderer shapeRenderer = new ShapeRenderer();
         shapeRenderer.setProjectionMatrix(camera.combined);
@@ -212,5 +212,6 @@ public class PhaseTwoScreen implements Screen {
     {
         batch.dispose();
         m_assetManager.dispose();
+        m_hud.dispose();
     }
 }

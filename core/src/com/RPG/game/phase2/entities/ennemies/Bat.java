@@ -49,7 +49,7 @@ public class Bat extends Entity implements Damageable
         m_originX = 31;
         m_originY = 7;
         m_frameCount = 0;
-        m_attackRate = 80; //nombre de frame entre chaques attaques
+        m_attackRate = 100; //nombre de frame entre chaques attaques
         m_frameLastAttack = RPGMain.random.nextInt(30);
         m_frameNextJump = 0;
         m_jumpDirection = 0;

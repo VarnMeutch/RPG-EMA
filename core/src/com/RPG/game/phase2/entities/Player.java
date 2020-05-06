@@ -3,6 +3,7 @@ package com.RPG.game.phase2.entities;
 import com.RPG.game.common.Entity;
 import com.RPG.game.common.hitbox.HitBox;
 import com.RPG.game.common.hitbox.RectHitBox;
+import com.RPG.game.phase2.ActionHUD;
 import com.RPG.game.phase2.entities.projectile.FireBall;
 import com.RPG.game.phase2.entities.projectile.FireBolt;
 import com.RPG.game.phase2.entities.projectile.Projectile;
@@ -26,7 +27,9 @@ public class Player extends Entity
     private long m_frameLastSpell;
     private long m_frameCount;
     private HitBox m_hitBox;
-    long m_frameEndIntangibility;
+    private long m_frameEndIntangibility;
+    private int m_health;
+    private ActionHUD m_hud;
 
 
     public Player(ArrayList<Entity> entitiesList, AssetManager assetManager, OrthographicCamera travellingCamera)
@@ -73,6 +76,8 @@ public class Player extends Entity
         scale(2f);
         m_frameCount=0;
         m_frameEndIntangibility=0;
+        m_health=10;
+        m_hud=null;
     }
 
     public void updateBehavior()
@@ -163,7 +168,8 @@ public class Player extends Entity
                     e.destroy();
                     if(m_frameCount > m_frameEndIntangibility)
                     {
-                        m_frameEndIntangibility = m_frameCount + 10;
+                        m_frameEndIntangibility = m_frameCount + 60;
+                        m_health-=1;
                     }
                 }
             }
@@ -175,6 +181,8 @@ public class Player extends Entity
             setColor(Color.WHITE);
 
         m_camera.position.set(getX()  + 48, getY()  + 48, 0);
+        if(m_hud != null) m_hud.update(m_health);
+
     }
 
     public boolean testCollision(HitBox hitBox, float x, float y)
@@ -186,4 +194,6 @@ public class Player extends Entity
     {
         m_hitBox.drawHitBox(getX(), getY(), new Color(0f,1,0,0.5f), camera);
     }
+
+    public void setHUD(ActionHUD hud) {m_hud = hud;}
 }

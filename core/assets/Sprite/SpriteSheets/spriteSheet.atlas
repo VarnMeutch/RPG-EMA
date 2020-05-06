@@ -6,372 +6,386 @@ filter: Nearest,Nearest
 repeat: none
 Feu0
   rotate: false
-  xy: 413, 101
+  xy: 447, 108
   size: 28, 31
   orig: 28, 31
   offset: 0, 0
   index: -1
 Feu1
   rotate: false
-  xy: 413, 68
+  xy: 446, 7
   size: 28, 31
   orig: 28, 31
   offset: 0, 0
   index: -1
 Feu2
   rotate: false
-  xy: 443, 151
+  xy: 413, 24
   size: 31, 31
   orig: 31, 31
   offset: 0, 0
   index: -1
 FeuExplo1
   rotate: false
-  xy: 478, 215
+  xy: 478, 206
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 FeuExplo2
   rotate: false
-  xy: 478, 181
+  xy: 478, 172
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 FeuExplo3
   rotate: false
-  xy: 375, 134
+  xy: 375, 125
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 OeilVolant1
   rotate: false
-  xy: 375, 168
+  xy: 375, 159
   size: 62, 14
   orig: 62, 14
   offset: 0, 0
   index: -1
 OeilVolant2
   rotate: false
-  xy: 66, 36
+  xy: 66, 27
   size: 59, 13
   orig: 59, 13
   offset: 0, 0
   index: -1
 OeilVolant3
   rotate: false
-  xy: 2, 11
+  xy: 2, 2
   size: 62, 14
   orig: 62, 14
   offset: 0, 0
   index: -1
 OeilVolant4
   rotate: false
-  xy: 2, 27
+  xy: 2, 18
   size: 62, 22
   orig: 62, 22
   offset: 0, 0
   index: -1
 Perso-1,0
   rotate: false
-  xy: 2, 183
+  xy: 2, 174
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 Perso-1,1
   rotate: false
-  xy: 2, 117
+  xy: 2, 108
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 Perso-1,2
   rotate: false
-  xy: 68, 183
+  xy: 68, 174
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 Perso-2,0
   rotate: false
-  xy: 2, 51
+  xy: 2, 42
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 Perso-2,2
   rotate: false
-  xy: 2, 51
+  xy: 2, 42
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 Perso-2,1
   rotate: false
-  xy: 68, 117
+  xy: 68, 108
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 Perso-2,3
   rotate: false
-  xy: 134, 183
+  xy: 134, 174
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 Perso-3,0
   rotate: false
-  xy: 68, 51
+  xy: 68, 42
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 Perso-3,2
   rotate: false
-  xy: 68, 51
+  xy: 68, 42
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 Perso-3,1
   rotate: false
-  xy: 134, 117
+  xy: 134, 108
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 Perso-3,3
   rotate: false
-  xy: 200, 183
+  xy: 200, 174
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 Perso-4,0
   rotate: false
-  xy: 134, 51
+  xy: 134, 42
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 Perso-4,2
   rotate: false
-  xy: 134, 51
+  xy: 134, 42
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 Perso-4,1
   rotate: false
-  xy: 200, 117
+  xy: 200, 108
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 Perso-4,3
   rotate: false
-  xy: 266, 183
+  xy: 266, 174
   size: 64, 64
   orig: 64, 64
   offset: 0, 0
   index: -1
 Tt-0,0
   rotate: false
-  xy: 406, 184
+  xy: 406, 175
   size: 34, 63
   orig: 34, 63
   offset: 0, 0
   index: -1
 Tt-0,1
   rotate: false
-  xy: 442, 184
+  xy: 442, 175
   size: 34, 63
   orig: 34, 63
   offset: 0, 0
   index: -1
 Tt-0,2
   rotate: false
-  xy: 442, 184
+  xy: 442, 175
   size: 34, 63
   orig: 34, 63
   offset: 0, 0
   index: -1
 Tt-0,3
   rotate: false
-  xy: 237, 52
+  xy: 237, 43
   size: 34, 63
   orig: 34, 63
   offset: 0, 0
   index: -1
 Tt-1,0
   rotate: false
-  xy: 200, 52
+  xy: 200, 43
   size: 35, 63
   orig: 35, 63
   offset: 0, 0
   index: -1
 Tt-1,1
   rotate: false
-  xy: 200, 52
+  xy: 200, 43
   size: 35, 63
   orig: 35, 63
   offset: 0, 0
   index: -1
 Tt-1,2
   rotate: false
-  xy: 266, 118
+  xy: 266, 109
   size: 35, 63
   orig: 35, 63
   offset: 0, 0
   index: -1
 Tt-1,3
   rotate: false
-  xy: 266, 118
+  xy: 266, 109
   size: 35, 63
   orig: 35, 63
   offset: 0, 0
   index: -1
 Tt-2,0
   rotate: false
-  xy: 332, 184
+  xy: 332, 175
   size: 35, 63
   orig: 35, 63
   offset: 0, 0
   index: -1
 Tt-2,1
   rotate: false
-  xy: 332, 184
+  xy: 332, 175
   size: 35, 63
   orig: 35, 63
   offset: 0, 0
   index: -1
 Tt-2,2
   rotate: false
-  xy: 369, 184
+  xy: 369, 175
   size: 35, 63
   orig: 35, 63
   offset: 0, 0
   index: -1
 Tt-2,3
   rotate: false
-  xy: 369, 184
+  xy: 369, 175
   size: 35, 63
   orig: 35, 63
   offset: 0, 0
   index: -1
 Tt-3,0
   rotate: false
-  xy: 273, 52
+  xy: 273, 43
   size: 34, 64
   orig: 34, 64
   offset: 0, 0
   index: -1
 Tt-3,1
   rotate: false
-  xy: 303, 118
+  xy: 303, 109
   size: 34, 63
   orig: 34, 63
   offset: 0, 0
   index: -1
 Tt-3,2
   rotate: false
-  xy: 339, 118
+  xy: 339, 109
   size: 34, 64
   orig: 34, 64
   offset: 0, 0
   index: -1
 Tt-3,3
   rotate: false
-  xy: 309, 53
+  xy: 309, 44
   size: 34, 63
   orig: 34, 63
   offset: 0, 0
   index: -1
 bouleFeu1
   rotate: false
-  xy: 345, 84
+  xy: 345, 75
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 bouleFeu2
   rotate: false
-  xy: 345, 50
+  xy: 345, 41
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 bouleFeu3
   rotate: false
-  xy: 409, 134
+  xy: 409, 125
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 bouleFeu4
   rotate: false
-  xy: 66, 2
+  xy: 379, 91
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 firebolt0
   rotate: false
-  xy: 100, 2
+  xy: 379, 57
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 firebolt1
   rotate: false
-  xy: 134, 17
+  xy: 413, 91
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 firebolt2
   rotate: false
-  xy: 168, 17
+  xy: 413, 57
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 firebolt3
   rotate: false
-  xy: 202, 18
+  xy: 443, 141
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 green_firebolt0
   rotate: false
-  xy: 236, 18
+  xy: 477, 138
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 green_firebolt1
   rotate: false
-  xy: 270, 18
+  xy: 447, 74
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 green_firebolt2
   rotate: false
-  xy: 379, 100
+  xy: 447, 40
   size: 32, 32
   orig: 32, 32
   offset: 0, 0
   index: -1
 green_firebolt3
   rotate: false
-  xy: 379, 66
+  xy: 379, 23
   size: 32, 32
   orig: 32, 32
+  offset: 0, 0
+  index: -1
+healthBar_full
+  rotate: false
+  xy: 66, 9
+  size: 48, 16
+  orig: 48, 16
+  offset: 0, 0
+  index: -1
+healthBar_half
+  rotate: false
+  xy: 127, 24
+  size: 48, 16
+  orig: 48, 16
   offset: 0, 0
   index: -1
