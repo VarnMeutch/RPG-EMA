@@ -22,6 +22,7 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import static com.RPG.game.dialogs.DialogHandler.LB;
 import static com.badlogic.gdx.graphics.Color.BLACK;
 
 public class PreferencesScreen implements Screen {
@@ -65,17 +66,8 @@ public class PreferencesScreen implements Screen {
     public void show() {
 
         Gdx.input.setInputProcessor(stage);
-        diag.isActive();
-        stage.addActor(diag);
-        diag.settheStage(stage);
-        diag.setFillParent(false);
-        diag.setPosition(0,0);
-        diag.setSize(Gdx.graphics.getWidth(),150);
 
-        Label.LabelStyle lb= new Label.LabelStyle(font, BLACK);
-        diag.setLb(lb);
-        diag.text("qsjihhsdfsfhqbdfihqdfisqfj",lb);
-        diag.key(Input.Keys.ENTER, "next");
+
 
     }
 
@@ -92,14 +84,19 @@ public class PreferencesScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         batch.begin();
+
         if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)){
-            diag.chooseFile("Peter");
-            diag.getContentTable();
-            Label.LabelStyle lb= new Label.LabelStyle(font, BLACK);
-            diag.text("next",lb);
-
+            diag.isActive();
+            stage.addActor(diag);
+            diag.settheStage(stage);
+            diag.setFillParent(false);
+            diag.setPosition(0,0);
+            diag.setSize(Gdx.graphics.getWidth(),150);
+            diag.text("qsjihhsdfsfhqbdfihqdfisqfj",LB);
         }
-
+        if(Gdx.input.isKeyJustPressed(Input.Keys.ENTER)){
+            diag.key(Input.Keys.ENTER, "next");
+        }
 
         stage.draw();
         stage.act(delta);

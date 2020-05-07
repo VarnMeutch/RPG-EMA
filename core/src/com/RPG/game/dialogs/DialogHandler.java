@@ -2,6 +2,7 @@ package com.RPG.game.dialogs;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -18,9 +19,11 @@ public class DialogHandler extends Dialog {
 
     private String npcName;
     private File currentFile;
-     Skin Skin;
+    Skin Skin;
     private Stage stage;
-    Label.LabelStyle lb;
+    static BitmapFont FONT = new BitmapFont();
+    Skin skin = new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json"));
+    public static Label.LabelStyle LB = new Label.LabelStyle(FONT, BLACK);
 
 
     private boolean isActive;
@@ -47,9 +50,6 @@ public class DialogHandler extends Dialog {
         conv=new ConversationHandler(currentFile);
     }
 
-    public void setLb(Label.LabelStyle lb) {
-        this.lb = lb;
-    }
 
     @Override
     protected void result(Object object) {
@@ -61,7 +61,7 @@ public class DialogHandler extends Dialog {
         diag.setFillParent(false);
         diag.setPosition(0,0);
         diag.setSize(Gdx.graphics.getWidth(),150);
-        diag.text("next",lb);
+        diag.text("next",LB);
         diag.key(Input.Keys.ENTER, "next");
 
 
