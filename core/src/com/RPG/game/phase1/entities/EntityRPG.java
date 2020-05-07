@@ -41,7 +41,7 @@ public abstract class EntityRPG extends Entity {
 
     public void setGridX(int gridX) {
         this.gridX = gridX;
-        setY(gridX * gridSize);
+        setX(gridX * gridSize);
         moving = false;
     }
 
@@ -53,7 +53,7 @@ public abstract class EntityRPG extends Entity {
 
     public void setGridPosition(int gridX, int gridY){
         setGridX(gridX);
-        setGridX(gridY);
+        setGridY(gridY);
     }
 
     // --------------------------- Methods -------------------------------------------------------------------
@@ -62,11 +62,43 @@ public abstract class EntityRPG extends Entity {
      * @param direction UP, RIGHT, LEFT ou DOWN
      * @param duration # de frame pour faire le mouvement
      */
-    public void smoothMoveTo(int direction, float duration){
+    public void moveTo(int direction, float duration){
         this.movingDirection = direction;
         this.movingDuration = duration;
 
         frameStartMoving = m_frameCount;
+    }
+
+    public void updatePosition()
+    {
+        if(m_frameCount > frameStartMoving + movingDuration)
+        {
+            moving = false;
+        }
+        if(moving)
+        {
+            if(movingDirection == RIGHT)
+            {
+                setX(gridX*gridSize + (m_frameCount-frameStartMoving)*(gridSize/movingDuration));
+            }
+            if(movingDirection == LEFT)
+            {
+                setX(gridX*gridSize - (m_frameCount-frameStartMoving)*(gridSize/movingDuration));
+            }
+            if(movingDirection == RIGHT)
+            {
+                setX(gridX*gridSize + (m_frameCount-frameStartMoving)*(gridSize/movingDuration));
+            }
+            if(movingDirection == RIGHT)
+            {
+                setX(gridX*gridSize + (m_frameCount-frameStartMoving)*(gridSize/movingDuration));
+            }
+        }
+        else
+        {
+            setY(gridY * gridSize);
+            setX(gridX * gridSize);
+        }
     }
 
 
