@@ -1,11 +1,13 @@
 package com.RPG.game.phase1.screens;
 
 import com.RPG.game.RPGMain;
+import com.RPG.game.common.Entity;
 import com.RPG.game.dialogs.DialogHandler;
 import com.RPG.game.phase2.entities.Player;
 import com.RPG.game.ui.DialogueBox;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.assets.loaders.resolvers.ExternalFileHandleResolver;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -24,6 +26,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
+import java.util.ArrayList;
+
 
 public class
 PhaseOneScreen implements Screen {
@@ -31,7 +35,7 @@ PhaseOneScreen implements Screen {
     // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
     private RPGMain game;
     SpriteBatch batch;
-    private BitmapFont font;
+    BitmapFont font;
     private DialogHandler diag;
     private Stage stage;
     Texture m_imgCharacter;
@@ -41,6 +45,7 @@ PhaseOneScreen implements Screen {
     OrthogonalTiledMapRenderer renderer;
     private Player m_player;
     private AssetManager m_assetManager;
+    private ArrayList<Entity> m_entitiesList;
     //private Table root;
     //private DialogueBox dialogueBox;
 
@@ -54,11 +59,15 @@ PhaseOneScreen implements Screen {
         font.setColor(Color.WHITE);
         Skin skin = new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json"));
         diag=new DialogHandler(skin);
-        float unitScale = 1 / 32f;
+        float unitScale = 1f;
         camera = new OrthographicCamera(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
         m_assetManager = new AssetManager();
-        m_player = new Player(null, m_assetManager, camera);
-        map = new TmxMapLoader().load("core/assets/Maps/EMA_RPG_STAGE1_MAP.tmx");
+        m_entitiesList=new ArrayList<Entity>();
+        m_player = new Player(m_entitiesList, m_assetManager, camera);
+        m_player.setX(1000);
+        m_player.setY(1000);
+        TmxMapLoader tmx = new TmxMapLoader();
+        map = tmx.load("core/assets/Maps/EMA_RPG_MAP.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, unitScale);
 
         //initUI();
@@ -80,21 +89,19 @@ PhaseOneScreen implements Screen {
      */
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(1, 0, 0, 1);
+        Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         m_player.updateBehavior();
         camera.update();
         batch.setProjectionMatrix(camera.combined);
-        batch.begin();
-        m_player.draw(batch);
         renderer.setView(camera);
         renderer.render();
-
+        batch.begin();
+        m_player.draw(batch);
         //diag.activate();
         //diag.chooseFile("Peter");
         //System.out.println("test");
         //diag.test();
-
         batch.end();
 
         //stage.act(delta);
