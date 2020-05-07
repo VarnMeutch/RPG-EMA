@@ -195,6 +195,7 @@ public class PhaseTwoScreen implements Screen {
                 ((FireBolt) e).drawHitBox(camera);
             }
         }*/
+        m_player.drawHitBox(camera);
     }
 
     /**

@@ -100,10 +100,10 @@ public abstract class EntityRPG extends Entity {
         {
             switch (movingDirection) {
                 case RIGHT:
-                    setX(gridX * gridSize + (m_frameCount - frameStartMoving) * (gridSize / movingDuration));
+                    setX((gridX+0.5f) * gridSize + (m_frameCount - frameStartMoving) * (gridSize / movingDuration));
                     break;
                 case LEFT:
-                    setX(gridX * gridSize - (m_frameCount - frameStartMoving) * (gridSize / movingDuration));
+                    setX((gridX+0.5f) * gridSize - (m_frameCount - frameStartMoving) * (gridSize / movingDuration));
                     break;
                 case UP:
                     setY(gridY * gridSize + (m_frameCount - frameStartMoving) * (gridSize / movingDuration));
@@ -116,8 +116,10 @@ public abstract class EntityRPG extends Entity {
         else
         {
             setY(gridY * gridSize);
-            setX(gridX * gridSize);
+            setX((gridX+0.5f) * gridSize);
         }
+
+
     }
 
 

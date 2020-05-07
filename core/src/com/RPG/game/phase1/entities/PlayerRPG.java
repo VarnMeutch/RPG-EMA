@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class PlayerRPG extends EntityRPG
 {
-    private final float walkDuration = 15;
+    private final float walkDuration = 10;
     private Camera camera;
 
 

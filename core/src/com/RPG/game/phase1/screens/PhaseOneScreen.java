@@ -54,7 +54,7 @@ PhaseOneScreen implements Screen {
         font.setColor(Color.WHITE);
         Skin skin = new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json"));
         diag=new DialogHandler(skin);
-        float unitScale = 1f;
+        float unitScale = 2f;
         camera = new OrthographicCamera(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
 
         m_assetManager = new AssetManager();
@@ -66,11 +66,12 @@ PhaseOneScreen implements Screen {
         m_entitiesList=new ArrayList<Entity>();
         m_player = new PlayerRPG(m_entitiesList, m_assetManager);
         m_player.setCamera(camera);
-        m_player.setGridPosition(20, 20);
+        m_player.setGridPosition(17, 24);
         TmxMapLoader tmx = new TmxMapLoader();
         map = tmx.load("core/assets/Maps/EMA_RPG_MAP.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, unitScale);
 
+        //camera.zoom = 2f;
         //initUI();
     }
 
