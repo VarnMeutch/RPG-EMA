@@ -73,7 +73,7 @@ public class PreferencesScreen implements Screen {
         diag.setSize(Gdx.graphics.getWidth(),150);
 
         Label.LabelStyle lb= new Label.LabelStyle(font, BLACK);
-        diag.setLb(lb);
+
         diag.text("qsjihhsdfsfhqbdfihqdfisqfj",lb);
         diag.key(Input.Keys.ENTER, "next");
 
@@ -92,14 +92,6 @@ public class PreferencesScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         batch.begin();
-        if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)){
-            diag.chooseFile("Peter");
-            diag.getContentTable();
-            Label.LabelStyle lb= new Label.LabelStyle(font, BLACK);
-            diag.text("next",lb);
-
-        }
-
 
         stage.draw();
         stage.act(delta);
