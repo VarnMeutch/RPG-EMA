@@ -9,18 +9,23 @@ import org.w3c.dom.Node;
 
 import java.io.File;
 
+import static com.badlogic.gdx.graphics.Color.BLACK;
+
 public class DialogHandler extends Dialog {
 
     // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
 
     private String npcName;
     private File currentFile;
-    private Skin Skin;
+     Skin Skin;
+    private Stage stage;
+    Label.LabelStyle lb;
 
 
     private boolean isActive;
     private ConversationHandler conv;
     private String currentText;
+
 
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
@@ -33,7 +38,6 @@ public class DialogHandler extends Dialog {
     }
 
 
-
     // --- METHODS -----------------------------------------------------------------------------------------------------
 
     public void chooseFile (String npcName){
@@ -42,15 +46,27 @@ public class DialogHandler extends Dialog {
         conv=new ConversationHandler(currentFile);
     }
 
+    public void setLb(Label.LabelStyle lb) {
+        this.lb = lb;
+    }
+
     @Override
     protected void result(Object object) {
 
-        DialogHandler diag= new DialogHandler(Skin);
+        System.out.println(object.toString());
+        DialogHandler diag=new DialogHandler(getSkin());
+        stage.addActor(diag);
+        diag.settheStage(stage);
         diag.setFillParent(false);
         diag.setPosition(0,0);
         diag.setSize(Gdx.graphics.getWidth(),150);
-        diag.text("next");
+        diag.text("next",lb);
 
+
+    }
+
+    public void settheStage(Stage stage){
+        this.stage=stage;
     }
 
     public void test (){
