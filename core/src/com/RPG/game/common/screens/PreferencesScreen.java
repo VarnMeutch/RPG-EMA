@@ -64,13 +64,19 @@ public class PreferencesScreen implements Screen {
     @Override
     public void show() {
         Gdx.input.setInputProcessor(stage);
+        diag.isActive();
         stage.addActor(diag);
+        diag.settheStage(stage);
         diag.setFillParent(false);
         diag.setPosition(0,0);
         diag.setSize(Gdx.graphics.getWidth(),150);
 
         Label.LabelStyle lb= new Label.LabelStyle(font, BLACK);
         diag.text("qsjihhsdfsfhqbdfihqdfisqfj",lb);
+        diag.key(Input.Keys.ENTER, "next");
+
+
+
 
     }
 
@@ -88,9 +94,6 @@ public class PreferencesScreen implements Screen {
 
         batch.begin();
 
-        diag.activate();
-        diag.chooseFile("Peter");
-        diag.key(Input.Keys.ENTER,"next");
 
         stage.draw();
         stage.act(delta);
