@@ -53,7 +53,6 @@ PhaseOneScreen implements Screen {
         font = new BitmapFont();
         font.setColor(Color.WHITE);
         Skin skin = new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json"));
-        diag=new DialogHandler(skin);
         float unitScale = 2f;
         camera = new OrthographicCamera(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
 

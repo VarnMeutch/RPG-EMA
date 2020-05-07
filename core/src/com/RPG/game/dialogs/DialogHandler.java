@@ -66,13 +66,14 @@ public class DialogHandler extends Dialog {
         diag.setPosition(0,0);
         diag.setSize(Gdx.graphics.getWidth(),150);
         diag.text(conv.getNextText(),LB);
+        diag.getButtonTable().defaults().height(60);
         if(conv.getNextOptionList()!=null){
-            System.out.println("yes");
             for(Option o : conv.getNextOptionList()){
                 diag.button(o.getText(),o.getAction());
                 System.out.println(o.getText());
             }
         }
+        diag.button("test");
 
             diag.key(Input.Keys.ENTER,currentLine+1);
 
