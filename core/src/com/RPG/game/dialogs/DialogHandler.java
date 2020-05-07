@@ -15,12 +15,14 @@ public class DialogHandler extends Dialog {
 
     private String npcName;
     private File currentFile;
-    private Skin Skin;
+     Skin Skin;
+    private Stage stage;
 
 
     private boolean isActive;
     private ConversationHandler conv;
     private String currentText;
+
 
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
@@ -31,7 +33,6 @@ public class DialogHandler extends Dialog {
         isActive=false;
         currentText="Ceci est un test";
     }
-
 
 
     // --- METHODS -----------------------------------------------------------------------------------------------------
@@ -45,12 +46,14 @@ public class DialogHandler extends Dialog {
     @Override
     protected void result(Object object) {
 
-        DialogHandler diag= new DialogHandler(Skin);
-        diag.setFillParent(false);
-        diag.setPosition(0,0);
-        diag.setSize(Gdx.graphics.getWidth(),150);
-        diag.text("next");
+        System.out.println(object.toString());
+        DialogHandler diag=new DialogHandler(getSkin());
+        text("next");
 
+    }
+
+    public void settheStage(Stage stage){
+        this.stage=stage;
     }
 
     public void test (){
