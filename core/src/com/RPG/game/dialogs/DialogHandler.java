@@ -9,6 +9,8 @@ import org.w3c.dom.Node;
 
 import java.io.File;
 
+import static com.badlogic.gdx.graphics.Color.BLACK;
+
 public class DialogHandler extends Dialog {
 
     // --- ATTRIBUTES --------------------------------------------------------------------------------------------------
@@ -17,6 +19,7 @@ public class DialogHandler extends Dialog {
     private File currentFile;
      Skin Skin;
     private Stage stage;
+    Label.LabelStyle lb;
 
 
     private boolean isActive;
@@ -43,12 +46,22 @@ public class DialogHandler extends Dialog {
         conv=new ConversationHandler(currentFile);
     }
 
+    public void setLb(Label.LabelStyle lb) {
+        this.lb = lb;
+    }
+
     @Override
     protected void result(Object object) {
 
         System.out.println(object.toString());
         DialogHandler diag=new DialogHandler(getSkin());
-        text("next");
+        stage.addActor(diag);
+        diag.settheStage(stage);
+        diag.setFillParent(false);
+        diag.setPosition(0,0);
+        diag.setSize(Gdx.graphics.getWidth(),150);
+        diag.text("next",lb);
+
 
     }
 
