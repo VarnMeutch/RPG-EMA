@@ -67,12 +67,10 @@ public class PreferencesScreen implements Screen {
         stage.addActor(diag);
         diag.setFillParent(false);
         diag.setPosition(0,0);
-        diag.setSize(Gdx.graphics.getWidth(),100);
+        diag.setSize(Gdx.graphics.getWidth(),150);
 
         Label.LabelStyle lb= new Label.LabelStyle(font, BLACK);
         diag.text("qsjihhsdfsfhqbdfihqdfisqfj",lb);
-
-
 
     }
 
@@ -90,22 +88,9 @@ public class PreferencesScreen implements Screen {
 
         batch.begin();
 
-
         diag.activate();
         diag.chooseFile("Peter");
-
-        //root.setFillParent(true);
-        //stage.addActor(root);
-        //dialogueBox = new DialogueBox(new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json")));
-        if(Gdx.input.isKeyPressed(Input.Keys.ENTER)) {
-            //dialogueBox = new DialogueBox(new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json")));
-            //dialogueBox.animateText("Bienvenu aventurier!\nIci c'est l'EMA");
-
-            //root.add(dialogueBox).expand().align(Align.bottom).pad(80f);
-            // if( dialogueBox.isFinished()){
-            //dialogueBox.clearLabel();
-
-        }
+        diag.key(Input.Keys.ENTER,"next");
 
         stage.draw();
         stage.act(delta);

@@ -3,7 +3,7 @@
 
 		<npc name = "Peter">
 			<Line id = "000">
-				<text name = "Marchand" > Bienvenu aventurier ! Que venez-vous faire ici ? </text>
+				<text name = "Marchand" > Bienvenue aventurier ! Que venez-vous faire ici ? </text>
 				<options>
 					<option action = "002">Qu'avez-vous à vendre ?</option>
 					<option action = "001">Au revoir.</option>

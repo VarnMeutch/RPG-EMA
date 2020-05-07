@@ -15,6 +15,9 @@ public class DialogHandler extends Dialog {
 
     private String npcName;
     private File currentFile;
+    private Skin Skin;
+
+
     private boolean isActive;
     private ConversationHandler conv;
     private String currentText;
@@ -24,6 +27,7 @@ public class DialogHandler extends Dialog {
 
     public DialogHandler(Skin skin){
         super("Dialogue", skin);
+        this.Skin=skin;
         isActive=false;
         currentText="Ceci est un test";
     }
@@ -36,6 +40,17 @@ public class DialogHandler extends Dialog {
         this.npcName=npcName;
         currentFile=new File("core/assets/Dialogs/"+npcName+".xml");
         conv=new ConversationHandler(currentFile);
+    }
+
+    @Override
+    protected void result(Object object) {
+
+        DialogHandler diag= new DialogHandler(Skin);
+        diag.setFillParent(false);
+        diag.setPosition(0,0);
+        diag.setSize(Gdx.graphics.getWidth(),150);
+        diag.text("next");
+
     }
 
     public void test (){
