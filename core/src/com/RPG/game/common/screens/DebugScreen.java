@@ -46,7 +46,7 @@ public class DebugScreen implements Screen {
 
         // Time to create buttons !
         Skin skin = new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json"));
-        TextButton loading = new TextButton("Loading", skin, "small");
+        TextButton loading = new TextButton("Loading", skin);
         TextButton loadGame = new TextButton("LoadGame", skin);
         TextButton newGame = new TextButton("NewGame", skin);
         TextButton phaseOne = new TextButton("PhaseOne", skin);
