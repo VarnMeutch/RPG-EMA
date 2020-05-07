@@ -6,7 +6,6 @@ import com.RPG.game.common.hitbox.RectHitBox;
 import com.RPG.game.phase2.ActionHUD;
 import com.RPG.game.phase2.entities.projectile.FireBall;
 import com.RPG.game.phase2.entities.projectile.FireBolt;
-import com.RPG.game.phase2.entities.projectile.Projectile;
 import com.RPG.game.phase2.screens.PhaseTwoScreen;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -80,7 +79,6 @@ public class Player extends Entity
 
     public void updateBehavior()
     {
-        m_frameCount+=1;
         boolean up, left, right, down;
         up = Gdx.input.isKeyPressed(Input.Keys.Z);
         down = Gdx.input.isKeyPressed(Input.Keys.S);

@@ -46,8 +46,6 @@ public class FireBall extends Projectile
 
     public void updateBehavior()
     {
-        m_frameCount+=1;
-
         if(m_frameCount > m_lifeSpan)
         {
             if( !m_exploding) // la boule de feu vient d'arriver à ça fin de vie

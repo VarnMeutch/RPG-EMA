@@ -39,8 +39,6 @@ public class FireBolt extends Projectile
 
     public void updateBehavior()
     {
-        m_frameCount+=1;
-
         if(m_frameCount > m_lifeSpan)
         {
                 m_destroy = true;

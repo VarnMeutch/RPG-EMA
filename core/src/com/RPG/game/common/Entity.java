@@ -62,6 +62,7 @@ public abstract class Entity implements Comparable<Entity>
 
     public void draw(SpriteBatch batch)
     {
+        m_frameCount+=1;
         if(m_visible && m_animationList.size() > 0 && !m_destroy)
         {
             m_elapsedTime += Gdx.graphics.getDeltaTime();

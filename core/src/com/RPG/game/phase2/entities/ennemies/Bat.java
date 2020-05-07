@@ -79,8 +79,6 @@ public class Bat extends Entity
     @Override
     public void updateBehavior()
     {
-        m_frameCount+=1;
-
         for (Entity e : m_entitiesList)
         {
             if(e instanceof FireBall && !m_dying)
