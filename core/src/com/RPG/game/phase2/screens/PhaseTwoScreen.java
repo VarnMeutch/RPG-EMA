@@ -48,7 +48,7 @@ public class PhaseTwoScreen implements Screen {
     private long m_frameCount;
     private long m_frameLastSpawn;
 
-    public static final String PATH_SPRITESHEET = "Sprite/SpriteSheets/spriteSheet.atlas";
+    public static final String PATH_SPRITESHEET = "core/assets/Sprite/SpriteSheets/spriteSheet.atlas";
     public static final  String PATH_ROCK = "core/assets/Sprite/test-sprites/rock.png";
 
 

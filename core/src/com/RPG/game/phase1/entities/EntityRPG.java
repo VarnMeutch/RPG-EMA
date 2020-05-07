@@ -14,6 +14,15 @@ public abstract class EntityRPG extends Entity {
     private int gridSize;
 
     private boolean moving;
+    private float movingDuration;
+    private int movingDirection;
+
+    private long frameStartMoving;
+
+    private static final int UP = 0;
+    private static final int RIGHT = 1;
+    private static final int DOWN = 2;
+    private static final int LEFT = 3;
 
     public EntityRPG(ArrayList<Entity> entitiesList, AssetManager assetManager) {
         super(entitiesList, assetManager);
@@ -45,10 +54,20 @@ public abstract class EntityRPG extends Entity {
     public void setGridPosition(int gridX, int gridY){
         setGridX(gridX);
         setGridX(gridY);
-        moving = false;
     }
 
     // --------------------------- Methods -------------------------------------------------------------------
+
+    /**
+     * @param direction UP, RIGHT, LEFT ou DOWN
+     * @param duration # de frame pour faire le mouvement
+     */
+    public void smoothMoveTo(int direction, float duration){
+        this.movingDirection = direction;
+        this.movingDuration = duration;
+
+        frameStartMoving = m_frameCount;
+    }
 
 
 
