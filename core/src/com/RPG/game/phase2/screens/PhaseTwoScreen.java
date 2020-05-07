@@ -11,11 +11,8 @@ import com.RPG.game.phase2.entities.projectile.FireBall;
 import com.RPG.game.phase2.entities.projectile.FireBolt;
 import com.RPG.game.phase2.entities.projectile.Projectile;
 import com.RPG.game.phase2.ActionHUD;
-import com.badlogic.gdx.ApplicationListener;
-import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.*;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -46,6 +43,10 @@ public class PhaseTwoScreen implements Screen {
 
     private ArrayList<Entity> m_entitiesList;
     private AssetManager m_assetManager;
+
+    //spawner de bat
+    private long m_frameCount;
+    private long m_frameLastSpawn;
 
     public static final String PATH_SPRITESHEET = "Sprite/SpriteSheets/spriteSheet.atlas";
     public static final  String PATH_ROCK = "core/assets/Sprite/test-sprites/rock.png";
@@ -115,9 +116,24 @@ public class PhaseTwoScreen implements Screen {
     @Override
     public void render(float delta)
     {
-
-        Gdx.gl.glClearColor(0.2f, 0.2f, 0.2f, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        //on fait apparaitre une bat en appuyant sur ESPACE
+        m_frameCount+=1;
+        if(Gdx.input.isKeyPressed(Input.Keys.SPACE) && m_frameCount > m_frameLastSpawn + 10 )
+        {
+            m_frameLastSpawn = m_frameCount;
+            Bat bat = new Bat( m_player.getX() + RPGMain.random.nextInt(1000)-500 ,
+                               m_player.getY() + RPGMain.random.nextInt(1000)-500,
+                                  m_entitiesList, m_assetManager);
+            m_entitiesList.add(bat);
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.BACKSPACE))
+        {
+            for (Entity e : m_entitiesList)
+            {
+                if(e instanceof Bat)
+                    e.destroy();
+            }
+        }
 
         for (int i=0 ; i<m_entitiesList.size(); i++)
         {
@@ -129,6 +145,10 @@ public class PhaseTwoScreen implements Screen {
             }
         }
 
+
+        Gdx.gl.glClearColor(0.2f, 0.2f, 0.2f, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
         camera.update();
         batch.setProjectionMatrix(camera.combined);
 
@@ -138,9 +158,9 @@ public class PhaseTwoScreen implements Screen {
         sprite_rock.setPosition(100,50);
         sprite_rock.draw(batch);
         Collections.sort(m_entitiesList);
-        for (int i=0 ; i<m_entitiesList.size(); i++)
+        for (Entity entity : m_entitiesList)
         {
-            m_entitiesList.get(i).draw(batch);
+            entity.draw(batch);
         }
         batch.end();
 

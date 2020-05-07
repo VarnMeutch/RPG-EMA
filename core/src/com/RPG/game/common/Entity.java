@@ -28,6 +28,8 @@ public abstract class Entity implements Comparable<Entity>
     protected ArrayList<Entity> m_entitiesList;
     protected AssetManager m_assetManager;
     Color m_color;
+    protected long m_frameCount;    //doit être incrémenter de 1 à chaque appel de updateBehavior,
+                                    //sert à gérer le comportement
 
 
     /**
@@ -49,11 +51,12 @@ public abstract class Entity implements Comparable<Entity>
         m_scale = 1f;
         m_elapsedTime = 0f;
         m_animationIndex = 0;
-        m_animationList = new ArrayList<Animation<TextureRegion>>();
+        m_animationList = new ArrayList<>();
         m_destroy = false;
         m_entitiesList = entitiesList;
         m_assetManager = assetManager;
         m_color = Color.WHITE;
+        m_frameCount = 0;
 
     }
 

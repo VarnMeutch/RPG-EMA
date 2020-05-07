@@ -15,7 +15,9 @@ import java.util.ArrayList;
 
 public class FireBolt extends Projectile
 {
-    public FireBolt(ArrayList<Entity> entitiesList, AssetManager assetManager, float direction, float speed, float lifeSpan)
+
+
+    public FireBolt(ArrayList<Entity> entitiesList, AssetManager assetManager, float direction, float speed, long lifeSpan)
     {
         super(entitiesList, assetManager, direction, speed, lifeSpan);
         //TextureAtlas textureAtlas = new TextureAtlas(Gdx.files.internal("Sprite/SpriteSheets/spriteSheet.atlas"));
@@ -29,22 +31,19 @@ public class FireBolt extends Projectile
         addAnimation(animation);
         m_originX = 16;
         m_originY = 24;
-        setScale(2.5f);
+        setScale(2f);
         setRotation(-90+(float) ((m_direction)*180f/Math.PI));
         //setColor(new Color(0f, 0f, 0f, 1f));
-        m_hitbox = new CircularHitBox(4*getScale(), 0, 0);
+        m_hitBox = new CircularHitBox(4*getScale(), 0, 0);
     }
 
     public void updateBehavior()
     {
+        m_frameCount+=1;
 
-        float delta = Gdx.graphics.getDeltaTime();
-        m_lifeTime +=  delta;
-        if(m_lifeTime > m_lifeSpan) {
-            if (getAnimationIndex() == 0) // la boule de feu vient d'arriver à ça fin de vie
-            {
+        if(m_frameCount > m_lifeSpan)
+        {
                 m_destroy = true;
-            }
         }
 
         move(m_speed*(float)Math.cos(m_direction), m_speed*(float)Math.sin(m_direction));
@@ -53,7 +52,7 @@ public class FireBolt extends Projectile
 
     public void drawHitBox(OrthographicCamera camera)
     {
-        m_hitbox.drawHitBox(getX(), getY(), new Color(1f,0,0,0.5f), camera);
+        m_hitBox.drawHitBox(getX(), getY(), new Color(1f,0,0,0.5f), camera);
     }
 }
 

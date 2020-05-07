@@ -15,7 +15,9 @@ import java.util.ArrayList;
 
 public class FireBall extends Projectile
 {
-    public FireBall(ArrayList<Entity> entitiesList, AssetManager assetManager, float direction, float speed, float lifeSpan)
+    boolean m_exploding;
+
+    public FireBall(ArrayList<Entity> entitiesList, AssetManager assetManager, float direction, float speed, long lifeSpan)
     {
         super(entitiesList, assetManager, direction, speed, lifeSpan);
         //TextureAtlas textureAtlas = new TextureAtlas(Gdx.files.internal("Sprite/SpriteSheets/spriteSheet.atlas"));
@@ -27,35 +29,36 @@ public class FireBall extends Projectile
                 textureAtlas.findRegion("bouleFeu4"));
         animation.setPlayMode(Animation.PlayMode.LOOP_PINGPONG);
         addAnimation(animation);
-        Animation animationE = new Animation<TextureRegion>(1/10f,
+        Animation animationE = new Animation<TextureRegion>(0.07f,
                 textureAtlas.findRegion("FeuExplo1"),
                 textureAtlas.findRegion("FeuExplo2"),
                 textureAtlas.findRegion("FeuExplo3"));
         animationE.setPlayMode(Animation.PlayMode.NORMAL);
         addAnimation(animationE);
         setScale(1.5f);
-        m_originX = textureAtlas.findRegion("bouleFeu1").getRegionWidth()/2;
-        m_originY = textureAtlas.findRegion("bouleFeu1").getRegionHeight()/2;
+        m_originX = textureAtlas.findRegion("bouleFeu1").getRegionWidth()/2f;
+        m_originY = textureAtlas.findRegion("bouleFeu1").getRegionHeight()/2f;
 
         setRotation((float) (m_direction*180f/Math.PI));
-        m_hitbox = new CircularHitBox(16*getScale(), 0, 0);
+        m_hitBox = new CircularHitBox(16*getScale(), 0, 0);
+        m_exploding = false;
     }
 
     public void updateBehavior()
     {
+        m_frameCount+=1;
 
-        float delta = Gdx.graphics.getDeltaTime();
-        m_lifeTime +=  delta;
-        if(m_lifeTime > m_lifeSpan)
+        if(m_frameCount > m_lifeSpan)
         {
-            if(getAnimationIndex() == 0) // la boule de feu vient d'arriver à ça fin de vie
+            if( !m_exploding) // la boule de feu vient d'arriver à ça fin de vie
             {
+                m_exploding = true;
                 m_elapsedTime = 0;
                 setAnimationIndex(1);
                 m_speed = 0;
-                scale(1.5f);
+                scale(2f);
                 setZ(2.5f);
-                m_hitbox = new CircularHitBox(16*getScale(), 0, 0);
+                m_hitBox = new CircularHitBox(16*getScale(), 0, 0);
             }
             else
             {
@@ -74,6 +77,8 @@ public class FireBall extends Projectile
 
     public void drawHitBox(OrthographicCamera camera)
     {
-        m_hitbox.drawHitBox(getX(), getY(), new Color(0,0.5f,0.5f,0.5f), camera);
+        m_hitBox.drawHitBox(getX(), getY(), new Color(0,0.5f,0.5f,0.5f), camera);
     }
+
+    public boolean getExploding() {return m_exploding;}
 }

@@ -29,7 +29,7 @@ public class ActionHUD implements Disposable
 
     public void draw()
     {
-        m_spriteHealthBar.setY( Gdx.graphics.getHeight() - m_spriteHealthBar.getHeight() - 8);
+        m_spriteHealthBar.setY(Gdx.graphics.getHeight() - m_spriteHealthBar.getHeight() - 8);
         m_spriteHealthBarHalf.setY( Gdx.graphics.getHeight() - m_spriteHealthBar.getHeight() - 8);
 
         m_batch.begin();

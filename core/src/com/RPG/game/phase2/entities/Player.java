@@ -25,7 +25,6 @@ public class Player extends Entity
     //sert à actualiser la positon de la camera pour qu'elle suive le joueur
     private OrthographicCamera m_camera;
     private long m_frameLastSpell;
-    private long m_frameCount;
     private HitBox m_hitBox;
     private long m_frameEndIntangibility;
     private int m_health;
@@ -74,7 +73,6 @@ public class Player extends Entity
         m_elapsedTime = getCurrentAnimation().getAnimationDuration();
         m_frameLastSpell = -1000;
         scale(2f);
-        m_frameCount=0;
         m_frameEndIntangibility=0;
         m_health=10;
         m_hud=null;
@@ -149,8 +147,8 @@ public class Player extends Entity
             m_camera.unproject(mousePos);
             //Vector3 clickPos = new Vector3();
             float speed = 12f;
-            float lifespan = (float) Math.sqrt(Math.pow(mousePos.y - getY(),2)+
-                    Math.pow(mousePos.x - getX(),2))*(1/(speed*60));
+            int lifespan = (int) (Math.sqrt(Math.pow(mousePos.y - getY(),2) +
+                                  Math.pow(mousePos.x - getX(),2))/speed );
             FireBall fireBall = new FireBall(m_entitiesList, m_assetManager,
                     0.5f*(float)Math.PI-(float)Math.atan2(mousePos.x - getX(), mousePos.y - getY()),
                     speed, lifespan);
