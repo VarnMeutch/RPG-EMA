@@ -72,6 +72,7 @@ public class PreferencesScreen implements Screen {
         diag.setSize(Gdx.graphics.getWidth(),150);
 
         Label.LabelStyle lb= new Label.LabelStyle(font, BLACK);
+        diag.setLb(lb);
         diag.text("qsjihhsdfsfhqbdfihqdfisqfj",lb);
         diag.key(Input.Keys.ENTER, "next");
 
