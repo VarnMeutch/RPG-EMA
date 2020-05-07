@@ -3,6 +3,7 @@ package com.RPG.game.phase1.screens;
 import com.RPG.game.RPGMain;
 import com.RPG.game.common.Entity;
 import com.RPG.game.dialogs.DialogHandler;
+import com.RPG.game.phase1.entities.PlayerRPG;
 import com.RPG.game.phase2.entities.Player;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.assets.AssetManager;
@@ -36,7 +37,7 @@ PhaseOneScreen implements Screen {
     TiledMap map;
     float unitScale;
     OrthogonalTiledMapRenderer renderer;
-    private Player m_player;
+    private PlayerRPG m_player;
     private AssetManager m_assetManager;
     private ArrayList<Entity> m_entitiesList;
     //private Table root;
@@ -63,9 +64,9 @@ PhaseOneScreen implements Screen {
         //on fait charger tout les assets
         m_assetManager.finishLoading();
         m_entitiesList=new ArrayList<Entity>();
-        m_player = new Player(m_entitiesList, m_assetManager, camera);
-        m_player.setX(1000);
-        m_player.setY(1000);
+        m_player = new PlayerRPG(m_entitiesList, m_assetManager);
+        m_player.setCamera(camera);
+        m_player.setGridPosition(20, 20);
         TmxMapLoader tmx = new TmxMapLoader();
         map = tmx.load("core/assets/Maps/EMA_RPG_MAP.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, unitScale);

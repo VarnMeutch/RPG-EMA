@@ -71,7 +71,7 @@ public class Player extends Entity
         //pour eviter de jouer une fois l'animation au début
         m_elapsedTime = getCurrentAnimation().getAnimationDuration();
         m_frameLastSpell = -1000;
-        scale(2f);
+        setScale(2f);
         m_frameEndIntangibility=0;
         m_health=10;
         m_hud=null;

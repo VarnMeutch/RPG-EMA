@@ -2,7 +2,10 @@ package com.RPG.game.phase1.entities;
 
 import com.RPG.game.common.Entity;
 import com.RPG.game.phase2.screens.PhaseTwoScreen;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -11,6 +14,11 @@ import java.util.ArrayList;
 
 public class PlayerRPG extends EntityRPG
 {
+    private final float walkDuration = 15;
+    private Camera camera;
+
+
+
     public PlayerRPG(ArrayList<Entity> entitiesList, AssetManager assetManager)
     {
         super(entitiesList, assetManager);
@@ -37,9 +45,15 @@ public class PlayerRPG extends EntityRPG
                 textureAtlas.findRegion("Perso-3,0"));
 
         addAnimation(animation_upwardWalk);
-        addAnimation(animation_downwardWalk);
         addAnimation(animation_rightWalk);
+        addAnimation(animation_downwardWalk);
         addAnimation(animation_leftWalk);
+
+
+        movingDirection = DOWN;
+        setScale(2f);
+        m_elapsedTime = 0.4f;
+        gridSize = 64;
 
     }
 
@@ -55,20 +69,39 @@ public class PlayerRPG extends EntityRPG
         {
             getCurrentAnimation().setPlayMode(Animation.PlayMode.NORMAL);
         }
-        switch (movingDirection)
+        setAnimationIndex(movingDirection);
+
+        if(!moving)
         {
-            case RIGHT:
-                setAnimationIndex(2);
-                break;
-            case LEFT:
-                setAnimationIndex(3);
-                break;
-            case UP:
-                setAnimationIndex(0);
-                break;
-            case DOWN:
-                setAnimationIndex(1);
-                break;
+            if( Gdx.input.isKeyPressed(Input.Keys.Z))
+            {
+                moveTo(UP, walkDuration);
+            }
+            else if( Gdx.input.isKeyPressed(Input.Keys.S))
+            {
+                moveTo(DOWN, walkDuration);
+            }
+            else if( Gdx.input.isKeyPressed(Input.Keys.Q))
+            {
+                moveTo(LEFT, walkDuration);
+            }
+            else if( Gdx.input.isKeyPressed(Input.Keys.D))
+            {
+                moveTo(RIGHT, walkDuration);
+            }
+
         }
+
+        updatePosition();
+
+        if(camera!=null)
+        {
+            camera.position.set(getX()  + 48, getY()  + 48, 0);
+        }
+    }
+
+    public void setCamera(Camera camera)
+    {
+        this.camera = camera;
     }
 }

@@ -11,7 +11,7 @@ public abstract class EntityRPG extends Entity {
     private int gridY;
 
     // Size of a square of the map
-    private int gridSize;
+    protected int gridSize;
 
     protected boolean moving;
     private float movingDuration;
@@ -64,7 +64,9 @@ public abstract class EntityRPG extends Entity {
      * @param direction UP, RIGHT, LEFT ou DOWN
      * @param duration # de frame pour faire le mouvement
      */
-    public void moveTo(int direction, float duration){
+    public void moveTo(int direction, float duration)
+    {
+        moving = true;
         this.movingDirection = direction;
         this.movingDuration = duration;
 
@@ -73,7 +75,8 @@ public abstract class EntityRPG extends Entity {
 
     public void updatePosition()
     {
-        if(m_frameCount > frameStartMoving + movingDuration)
+        //on test si le mouvement est terminé
+        if(moving && m_frameCount > frameStartMoving + movingDuration)
         {
             moving = false;
             switch (movingDirection)
