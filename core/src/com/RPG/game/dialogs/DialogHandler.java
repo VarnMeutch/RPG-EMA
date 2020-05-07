@@ -23,7 +23,7 @@ public class DialogHandler extends Dialog {
     private Stage stage;
     static BitmapFont FONT = new BitmapFont();
     Skin skin = new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json"));
-    static Label.LabelStyle LB = new Label.LabelStyle(FONT, BLACK);
+    public static Label.LabelStyle LB = new Label.LabelStyle(FONT, BLACK);
 
 
     private boolean isActive;
