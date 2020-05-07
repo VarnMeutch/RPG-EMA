@@ -1,6 +1,7 @@
 package com.RPG.game.dialogs;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -61,6 +62,7 @@ public class DialogHandler extends Dialog {
         diag.setPosition(0,0);
         diag.setSize(Gdx.graphics.getWidth(),150);
         diag.text("next",lb);
+        diag.key(Input.Keys.ENTER, "next");
 
 
     }
@@ -91,9 +93,6 @@ public class DialogHandler extends Dialog {
     public boolean isActive(){
         return isActive;
     }
-
-
-
 
 
 }

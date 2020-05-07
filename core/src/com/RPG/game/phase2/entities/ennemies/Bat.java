@@ -89,7 +89,6 @@ public class Bat extends Entity
                     //on vérifie dans ce cas que la chauve souris n'a pas pris de dégat recemment
                     if(m_frameCount > m_frameEndHurt && !((FireBall) e).getExploding())
                     {
-
                         m_health-=1;
                         m_frameEndHurt =  m_frameCount + m_hurtDuration;
                         m_frameLastAttack += m_hurtDuration;
