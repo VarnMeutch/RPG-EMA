@@ -120,7 +120,7 @@ public class RPGMain extends Game {
 	{
 		screenHistory = new ArrayList<>();
 		Gdx.graphics.setWindowedMode(1024,768); // pour changer la taille de la fenetre
-		Gdx.graphics.setResizable(false);
+		Gdx.graphics.setResizable(true);
 		changeScreen(DEBUG);
 
 	}
