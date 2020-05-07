@@ -61,7 +61,7 @@ public class PhaseTwoScreen implements Screen {
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
     public PhaseTwoScreen(RPGMain game)
     {
-        Gdx.graphics.setWindowedMode(1280,800);
+        Gdx.graphics.setWindowedMode(1024,768);
 
         this.game = game;
         camera = new OrthographicCamera(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
@@ -105,7 +105,7 @@ public class PhaseTwoScreen implements Screen {
     @Override
     public void show()
     {
-        Gdx.graphics.setWindowedMode(1280,800);
+        Gdx.graphics.setWindowedMode(1024,768);
     }
 
     /**

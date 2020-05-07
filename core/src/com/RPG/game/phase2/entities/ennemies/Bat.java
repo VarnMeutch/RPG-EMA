@@ -87,13 +87,12 @@ public class Bat extends Entity
             {
                 if(((FireBall) e).testHit(m_hitBox, getX(), getY()) )
                 {
-                    if(m_frameCount > m_frameEndHurt)
+                    //si la boule de feu est en train d'exploser, bat meurt, sinon prend 1 dégat
+                    //on vérifie dans ce cas que la chauve souris n'a pas pris de dégat recemment
+                    if(m_frameCount > m_frameEndHurt && !((FireBall) e).getExploding())
                     {
-                        //si la boule de feu est en train d'exploser, bat meurt, sinon prend 1 dégat
-                        if( ((FireBall) e).getExploding())
-                            m_health = 0;
-                        else
-                            m_health-=1;
+
+                        m_health-=1;
                         m_frameEndHurt =  m_frameCount + m_hurtDuration;
                         m_frameLastAttack += m_hurtDuration;
 
@@ -104,6 +103,7 @@ public class Bat extends Entity
                         m_jumpDirection =  (float) (-player_direction + (float)RPGMain.random.nextGaussian()*Math.PI/3);*/
 
                     }
+                    if(((FireBall) e).getExploding()) m_health = 0;
 
                 }
             }
