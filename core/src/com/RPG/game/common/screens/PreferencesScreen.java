@@ -51,7 +51,7 @@ public class PreferencesScreen implements Screen {
         font = new BitmapFont();
         font.setColor(BLACK);
         Skin skin = new Skin(Gdx.files.internal("core/assets/Skin/glassy/glassy-ui.json"));
-        diag=new DialogHandler(skin);
+        diag=new DialogHandler("test",skin);
         camera = new OrthographicCamera(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
 
 
@@ -87,15 +87,16 @@ public class PreferencesScreen implements Screen {
 
         if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)){
             diag.isActive();
+            diag.chooseFile("Peter");
             stage.addActor(diag);
             diag.settheStage(stage);
             diag.setFillParent(false);
             diag.setPosition(0,0);
             diag.setSize(Gdx.graphics.getWidth(),150);
-            diag.text("qsjihhsdfsfhqbdfihqdfisqfj",LB);
         }
+
         if(Gdx.input.isKeyJustPressed(Input.Keys.ENTER)){
-            diag.key(Input.Keys.ENTER, "next");
+            diag.key(Input.Keys.ENTER, 000);
         }
 
         stage.draw();

@@ -15,6 +15,15 @@ public class Line {
         this.textList=textList;
     }
 
+    public boolean hasOptions(){
+        if(options == null){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
     public int getId() {
         return id;
     }

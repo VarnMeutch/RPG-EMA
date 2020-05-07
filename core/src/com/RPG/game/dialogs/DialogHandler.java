@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -29,13 +30,14 @@ public class DialogHandler extends Dialog {
     private boolean isActive;
     private ConversationHandler conv;
     private String currentText;
+    private int currentLine = 000;
 
 
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
 
-    public DialogHandler(Skin skin){
-        super("Dialogue", skin);
+    public DialogHandler(String title,Skin skin){
+        super(title, skin);
         this.Skin=skin;
         isActive=false;
         currentText="Ceci est un test";
@@ -54,15 +56,26 @@ public class DialogHandler extends Dialog {
     @Override
     protected void result(Object object) {
 
+        conv.makeNextDialog((Integer) object);
+        currentLine=(Integer) object;
         System.out.println(object.toString());
-        DialogHandler diag=new DialogHandler(getSkin());
+        DialogHandler diag=new DialogHandler(conv.getTalkingNpcName(),getSkin());
         stage.addActor(diag);
         diag.settheStage(stage);
         diag.setFillParent(false);
         diag.setPosition(0,0);
         diag.setSize(Gdx.graphics.getWidth(),150);
-        diag.text("next",LB);
-        diag.key(Input.Keys.ENTER, "next");
+        diag.text(conv.getNextText(),LB);
+        if(conv.getNextOptionList()!=null){
+            System.out.println("yes");
+            for(Option o : conv.getNextOptionList()){
+                diag.button(o.getText(),o.getAction());
+                System.out.println(o.getText());
+            }
+        }
+
+            diag.key(Input.Keys.ENTER,currentLine+1);
+
 
 
     }
@@ -71,15 +84,6 @@ public class DialogHandler extends Dialog {
         this.stage=stage;
     }
 
-    public void test (){
-        conv.test();
-    }
-
-
-    public void displayText () {
-
-        text(currentText);
-    }
 
 
 

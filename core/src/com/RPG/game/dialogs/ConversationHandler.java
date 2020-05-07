@@ -2,6 +2,7 @@ package com.RPG.game.dialogs;
 
 
 
+
 import java.io.File;
 import java.util.ArrayList;
 
@@ -10,7 +11,21 @@ public class ConversationHandler {
     private XmlReader reader;
     private Npc npc;
     private Line [] convTab;
+    private String nextText;
+    private ArrayList<Option> nextOptionList;
+    private String talkingNpcName;
 
+    public String getNextText() {
+        return nextText;
+    }
+
+    public ArrayList<Option> getNextOptionList() {
+        return nextOptionList;
+    }
+
+    public String getTalkingNpcName() {
+        return talkingNpcName;
+    }
 
     public ConversationHandler(File file){
         reader=new XmlReader(file);
@@ -19,18 +34,22 @@ public class ConversationHandler {
 
     }
 
-    public void test(){
-        System.out.println(npc.getNpcName());
-        System.out.println("--------------");
-        Line tmp = convTab[0];
-        System.out.println(tmp.getId());
-        ArrayList<Text> textList = tmp.getTexts();
-        for(Text t:textList){
-            System.out.println(t.getTalkingName() + ": " + t.getText());
+    public void makeNextDialog(int id) {
+        Line l = findLine(id);
+        if(l.hasOptions()){
+            nextOptionList=l.getOptions().getOptionList();
+        }
+        else{
+            nextOptionList=null;
         }
 
+        ArrayList<Text> textList=l.getTexts();
+        Text t = textList.get(0);
+        nextText=t.getText();
+        talkingNpcName=t.getTalkingName();
 
     }
+
 
     public Line findLine(int id){
         for (Line l:convTab){
@@ -43,18 +62,8 @@ public class ConversationHandler {
 
     }
 
-    public void test2(){
-        System.out.println(npc.getNpcName());
-        System.out.println("--------------");
-        for (Line tmp:convTab) {
-            System.out.println(tmp.getId());
-            ArrayList<Text> textList = tmp.getTexts();
-            for (Text t : textList) {
-                System.out.println(t.getTalkingName() + ": " + t.getText());
-            }
-        }
 
-    }
+
 
 
 }
