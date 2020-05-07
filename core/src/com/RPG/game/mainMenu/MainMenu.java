@@ -10,7 +10,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+//import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -56,14 +56,14 @@ public class MainMenu implements Screen {
         batch = new SpriteBatch();
 
         // Le truc pour créer des polices qui peuvent s'agrandir
-        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("core/assets/Font/HARRINGT.TTF"));
-        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        //FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("core/assets/Font/HARRINGT.TTF"));
+        //FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         // La taille de la police
-        parameter.size = 60;
+        //parameter.size = 60;
         // On créé notre police à l'aide de notre générateur
-        font = generator.generateFont(parameter);
+        //font = generator.generateFont(parameter);
         // On tue notre générateur (il aura bien servi)
-        generator.dispose();
+        //generator.dispose();
 
         // Je veux pouvoir récupérer la taille de mon texte pour pouvoir le centrer
         layout = new GlyphLayout();

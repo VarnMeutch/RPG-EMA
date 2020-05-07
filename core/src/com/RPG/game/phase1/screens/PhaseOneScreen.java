@@ -4,15 +4,12 @@ import com.RPG.game.RPGMain;
 import com.RPG.game.common.Entity;
 import com.RPG.game.dialogs.DialogHandler;
 import com.RPG.game.phase2.entities.Player;
-import com.RPG.game.ui.DialogueBox;
 import com.badlogic.gdx.*;
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.assets.loaders.resolvers.ExternalFileHandleResolver;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.NinePatch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -21,10 +18,6 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.Input;
-import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.utils.Align;
-import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 import java.util.ArrayList;
 
@@ -48,6 +41,7 @@ PhaseOneScreen implements Screen {
     private ArrayList<Entity> m_entitiesList;
     //private Table root;
     //private DialogueBox dialogueBox;
+    public static final String PATH_SPRITESHEET = "core/assets/Sprite/SpriteSheets/spriteSheet.atlas";
 
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
     public PhaseOneScreen(RPGMain game) {
@@ -61,7 +55,13 @@ PhaseOneScreen implements Screen {
         diag=new DialogHandler(skin);
         float unitScale = 1f;
         camera = new OrthographicCamera(Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+
         m_assetManager = new AssetManager();
+        //on ajoute les assets à charger sur la file de l'assetManager
+        m_assetManager.load(PATH_SPRITESHEET, TextureAtlas.class);
+
+        //on fait charger tout les assets
+        m_assetManager.finishLoading();
         m_entitiesList=new ArrayList<Entity>();
         m_player = new Player(m_entitiesList, m_assetManager, camera);
         m_player.setX(1000);
