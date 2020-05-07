@@ -3,6 +3,7 @@ package com.RPG.game.phase1.screens;
 import com.RPG.game.RPGMain;
 import com.RPG.game.common.Entity;
 import com.RPG.game.dialogs.DialogHandler;
+import com.RPG.game.phase1.entities.Npc;
 import com.RPG.game.phase1.entities.PlayerRPG;
 import com.RPG.game.phase2.entities.Player;
 import com.badlogic.gdx.*;
@@ -21,6 +22,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 public class
@@ -44,6 +46,8 @@ PhaseOneScreen implements Screen {
     //private DialogueBox dialogueBox;
     public static final String PATH_SPRITESHEET = "core/assets/Sprite/SpriteSheets/spriteSheet.atlas";
 
+    private Npc npc_test;
+
     // --- CONSTRUCTORS ------------------------------------------------------------------------------------------------
     public PhaseOneScreen(RPGMain game) {
         this.game = game;
@@ -66,10 +70,13 @@ PhaseOneScreen implements Screen {
         m_player = new PlayerRPG(m_entitiesList, m_assetManager);
         m_player.setCamera(camera);
         m_player.setGridPosition(17, 24);
+        m_entitiesList.add(m_player);
         TmxMapLoader tmx = new TmxMapLoader();
         map = tmx.load("core/assets/Maps/EMA_RPG_MAP.tmx");
         renderer = new OrthogonalTiledMapRenderer(map, unitScale);
 
+        npc_test = new Npc(m_entitiesList, m_assetManager, "Test", 20, 26);
+        m_entitiesList.add(npc_test);
         //camera.zoom = 2f;
         //initUI();
     }
@@ -92,13 +99,19 @@ PhaseOneScreen implements Screen {
     public void render(float delta) {
         Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        for(Entity e : m_entitiesList){
+            e.updateBehavior();
+        }
         m_player.updateBehavior();
+        npc_test.updateBehavior();
         camera.update();
         batch.setProjectionMatrix(camera.combined);
         renderer.setView(camera);
         renderer.render();
         batch.begin();
-        m_player.draw(batch);
+        for(Entity e : m_entitiesList){
+            e.draw(batch);
+        }
         //diag.activate();
         //diag.chooseFile("Peter");
         //System.out.println("test");
