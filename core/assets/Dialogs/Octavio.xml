@@ -2,7 +2,7 @@
 <!DOCTYPE npc SYSTEM "Rule.dtd">
 
     <npc name ="Octavio">
-        <Line id="000">
+        <Line id="000" finale = "true">
             <text name = "Octavio">Salut toi, moi c’est Octavio.
             Aller en cours, ce n’est pas ton truc ?
             J’ai ce qu’il te faut : avec la potion d’invisibilité, tu peux chapo un cours et faire autre chose à la place comme explorer l’école ou aller au hangar pour fabriquer des potions.

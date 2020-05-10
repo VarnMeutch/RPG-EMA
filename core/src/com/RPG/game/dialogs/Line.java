@@ -8,20 +8,26 @@ public class Line {
     private int id;
     private Options options;
     private ArrayList<Text> textList;
+    private boolean endLine;
 
-    public Line(int id, Options options,ArrayList<Text> textList){
+    public Line(int id, Options options,ArrayList<Text> textList, boolean endLine){
         this.id=id;
         this.options=options;
         this.textList=textList;
+        this.endLine=endLine;
     }
 
     public boolean hasOptions(){
-        if(options == null){
+        if( options.getOptionList().isEmpty()){
             return false;
         }
         else{
             return true;
         }
+    }
+
+    public boolean isFinal (){
+        return endLine;
     }
 
     public int getId() {

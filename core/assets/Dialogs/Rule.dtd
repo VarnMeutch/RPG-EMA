@@ -4,6 +4,8 @@
 
         <!ELEMENT Line (text*,options*) >
         <!ATTLIST Line id CDATA #REQUIRED>
+        <!ATTLIST Line finale (false|true) #REQUIRED>
+
 
 
         <!ELEMENT options (option)+ >

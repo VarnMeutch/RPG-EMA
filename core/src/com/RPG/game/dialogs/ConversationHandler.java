@@ -14,6 +14,7 @@ public class ConversationHandler {
     private String nextText;
     private ArrayList<Option> nextOptionList;
     private String talkingNpcName;
+    private boolean endDiag;
 
     public String getNextText() {
         return nextText;
@@ -36,8 +37,9 @@ public class ConversationHandler {
 
     public void makeNextDialog(int id) {
         Line l = findLine(id);
+        endDiag=l.isFinal();
         if(l.hasOptions()){
-            nextOptionList=l.getOptions().getOptionList();
+            nextOptionList=l.getOptions().getOptionList();;
         }
         else{
             nextOptionList=null;
@@ -48,6 +50,10 @@ public class ConversationHandler {
         nextText=t.getText();
         talkingNpcName=t.getTalkingName();
 
+    }
+
+    public boolean isEndDiag(){
+        return endDiag;
     }
 
 

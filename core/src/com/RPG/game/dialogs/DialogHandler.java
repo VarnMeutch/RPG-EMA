@@ -4,10 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Button;
-import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.*;
 import org.w3c.dom.Node;
 
 import java.io.File;
@@ -28,7 +25,9 @@ public class DialogHandler extends Dialog {
 
 
     private boolean isActive;
-    private ConversationHandler conv;
+    static ConversationHandler CONV;
+
+
     private String currentText;
     private int currentLine = 000;
 
@@ -49,35 +48,45 @@ public class DialogHandler extends Dialog {
     public void chooseFile (String npcName){
         this.npcName=npcName;
         currentFile=new File("core/assets/Dialogs/"+npcName+".xml");
-        conv=new ConversationHandler(currentFile);
+        CONV=new ConversationHandler(currentFile);
     }
 
 
     @Override
     protected void result(Object object) {
 
-        conv.makeNextDialog((Integer) object);
-        currentLine=(Integer) object;
-        System.out.println(object.toString());
-        DialogHandler diag=new DialogHandler(conv.getTalkingNpcName(),getSkin());
-        stage.addActor(diag);
-        diag.settheStage(stage);
-        diag.setFillParent(false);
-        diag.setPosition(0,0);
-        diag.setSize(Gdx.graphics.getWidth(),150);
-        diag.text(conv.getNextText(),LB);
-        diag.getButtonTable().defaults().height(60);
-        if(conv.getNextOptionList()!=null){
-            for(Option o : conv.getNextOptionList()){
-                diag.button(o.getText(),o.getAction());
-                System.out.println(o.getText());
-            }
+        if (object==null){
+            this.hide();
         }
-        diag.button("test");
+        else{
 
-            diag.key(Input.Keys.ENTER,currentLine+1);
+            CONV.makeNextDialog((Integer) object);
+            currentLine=(Integer) object;
+            DialogHandler diag=new DialogHandler(CONV.getTalkingNpcName(),getSkin());
+            stage.addActor(diag);
+            diag.settheStage(stage);
+            diag.setFillParent(false);
+            diag.setPosition(0,0);
+            diag.setSize(Gdx.graphics.getWidth(),150);
+            diag.text(CONV.getNextText(),LB);
+            if (CONV.isEndDiag()){
 
+                diag.key(Input.Keys.ENTER,null);
 
+            }
+
+            else {
+                if(CONV.getNextOptionList()!=null){
+                    for(Option o : CONV.getNextOptionList()){
+                        diag.button(o.getText(),o.getAction(),new TextButton("",skin,"small").getStyle());
+                    }
+                }
+                else{
+                    diag.key(Input.Keys.ENTER,currentLine+1);
+                }
+            }
+
+        }
 
     }
 

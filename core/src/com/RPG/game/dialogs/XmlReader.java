@@ -48,7 +48,10 @@ public class XmlReader {
 
                 Node n = tabNoeuds.item(i);
                 Node nId = n.getAttributes().getNamedItem("id");
+                Node endValue = n.getAttributes().getNamedItem("finale");
                 int id = Integer.parseInt(nId.getNodeValue()); // On récupère L'id de la ligne.
+                boolean endLine = Boolean.parseBoolean(endValue.getNodeValue());
+
 
                 NodeList nList = n.getChildNodes();
                 ArrayList<Option> optionList = new ArrayList<>();
@@ -66,21 +69,24 @@ public class XmlReader {
                         textList.add(ajt);
                     }
 
-                    if (cuNode.getNodeName().equals("Option")){
-                        String contText = cuNode.getTextContent();
-                        Node tmps = cuNode.getAttributes().getNamedItem("action");
-                        int action = Integer.parseInt(tmps.getNodeValue());
-                        Option ajt = new Option(action,contText);
-                        optionList.add(ajt);
+                    if(cuNode.getNodeName().equals("options")){
+                        NodeList optionNodeList = cuNode.getChildNodes();
+                        for(int j=0; j<optionNodeList.getLength();j++){
+                            Node cuOptionNode=optionNodeList.item(j);
+                            String contText = cuOptionNode.getTextContent();
+                            Node tmps = cuOptionNode.getAttributes().getNamedItem("action");
+                            int action = Integer.parseInt(tmps.getNodeValue());
+                            Option ajt = new Option(action,contText);
+                            optionList.add(ajt);
+                        }
                     }
-
 
 
 
                 }
 
                 Options opt = new Options(optionList);
-                lineList[i]=new Line(id,opt,textList);
+                lineList[i]=new Line(id,opt,textList,endLine);
 
             }
 

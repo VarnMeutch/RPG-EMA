@@ -2,17 +2,17 @@
 <!DOCTYPE npc SYSTEM "Rule.dtd">
 
 		<npc name = "Peter">
-			<Line id = "000">
+			<Line id = "000" finale = "false">
 				<text name = "Marchand" > Bienvenue aventurier ! Que venez-vous faire ici ? </text>
 				<options>
-					<option action = "002">Qu'avez-vous à vendre ?</option>
+					<option action = "002">Qu'avez-vous a vendre ?</option>
 					<option action = "001">Au revoir.</option>
 				</options>
 			</Line>
-			<Line id="001">
+			<Line id="001" finale = "true">
 				<text name = "Marchand" >Au revoir! Revenez vite !</text>
 			</Line>
-			<Line id="002">
+			<Line id="002" finale = "true">
 				<text name = "Marchand" > Regardez donc !</text>
 			</Line>
 		</npc>
